@@ -18,9 +18,9 @@ function App() {
       <Startsite />
     </div> */}
 
-    {/* <div>
+    <div>
       <HomePage />
-    </div> */}
+    </div>
 
     </>
   )
