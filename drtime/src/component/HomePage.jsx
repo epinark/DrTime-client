@@ -5,7 +5,7 @@ export default function HomePage() {
     return (
         <>
         <div>
-            <div id='sd' className='  bg-blue-200 pt-4'>
+            <div className='  bg-blue-200 pt-4'>
                     <section id="my buttons für arzt termin">
 
                                 <div className='flex flex-col  '>
