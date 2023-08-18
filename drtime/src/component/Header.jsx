@@ -1,4 +1,5 @@
-import { BiMenu } from "react-icons/bi";
+import PopupGfg from "./PopMenu";
+
 export default function Header () {
 
     return (
@@ -10,7 +11,7 @@ export default function Header () {
                 </div>
             
             <div className="flex justify-center items-center text-4xl text-purple-700"> 
-                <BiMenu /> 
+                <PopupGfg /> 
             </div>
         </div>
         </>

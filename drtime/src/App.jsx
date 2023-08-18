@@ -2,6 +2,7 @@ import { useState } from 'react'
 import Startsite from "./component/Startsite";
 import HomePage from './component/HomePage';
 import Header from './component/Header';
+import Register from './component/Register';
 
 
 function App() {
@@ -14,12 +15,16 @@ function App() {
     </div>
 
 
-    {/* <div className="bg-cyan-400 min-h-screen flex justify-center ">
+    {/* <div className="lassName='  bg-blue-200 pt-4'> min-h-screen flex justify-center ">
       <Startsite />
     </div> */}
 
-    {/* <div>
+    <div>
       <HomePage />
+    </div>
+
+    {/* <div>
+      <Register />
     </div> */}
 
     </>
