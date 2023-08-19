@@ -3,6 +3,7 @@ import Startsite from "./component/Startsite";
 import HomePage from './component/HomePage';
 import Header from './component/Header';
 import Register from './component/Register';
+import Login from './component/Login';
 
 
 function App() {
@@ -10,22 +11,24 @@ function App() {
 
   return (
     <>
-    <div>
-      <Header />
-    </div>
+    
 
 
-    {/* <div className="lassName='  bg-blue-200 pt-4'> min-h-screen flex justify-center ">
+    {/* <div className=" bg-gradient-to-r from-blue-400 via-blue-200 to-blue-400 pt-4'> min-h-screen flex justify-center ">
       <Startsite />
     </div> */}
 
-    <div>
-      <HomePage />
-    </div>
-
-    {/* <div>
-      <Register />
+    {/* <div className='bg-gradient-to-r from-blue-400 via-blue-200 to-blue-400 min-h-screen '>
+      <Login />
     </div> */}
+
+    {/* <div className='bg-gradient-to-r from-blue-300 via-blue-200 to-blue-300  min-h-screen'>
+      <HomePage />
+    </div> */}
+
+    <div className='bg-gradient-to-r from-blue-300 via-blue-200 to-blue-300  min-h-screen'>
+      <Register />
+    </div>
 
     </>
   )
