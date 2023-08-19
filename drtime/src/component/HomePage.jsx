@@ -1,3 +1,4 @@
+import Header from "./Header";
 import { BiPlusMedical } from "react-icons/bi";
 
 export default function HomePage() {
@@ -5,16 +6,20 @@ export default function HomePage() {
     return (
         <>
         <div>
-            <div className='  bg-blue-200 pt-4'>
+            <div>
+                <Header />
+            </div>
+
+            <div className='pt-4'>
                     <section id="my buttons für arzt termin">
 
                                 <div className='flex flex-col  '>
                                     <div className='flex justify-center pt-4'>
-                                    <button className='bg-gradient-to-r from-blue-600 via-blue-700 to-blue-600 rounded-full w-72 h-20 text-3xl text-white'>Hausarzt</button>
+                                    <button className='bg-gradient-to-r from-blue-500 via-blue-800 to-blue-500 rounded-full w-72 h-20 text-3xl text-white'>Hausarzt</button>
                                     </div>
 
                                     <div className='flex justify-center pt-4'>
-                                    <button className='bg-gradient-to-r from-blue-600 via-blue-700 to-blue-600 rounded-full w-72 h-20 text-3xl text-white'>Kinderarzt</button>
+                                    <button className='bg-gradient-to-r from-blue-500 via-blue-700 to-blue-500 rounded-full w-72 h-20 text-3xl text-white'>Kinderarzt</button>
                                     </div>
                                 </div>
 
