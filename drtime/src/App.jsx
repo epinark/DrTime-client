@@ -20,11 +20,11 @@ function App() {
 
     <div className='bg-gradient-to-r from-blue-400 via-blue-200 to-blue-400 min-h-screen '>
       <Login />
-    </div>
+    </div> 
 
     <div className='bg-gradient-to-r from-blue-400 via-blue-200 to-blue-400  min-h-screen'>
       <Register />
-    </div>
+    </div> 
 
     <div className='bg-gradient-to-r from-blue-400 via-blue-200 to-blue-400  min-h-screen'>
       <HomePage />
