@@ -4,6 +4,7 @@ import HomePage from './component/HomePage';
 import Header from './component/Header';
 import Register from './component/Register';
 import Login from './component/Login';
+import Profil from './component/Profil';
 
 
 function App() {
@@ -30,8 +31,8 @@ function App() {
       <HomePage />
     </div>
 
-    <div>
-
+    <div className='bg-gradient-to-r from-blue-400 via-blue-200 to-blue-400  min-h-screen'>
+      <Profil/>
     </div>
 
 
