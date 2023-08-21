@@ -1,4 +1,4 @@
-import DRTIME from './images/DRTIME.png';
+import DRTIME from '../assets/images/DRTIME.png';
 
 export default function Login () {
     
@@ -42,7 +42,7 @@ export default function Login () {
             />
           </div>
 
-          <div className="mb-8 mt-10">
+          <div className="mb-8 mt-8">
             <button className="bg-gradient-to-r from-blue-600 via-blue-700 to-blue-600 rounded-full w-72 h-20 text-3xl text-white mx-auto">
               Login
             </button>

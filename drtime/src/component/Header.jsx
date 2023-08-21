@@ -1,5 +1,5 @@
 import PopupGfg from "./PopMenu";
-import DRTIME from './images/DRTIME.png';
+import DRTIME from '../assets/images/DRTIME.png';
 
 export default function Header () {
 
