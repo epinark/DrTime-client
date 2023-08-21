@@ -43,7 +43,8 @@ export default function HomePage() {
                         </div>
                     </section>
 
-                    <div className='flex justify-center pt-48 pb-5'>
+                    <div id="termine"
+                    className='flex justify-center pt-48 pb-5'>
                             <button className='bg-gradient-to-r from-blue-600 via-blue-700 to-blue-600 rounded-full w-72 h-20 text-3xl text-white'>Termine</button>
                     </div>
 
