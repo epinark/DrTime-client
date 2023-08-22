@@ -1,29 +1,10 @@
 import React, { useState } from 'react';
 import Header from "./Header";
 import silhouetteProfil from "../assets/img-profil/silhouetteProfil.png";
+import { Link } from "react-router-dom";
 export default function Profil() {
-    // document.querySelector('.pp').addEventListener('click',()=>{
-    //     document.querySelector('.pic').style.display=none;
-    //     document.querySelector('.choosePic').style.display=flex;
-    // });
-    // const [profileImage, setProfileImage] = useState(silhouetteProfil);
-    //     const [picVisible, setPicVisible] = useState(true);
-    //     const [choosePicVisible, setChoosePicVisible] = useState(false);
-      
-    //     const handleClick = () => {
-    //       setPicVisible(false);
-    //       setChoosePicVisible(true);
-    //     };
 
-    // const handleImageChange = (event) => {
-    //     const selectedImage = event.target.files[0]
-    //     if (selectedImage) {
-    //         const imageUrl = URL.createObjectURL(selectedImage);
-    //         setProfileImage(imageUrl);
-    //         setPicVisible(false);
-    //         setChoosePicVisible(true);
-    //     }
-    //     ;}
+   
     return (
         <>
             <div>
@@ -35,10 +16,10 @@ export default function Profil() {
                     Profile
                 </p>
                 <div className="justify-center rounded-full  mb-5 cursor-pointer pp"   >
-                    {/* onClick={handleClick} */}
+                   
                 <label for="profilPic"><img src={silhouetteProfil} alt="Image Silhouette" className="w-40 h-40 pic" /></label> 
-                {/*picVisible && */}
-                <input type="file" className="choosePic hidden"  id='profilPic'/>{/*choosePicVisible && onChange={handleImageChange}  */} 
+                
+                <input type="file" className="choosePic hidden"  id='profilPic'/>
                 
                 </div>
                 <p className="profil-name text-xl font-bold mb-10">
@@ -54,12 +35,15 @@ export default function Profil() {
                     10/09/2001
                 </p>
  
+             <Link to ="/edit">
              <button className="bg-gradient-to-r from-blue-600 via-blue-700 to-blue-600 rounded-full w-72 h-20 text-3xl text-white mx-auto mb-5 cursor-pointer ">
               Bearbeiten
             </button>
-            <button className="bg-gradient-to-r from-blue-600 via-blue-700 to-blue-600 rounded-full w-72 h-20 text-3xl text-white mx-auto mb-5 cursor-pointer">
+            </Link>
+            <Link to='/home'> <button className="bg-gradient-to-r from-blue-600 via-blue-700 to-blue-600 rounded-full w-72 h-20 text-3xl text-white mx-auto mb-5 cursor-pointer">
               Zurück
             </button>
+            </Link>
             </div>
         </> 
     )

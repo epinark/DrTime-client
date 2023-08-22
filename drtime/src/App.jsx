@@ -1,6 +1,6 @@
 import React from 'react';
 import { useState } from 'react';
-// import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
+import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import Startsite from "./component/Startsite";
 import HomePage from './component/HomePage';
 import Header from './component/Header';
@@ -15,12 +15,13 @@ function App() {
 
   return (
     <>
-    
-    {/* <Router> */}
-      {/* <div>
-      <Switch> */}
+    <BrowserRouter>
+    <div className="bg-gradient-to-r from-blue-400 via-blue-200 to-blue-400 pt-4 min-h-screen flex justify-center">
+    <Routes> 
+      
+      
 
-       <div className=" bg-gradient-to-r from-blue-400 via-blue-200 to-blue-400 pt-4'> min-h-screen flex justify-center ">
+       {/* <div className=" bg-gradient-to-r from-blue-400 via-blue-200 to-blue-400 pt-4'> min-h-screen flex justify-center ">
          <Startsite />
        </div>
 
@@ -41,19 +42,25 @@ function App() {
        </div>
        <div className='bg-gradient-to-r from-blue-400 via-blue-200 to-blue-400  min-h-screen'>
          <EditProfil/>
-       </div>
+       </div> */}
 
-{/* <div className="bg-gradient-to-r from-blue-400 via-blue-200 to-blue-400 pt-4 min-h-screen flex justify-center">
-        <Switch>
-          <Route path="/" exact component={Startsite} />
-          <Route path="/login" component={Login} />
-          <Route path="/register" component={Register} />
-          <Route path="/home" component={HomePage} />
-          <Route path="/profil" component={Profil} />
 
-      </Switch>
-      </div>
-    </Router> */}
+        
+          <Route path="/"  element={<Startsite/>} />
+          <Route path="/login" element={<Login/>} />
+          <Route path="/register" element={<Register/>} />
+          <Route path="/home" element={<HomePage/>} />
+          <Route path="/profil" element={<Profil/>} />
+          <Route path="/edit" element={<EditProfil/>} />
+
+
+          
+   
+      
+      
+    </Routes>
+    </div>
+    </BrowserRouter>
     </>
   );
 }
