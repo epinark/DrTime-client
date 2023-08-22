@@ -8,6 +8,8 @@ import Register from './component/Register';
 import Login from './component/Login';
 import Profil from './component/Profil';
 import EditProfil from './component/EditProfil';
+import ArtzSuchen from './component/ArtzSuchen';
+import ArtzProfil from './component/ArtzProfil';
 
 
 function App() {
@@ -27,6 +29,8 @@ function App() {
           <Route path="/home" element={<HomePage/>} />
           <Route path="/profil" element={<Profil/>} />
           <Route path="/edit" element={<EditProfil/>} />
+          <Route path="/search" element={<ArtzSuchen/>} />
+          <Route path="/profilDoc" element={<ArtzProfil/>} />
 
 
           
@@ -35,9 +39,9 @@ function App() {
       
     </Routes>
     </div>
-
+    </BrowserRouter>
     </>
-  );
-}
+  )
+};
 
 export default App;

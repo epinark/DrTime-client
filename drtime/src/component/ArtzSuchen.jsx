@@ -1,5 +1,6 @@
+import { Link } from 'react-router-dom';
 import React, { useState } from 'react';
-import ArtzSuchen from "./ArtzSuchen";
+
 
 export default function ArtzSuchen() {
     return(
@@ -7,6 +8,7 @@ export default function ArtzSuchen() {
          <div>
                 <Header />
             </div>
+
             
         </>
     )
