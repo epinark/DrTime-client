@@ -1,10 +1,13 @@
-import { useState } from 'react'
+import React from 'react';
+import { useState } from 'react';
+import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import Startsite from "./component/Startsite";
 import HomePage from './component/HomePage';
 import Header from './component/Header';
 import Register from './component/Register';
 import Login from './component/Login';
 import Profil from './component/Profil';
+import EditProfil from './component/EditProfil';
 
 
 function App() {
@@ -12,36 +15,29 @@ function App() {
 
   return (
     <>
-    
+    <BrowserRouter>
+    <div className="bg-gradient-to-r from-blue-400 via-blue-200 to-blue-400 pt-4 min-h-screen flex justify-center">
+    <Routes> 
+      
+
+        
+          <Route path="/"  element={<Startsite/>} />
+          <Route path="/login" element={<Login/>} />
+          <Route path="/register" element={<Register/>} />
+          <Route path="/home" element={<HomePage/>} />
+          <Route path="/profil" element={<Profil/>} />
+          <Route path="/edit" element={<EditProfil/>} />
 
 
-    <div className=" bg-gradient-to-r from-blue-400 via-blue-200 to-blue-400 pt-4'> min-h-screen flex justify-center ">
-      <Startsite />
+          
+   
+      
+      
+    </Routes>
     </div>
-
-    <div className='bg-gradient-to-r from-blue-400 via-blue-200 to-blue-400 min-h-screen '>
-      <Login />
-    </div> 
-
-    <div className='bg-gradient-to-r from-blue-400 via-blue-200 to-blue-400  min-h-screen'>
-      <Register />
-    </div> 
-
-    <div className='bg-gradient-to-r from-blue-400 via-blue-200 to-blue-400  min-h-screen'>
-      <HomePage />
-    </div>
-
-    <div className='bg-gradient-to-r from-blue-400 via-blue-200 to-blue-400  min-h-screen'>
-      <Profil/>
-    </div>
-    <div className='bg-gradient-to-r from-blue-400 via-blue-200 to-blue-400  min-h-screen'>
-         <EditProfil/>
-       </div>
-
-
 
     </>
-  )
+  );
 }
 
-export default App
+export default App;

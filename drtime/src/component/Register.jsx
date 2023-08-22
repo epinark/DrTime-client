@@ -147,8 +147,10 @@ export default function Register() {
                          </div>
 
                          <div className='flex justify-center pt-10 pb-10'>
-                            <button className='bg-gradient-to-r from-blue-600 via-blue-700 to-blue-600 rounded-full w-72 h-20 text-3xl text-white'
-                            >Anmelden</button>
+                          <Link to ="/profil"> <button className='bg-gradient-to-r from-blue-600 via-blue-700 to-blue-600 rounded-full w-72 h-20 text-3xl text-white'
+                            >Anmelden
+                            </button>
+                            </Link>
                     </div>
 
 

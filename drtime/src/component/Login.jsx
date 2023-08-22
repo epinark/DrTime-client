@@ -1,3 +1,5 @@
+
+import { Link } from "react-router-dom";
 import DRTIME from '../assets/images/DRTIME.png';
 
 export default function Login () {
@@ -43,16 +45,21 @@ export default function Login () {
           </div>
 
           <div className="mb-8 mt-8">
-            <button className="bg-gradient-to-r from-blue-600 via-blue-700 to-blue-600 rounded-full w-72 h-20 text-3xl text-white mx-auto">
+
+            {/* Diese route ist nur für Test */}
+            
+           <Link to="/home"> <button className="bg-gradient-to-r from-blue-600 via-blue-700 to-blue-600 rounded-full w-72 h-20 text-3xl text-white mx-auto">
               Login
             </button>
+            </Link>
           </div>
 
         </form>
 
             <div className=" flex flex-col ">
-                    <a href="#"
+                   <Link to="/register"> <a href="#"
                     className="flex justify-center text-purple-700 font-bold pt-4">Registrieren</a>
+                    </Link>
                     <a href="#"
                      className="flex justify-center text-purple-700 font-bold pt-2">Password vergessen?</a>
                 </div>
