@@ -29,13 +29,9 @@ export default function Profil() {
             <div>
                 <Header />
             </div>
-            <div id="Start" className="flex justify-center items-center mb-5 mt-15 text-7xl font-bold">
-                {/* <h1 className="text-purple-700" >
-                     DrTime
-                </h1> */}
-            </div>
-            <div className=" flex justify-center items-center mb-5 mt-20 flex-col space">
-                <p className="text-xl font-bold mb-2">
+        
+            <div className=" flex justify-center items-center  mt-20 flex-col ">
+                <p className="text-5xl font-bold ">
                     Profile
                 </p>
                 <div className="justify-center rounded-full  mb-5 cursor-pointer pp" onClick={handleClick}  >
@@ -55,7 +51,7 @@ export default function Profil() {
                     10/09/2001
                 </p>
 
-                <button className="bg-gradient-to-r from-blue-600 via-blue-700 to-blue-600 rounded-full w-72 h-20 text-3xl text-white mx-auto mb-5 cursor-pointer hover:from-blue-900 ">
+             <button className="bg-gradient-to-r from-blue-600 via-blue-700 to-blue-600 rounded-full w-72 h-20 text-3xl text-white mx-auto mb-5 cursor-pointer hover:from-blue-900 ">
               Bearbeiten
             </button>
             <button className="bg-gradient-to-r from-blue-600 via-blue-700 to-blue-600 rounded-full w-72 h-20 text-3xl text-white mx-auto mb-5 cursor-pointer  hover:from-blue-900">
