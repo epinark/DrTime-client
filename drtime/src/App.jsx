@@ -19,31 +19,6 @@ function App() {
     <div className="bg-gradient-to-r from-blue-400 via-blue-200 to-blue-400 pt-4 min-h-screen flex justify-center">
     <Routes> 
       
-      
-
-       {/* <div className=" bg-gradient-to-r from-blue-400 via-blue-200 to-blue-400 pt-4'> min-h-screen flex justify-center ">
-         <Startsite />
-       </div>
-
-        <div className='bg-gradient-to-r from-blue-400 via-blue-200 to-blue-400 min-h-screen '>
-         <Login />
-       </div> 
-
-       <div className='bg-gradient-to-r from-blue-400 via-blue-200 to-blue-400  min-h-screen'>
-          <Register />
-       </div> 
-
-       <div className='bg-gradient-to-r from-blue-400 via-blue-200 to-blue-400  min-h-screen'>
-         <HomePage />
-       </div>
-
-       <div className='bg-gradient-to-r from-blue-400 via-blue-200 to-blue-400  min-h-screen'>
-         <Profil/>
-       </div>
-       <div className='bg-gradient-to-r from-blue-400 via-blue-200 to-blue-400  min-h-screen'>
-         <EditProfil/>
-       </div> */}
-
 
         
           <Route path="/"  element={<Startsite/>} />
