@@ -1,14 +1,16 @@
+import { Link } from 'react-router-dom';
 import React, { useState } from 'react';
 import Header from "./Header";
 
 export default function EditProfil() {
     return(
         <>
+           <div className=" flex justify-center items-center  flex-col ">         
             <div>
                 <Header />
             </div>
         
-            <div className=" flex justify-center items-center  mt-3 flex-col ">
+            
             <p className='text-5xl font-bold mb-5'>Daten ändern:</p>
             <form action="get">
 
@@ -146,12 +148,13 @@ export default function EditProfil() {
 
                          </div>
                <div className='flex flex-col mt-3'>
-                <button className="bg-gradient-to-r from-blue-600 via-blue-700 to-blue-600 rounded-full w-72 h-20 text-3xl text-white mx-auto mb-5 cursor-pointer  ">
+               <Link to ="/profil">  <button className="bg-gradient-to-r from-blue-600 via-blue-700 to-blue-600 rounded-full w-72 h-20 text-3xl text-white mx-auto mb-5 cursor-pointer  ">
               Speichern
-            </button>
-            <button className="bg-gradient-to-r from-blue-600 via-blue-700 to-blue-600 rounded-full w-72 h-20 text-3xl text-white mx-auto mb-5 cursor-pointer ">
+            </button></Link>
+           <Link to ="/profil"><button className="bg-gradient-to-r from-blue-600 via-blue-700 to-blue-600 rounded-full w-72 h-20 text-3xl text-white mx-auto mb-5 cursor-pointer ">
               Abbrechen
             </button>
+            </Link>
             </div>
                 </form>
             </div>

@@ -15,11 +15,18 @@ export default function PopupGfg() {
                         <div id='sd' className='h-96  bg-cyan-400 px-2'>
                             <div className='flex flex-col  '>
                                 <div className='flex justify-center pt-4'>
-                              <Link to="/profil">  <button className='bg-gradient-to-r from-blue-600 via-blue-700 to-blue-600 rounded-full w-44 h-14 text-white'>Profil</button></Link>
+                              <Link to="/profil"> 
+                               <button className='bg-gradient-to-r from-blue-600 via-blue-700 to-blue-600 rounded-full w-44 h-14 text-white'>
+                                Profil
+                                </button>
+                              </Link>
                                 </div>
 
                                 <div className='flex justify-center pt-4'>
-                                <button className='bg-gradient-to-r from-blue-600 via-blue-700 to-blue-600 rounded-full w-44 h-14 text-white'>Arzt ändern</button>
+                               <Link to ='/profilDoc'><button className='bg-gradient-to-r from-blue-600 via-blue-700 to-blue-600 rounded-full w-44 h-14 text-white'>
+                                Arzt ändern
+                                </button>
+                               </Link> 
                                 </div>
                             </div>
 
