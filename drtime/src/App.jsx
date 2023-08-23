@@ -10,7 +10,7 @@ import Profil from './component/Profil';
 import EditProfil from './component/EditProfil';
 import ArtzSuchen from './component/ArtzSuchen';
 import ArtzProfil from './component/ArtzProfil';
-import MyCalendar from './MyCalendar';
+import MyCalendar from './component/MyCalendar';
 
 
 function App() {
