@@ -16,7 +16,10 @@ export default function HomePage() {
 
                                 <div className='flex flex-col  '>
                                     <div className='flex justify-center pt-4'>
-                                    <button className='bg-gradient-to-r from-blue-600 via-blue-700 to-blue-600 rounded-full w-72 h-20 text-3xl text-white'>Hausarzt</button>
+                                   <Link to ="/ArtzSuchen"> <button className='bg-gradient-to-r from-blue-600 via-blue-700 to-blue-600 rounded-full w-72 h-20 text-3xl text-white'>
+                                    Hausarzt
+                                    </button>
+                                    </Link>
                                     </div>
 
                                     <div className='flex justify-center pt-4'>

@@ -33,6 +33,7 @@ function App() {
           <Route path="/search" element={<ArtzSuchen/>} />
           <Route path="/profilDoc" element={<ArtzProfil/>} />
           <Route path="/MyCalendar" element={<MyCalendar/>} />
+          <Route path="/ArtzSuchen" element={<ArtzSuchen/>} />
 
 
           
