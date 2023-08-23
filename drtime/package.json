@@ -11,10 +11,13 @@
   },
   "dependencies": {
     "react": "^18.2.0",
+    "react-calendar": "^4.6.0",
     "react-dom": "^18.2.0",
     "react-icons": "^4.10.1",
     "react-router-dom": "^6.15.0",
-    "reactjs-popup": "^2.0.5"
+    "reactjs-popup": "^2.0.5",
+    "semantic-ui-css": "^2.5.0",
+    "semantic-ui-react": "^2.1.4"
   },
   "devDependencies": {
     "@types/react": "^18.2.15",
