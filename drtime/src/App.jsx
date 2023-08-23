@@ -19,7 +19,7 @@ function App() {
   return (
     <>
     <BrowserRouter>
-    <div className="bg-gradient-to-r from-blue-400 via-blue-200 to-blue-400 pt-4 min-h-screen flex justify-center">
+    <div className="bg-gradient-to-r from-blue-400 via-blue-200 to-blue-400  min-h-screen ">
     <Routes> 
       
 

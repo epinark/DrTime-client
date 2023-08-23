@@ -20,7 +20,7 @@ const SearchBar = () => (
 export default function ArtzSuchen() {
     return(
         <>
-         <div>
+            <div>
                 <Header />
             </div>
             <SearchBar/>
