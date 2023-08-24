@@ -11,6 +11,7 @@ import EditProfil from './component/EditProfil';
 import ArtzSuchen from './component/ArtzSuchen';
 import ArtzProfil from './component/ArtzProfil';
 import MyCalendar from './component/MyCalendar';
+import Description from './component/Description';
 
 
 function App() {
@@ -35,6 +36,7 @@ function App() {
           <Route path="/MyCalendar" element={<MyCalendar/>} />
           <Route path="/ArtzSuchen" element={<ArtzSuchen/>} />
           <Route path="/ArtzProfil" element={<ArtzProfil/>} />
+          <Route path="/Description" element={<Description/>} />
 
 
           
