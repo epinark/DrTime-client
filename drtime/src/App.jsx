@@ -13,6 +13,8 @@ import ArtzProfil from './component/ArtzProfil';
 import MyCalendar from './component/MyCalendar';
 import Description from './component/Description';
 import ArtzBestätigen from './component/ArtzBestätigen';
+import TermineBestätigung from './component/TermineBestätigung';
+
 
 
 function App() {
@@ -39,6 +41,7 @@ function App() {
           <Route path="/ArtzProfil" element={<ArtzProfil/>} />
           <Route path="/Description" element={<Description/>} />
           <Route path="/ArtzBestätigen" element={<ArtzBestätigen/>} />
+          <Route path="/TermineBestätigung" element={<TermineBestätigung/>} />
 
 
           
