@@ -1,6 +1,7 @@
 import Popup from 'reactjs-popup';
 import 'reactjs-popup/dist/index.css';
 import { BiMenu } from "react-icons/bi";
+import { Link } from 'react-router-dom';
  
 export default function PopupGfg() {
     return (
@@ -22,7 +23,7 @@ export default function PopupGfg() {
                                 </div>
 
                                 <div className='flex justify-center pt-4'>
-                                <button className='bg-gradient-to-r from-blue-600 via-blue-700 to-blue-600 rounded-full w-44 h-14 text-white'>Home </button>
+                               <Link to="/home"> <button className='bg-gradient-to-r from-blue-600 via-blue-700 to-blue-600 rounded-full w-44 h-14 text-white'>Home </button></Link>
                                 </div>
                             </div>
 

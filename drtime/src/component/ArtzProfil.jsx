@@ -15,7 +15,7 @@ export default function ArtzProfil() {
 
          <div className=" flex  items-center  flex-col mt-5 ">
            
-                <p className="text-5xl font-bold ">
+                <p className="text-5xl font-bold  text-purple-700  ">
                     Artz
                 </p>
                 <div className="justify-center rounded-full  mb-5  pp"   >

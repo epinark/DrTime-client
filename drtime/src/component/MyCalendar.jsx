@@ -2,7 +2,7 @@ import Calendar from 'react-calendar';
 import React, { useState } from 'react';
 import 'react-calendar/dist/Calendar.css';
 import Header from './Header';
-import MyCalendar from './MyCalendar'; // Importa MyTermine
+import MyTermine from './MyTermine'; // Importa MyTermine
 
 function AvailableHours({ selectedDate, handleCitaSeleccionada }) {
   const [availableHours, setAvailableHours] = useState([]);

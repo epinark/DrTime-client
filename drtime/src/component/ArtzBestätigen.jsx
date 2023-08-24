@@ -11,9 +11,9 @@ export default function ArtzBestätigen() {
         <>
         <Header/>
         <div className=" flex  items-center  flex-col mt-5 ">
-            <p>Als Hausartz festlegen:</p>
+            <p className=' text-purple-700  font-bold'>Als Hausartz festlegen:</p>
             <img src={silhouetteProfil} alt="Image Silhouette" className="w-40 h-40 pic" />
-            <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Aliquam ab quisquam perspiciatis quo 
+            <p className=' text-purple-700  font-bold'>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Aliquam ab quisquam perspiciatis quo 
                 sed exercitationem delectus earum qui nemo tempora? Impedit doloremque cumque architecto modi 
                 reprehenderit praesentium repudiandae labore dolores molestias? Accusamus, mollitia animi!
             </p>

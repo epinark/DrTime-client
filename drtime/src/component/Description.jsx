@@ -37,13 +37,13 @@ export default function Description() {
         <>
         <Header/>
         <div className='flex flex-col items-center mt-5 text-2xl font-bold'>
-            <p>Bitte beschreiben Sie 
+            <p className=' text-purple-700  font-bold'>Bitte beschreiben Sie 
                 kurz ihr Symptome:</p>
             <textarea name="text" id="" cols="50" rows="15"
             className=' resize-none flex bg-white w-80 border border-slate-300  py-2 pl-9  text-xl sm:text-sm mx-auto mt-4
             rounded-md'></textarea>
              <div className="mt-4">
-                <p className='text-2xl'>Seit wann?</p>
+                <p className='text-2xl  text-purple-700  font-bold'>Seit wann?</p>
                 <select value={selectedYear} onChange={handleYearChange}>
                     {years.map((year) => (
                         <option key={year} value={year}>
