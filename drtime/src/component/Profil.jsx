@@ -2,12 +2,13 @@ import React, { useState } from 'react';
 import Header from "./Header";
 import silhouetteProfil from "../assets/img-profil/silhouetteProfil.png";
 import { Link } from "react-router-dom";
+
 export default function Profil() {
 
    
     return (
         <>
-        <div>
+        
             <div>
                 <Header />
             </div>
@@ -51,7 +52,7 @@ export default function Profil() {
              </Link> 
             </div>
 
-            </div>
+            
         </> 
     )
 

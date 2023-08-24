@@ -5,10 +5,10 @@
 
 /* Ajoutez ces styles dans votre fichier CSS existant ou dans un fichier séparé */
 .docList {
-    max-height: 500px; /* Hauteur maximale du conteneur */
-    overflow-y: auto; /* Affiche la barre de défilement verticale si le contenu dépasse la hauteur maximale */
-    border: 1px solid #ccc; /* Juste pour la démonstration, ajoute une bordure pour voir la zone de défilement */
-    width: 100%; /* Assurez-vous que le conteneur occupe toute la largeur disponible */
-    padding: 10px; /* Ajoutez un espace intérieur pour que le contenu ne soit pas collé aux bords */
+    max-height: 500px; 
+    overflow-y: auto; 
+    border: 1px solid #ccc; 
+    width: 100%;
+    padding: 10px; 
     border:none;
 }

@@ -34,6 +34,7 @@ function App() {
           <Route path="/profilDoc" element={<ArtzProfil/>} />
           <Route path="/MyCalendar" element={<MyCalendar/>} />
           <Route path="/ArtzSuchen" element={<ArtzSuchen/>} />
+          <Route path="/ArtzProfil" element={<ArtzProfil/>} />
 
 
           
