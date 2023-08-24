@@ -12,6 +12,7 @@ import ArtzSuchen from './component/ArtzSuchen';
 import ArtzProfil from './component/ArtzProfil';
 import MyCalendar from './component/MyCalendar';
 import Description from './component/Description';
+import ArtzBestätigen from './component/ArtzBestätigen';
 
 
 function App() {
@@ -37,6 +38,7 @@ function App() {
           <Route path="/ArtzSuchen" element={<ArtzSuchen/>} />
           <Route path="/ArtzProfil" element={<ArtzProfil/>} />
           <Route path="/Description" element={<Description/>} />
+          <Route path="/ArtzBestätigen" element={<ArtzBestätigen/>} />
 
 
           
