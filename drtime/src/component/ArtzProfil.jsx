@@ -7,11 +7,13 @@ export default function ArtzProfil() {
    
     return (
         <>
-         <div className=" flex  items-center  flex-col ">
+        
             <div>
                 <Header />
             </div>
-        
+
+
+         <div className=" flex  items-center  flex-col ">
            
                 <p className="text-5xl font-bold ">
                     Artz
