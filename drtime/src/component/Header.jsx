@@ -21,11 +21,11 @@ export default function Header () {
 }
 
 
-export function HeaderBasic () {
+export  function HeaderBasic () {
 
     return (
         <>
-        <div className="flex justify-center w-{100%} h-24 bg-gradient-to-r from-blue-500 via-blue-300 to-blue-500">
+        <div className="flex justify-center w-full h-24 bg-gradient-to-r from-blue-500 via-blue-300 to-blue-500">
             
         <div className="flex justify-center items-center w-44">
                     <img src={DRTIME} alt="logo" />

@@ -21,6 +21,10 @@ export default function ArtzProfil() {
                 <div className="justify-center rounded-full  mb-5  pp"   >
                    
                 <img src={silhouetteProfil} alt="Image Silhouette" className="w-40 h-40 pic" />
+                <p>Herve du jardin</p>
+                <p>doctor</p>
+                <p>Spezialität</p>
+                <p></p>
                 
                 
                 
