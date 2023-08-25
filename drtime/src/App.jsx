@@ -10,6 +10,11 @@ import Profil from './component/Profil';
 import EditProfil from './component/EditProfil';
 import ArtzSuchen from './component/ArtzSuchen';
 import ArtzProfil from './component/ArtzProfil';
+import MyCalendar from './component/MyCalendar';
+import Description from './component/Description';
+import ArtzBestätigen from './component/ArtzBestätigen';
+import TermineBestätigung from './component/TermineBestätigung';
+
 
 
 function App() {
@@ -18,7 +23,7 @@ function App() {
   return (
     <>
     <BrowserRouter>
-    <div className="bg-gradient-to-r from-blue-400 via-blue-200 to-blue-400 pt-4 min-h-screen flex justify-center">
+    <div className="bg-gradient-to-r from-blue-400 via-blue-200 to-blue-400  min-h-screen ">
     <Routes> 
       
 
@@ -31,6 +36,13 @@ function App() {
           <Route path="/edit" element={<EditProfil/>} />
           <Route path="/search" element={<ArtzSuchen/>} />
           <Route path="/profilDoc" element={<ArtzProfil/>} />
+          <Route path="/MyCalendar" element={<MyCalendar/>} />
+          <Route path="/ArtzSuchen" element={<ArtzSuchen/>} />
+          <Route path="/ArtzProfil" element={<ArtzProfil/>} />
+          <Route path="/Description" element={<Description/>} />
+          <Route path="/ArtzBestätigen" element={<ArtzBestätigen/>} />
+          <Route path="/TermineBestätigung" element={<TermineBestätigung/>} />
+          
 
 
           

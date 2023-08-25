@@ -57,8 +57,8 @@ export default function Login () {
         </form>
 
             <div className=" flex flex-col ">
-                   <Link to="/register"> <a href="#"
-                    className="flex justify-center text-purple-700 font-bold pt-4">Registrieren</a>
+                   <Link to="/register"> <p 
+                    className="flex justify-center text-purple-700 font-bold pt-4">Registrieren</p>
                     </Link>
                     <a href="#"
                      className="flex justify-center text-purple-700 font-bold pt-2">Password vergessen?</a>

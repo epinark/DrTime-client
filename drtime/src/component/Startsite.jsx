@@ -23,10 +23,13 @@ export default function Startsite() {
     // }, [history]);
     return (
         
-        <div id="Start" className="flex justify-center items-center  w-80">
-        <Link to="/login"> <img src={DRTIME} alt="drtime" curser-pointer />
-        </Link>
-        </div>
+      <div id="Start" className="flex justify-center items-center  h-screen ">
+        <div className="parent-div">
+      <Link to ="/login"><img src={DRTIME} alt="drtime"  />
+      </Link>
+      </div>
+         
+      </div>
         
     )
 }

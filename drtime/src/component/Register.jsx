@@ -1,5 +1,7 @@
 import {HeaderBasic} from "./Header"
 
+
+
 export default function Register() {
     return (
         <>
@@ -13,20 +15,22 @@ export default function Register() {
                 <form action="get">
                     <div id="my Form">
 
+
+
                         <div id="anrede" className="mb-6">
-                            <h1 className="text-xl font-bold mb-4 flex justify-center">Anrede</h1>
+                            <h1 className="text-xl font-bold mb-4 flex justify-center  text-purple-700">Anrede</h1>
 
                             <div className="flex justify-evenly">
 
                                 <div className="flex">
                                     <label htmlFor="Herr"
-                                    className="font-bold mb-2">Herr</label>
+                                    className="font-bold mb-2 text-purple-700  ">Herr</label>
                                     <input type="radio" name="anrede" id="anrede"
                                     className="mx-2 w-5 h-5" />
                                 </div>
                                 <div className="flex">
                                     <label htmlFor="Frau"
-                                    className=" font-bold mb-2">Frau</label>
+                                    className=" font-bold mb-2  text-purple-700">Frau</label>
                                     <input type="radio" name="anrede" id="anrede" 
                                     className="mx-2 w-5 h-5"/>
                                 </div>
@@ -39,7 +43,7 @@ export default function Register() {
                         <div className="flex mb-4">
                             <div className="flex flex-col">
                                 <label htmlFor="name"
-                                className="text-xl font-bold mb-2">Vorname</label>
+                                className="text-xl font-bold mb-2  text-purple-700">Vorname</label>
                                 <input type="text" 
                                 className="placeholder-italic placeholder-slate-400 block bg-white w-32 border border-slate-300 rounded-full py-2 pl-9 pr-3 shadow-sm sm:text-sm mx-auto mr-8"
                                 placeholder="John"/>
@@ -47,7 +51,7 @@ export default function Register() {
 
                             <div className="flex flex-col ">
                                 <label htmlFor=""
-                                className="text-xl font-bold mb-2">Nachname</label>
+                                className="text-xl font-bold mb-2  text-purple-700">Nachname</label>
                                 <input type="name"
                                 className="placeholder-italic placeholder-slate-400 block bg-white w-32 border border-slate-300 rounded-full py-2 pl-9 pr-3 shadow-sm sm:text-sm mx-auto"
                                 placeholder="Doe" />
@@ -55,7 +59,7 @@ export default function Register() {
                         </div>
 
                         <div className="mb-4">
-                        <label htmlFor="email" className="text-xl font-bold ">
+                        <label htmlFor="email" className="text-xl font-bold  text-purple-700 ">
                             Email:
                             </label>
                             <input
@@ -70,7 +74,7 @@ export default function Register() {
 
                         <div className="mb-4">
                             <label htmlFor="password" 
-                            className="t text-xl font-bold ">
+                            className="t text-xl font-bold  text-purple-700">
                             Password:
                             </label>
                             <input
@@ -85,7 +89,7 @@ export default function Register() {
 
                          <div className="mb-4">
                             <label htmlFor="password" 
-                            className="t text-xl font-bold ">
+                            className="t text-xl font-bold  text-purple-700">
                             Password wiederholen:
                             </label>
                             <input
@@ -100,7 +104,7 @@ export default function Register() {
 
                          <div className="flex justify-between items-center mt-7">
                             <label htmlFor=""
-                            className=" text-xl font-bold ">
+                            className=" text-xl font-bold  text-purple-700 ">
                                 Geburstdatum</label>
                             <input type="date" 
                             className="placeholder-italic placeholder-slate-400 block bg-white w-40 border border-slate-300 rounded-full py-2 pl-9 pr-3 shadow-sm sm:text-sm mx-auto "/>
@@ -108,26 +112,26 @@ export default function Register() {
 
                          <div className="mt-4">
                             <label htmlFor=""
-                            className=" text-xl font-bold ">Handynummer</label>
+                            className=" text-xl font-bold  text-purple-700">Handynummer</label>
                             <input type="tel" name="telefon" id="telefon" 
                             className="placeholder-italic placeholder-slate-400 block bg-white w-80 border border-slate-300 rounded-full py-2 pl-9 pr-3 shadow-sm sm:text-sm mx-auto mt-2"/>
                          </div>
 
                          <div id="anrede" className="mb-6 mt-6">
-                            <h1 className="text-xl font-bold mb-4 flex justify-center">Aderesse</h1>
+                            <h1 className="text-xl font-bold mb-4 flex justify-center  text-purple-700">Aderesse</h1>
 
                             <div className="flex justify-evenly ">
 
                                 <div className="flex items-center">
                                     <label htmlFor="PLZ"
-                                    className="font-bold mr-2">PLZ</label>
+                                    className="font-bold mr-2  text-purple-700">PLZ</label>
                                     <input type="number" name="plz" id="plz"
                                     className="placeholder-italic placeholder-slate-400 block bg-white w-24 border border-slate-300 rounded-full py-2 pl-9 pr-3 shadow-sm sm:text-sm mx-auto mr-2"
                                     placeholder="35683" />
                                 </div>
                                 <div className="flex items-center">
                                     <label htmlFor="Ort"
-                                    className=" font-bold mr-2">Ort</label>
+                                    className=" font-bold mr-2  text-purple-700">Ort</label>
                                     <input type="text" name="ort" id="ort" 
                                     className="placeholder-italic placeholder-slate-400 block bg-white w-28 border border-slate-300 rounded-full py-2 pl-9 pr-3 shadow-sm sm:text-sm mx-auto"
                                     placeholder="Dillenburg"/>
@@ -139,7 +143,7 @@ export default function Register() {
 
                          <div className="mt-4">
                          <label htmlFor=""
-                            className=" text-xl font-bold ">
+                            className=" text-xl font-bold  text-purple-700 ">
                                 KV-Nummer</label>
                                 <input type="text" 
                                 className="placeholder-italic placeholder-slate-400 block bg-white w-80 border border-slate-300 rounded-full py-2 pl-9 pr-3 shadow-sm sm:text-sm mx-auto mt-2"/>
@@ -147,10 +151,8 @@ export default function Register() {
                          </div>
 
                          <div className='flex justify-center pt-10 pb-10'>
-                          <Link to ="/profil"> <button className='bg-gradient-to-r from-blue-600 via-blue-700 to-blue-600 rounded-full w-72 h-20 text-3xl text-white'
-                            >Anmelden
-                            </button>
-                            </Link>
+                            <button className='bg-gradient-to-r from-blue-600 via-blue-700 to-blue-600 rounded-full w-72 h-20 text-3xl text-white'
+                            >Anmelden</button>
                     </div>
 
 
