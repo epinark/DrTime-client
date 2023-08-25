@@ -29,3 +29,23 @@
     padding: 10px; 
     border:none;
   }
+
+  @keyframes startAnimation {
+    from {background-color: rgb(63, 27, 126);}
+    25% {
+      background-color: rgb(83, 115, 222);
+    }
+    525% {
+      background-color: rgb(10, 161, 237);
+    }
+    to {background-color: white;}
+  }
+  
+  /* The element to apply the animation to */
+  #Start {
+    /* width: 100px;
+    height: 100px; */
+    /* background-color: red; */
+    animation-name: startAnimation;
+    animation-duration: 5s;
+  }
