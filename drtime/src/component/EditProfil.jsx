@@ -5,10 +5,11 @@ import Header from "./Header";
 export default function EditProfil() {
     return(
         <>
-           <div className=" flex justify-center items-center  flex-col ">         
-            <div>
+        <div>
                 <Header />
             </div>
+           <div className=" flex justify-center items-center  flex-col ">         
+            
         
             
             <p className='text-5xl font-bold mb-5  text-purple-700  '>Daten ändern:</p>

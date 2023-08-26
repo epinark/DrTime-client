@@ -31,14 +31,27 @@
   }
 
   @keyframes startAnimation {
-    from {background-color: rgb(63, 27, 126);}
-    25% {
+    0% {
+      background-color: rgb(63, 27, 126);
+  }
+  10% {
       background-color: rgb(83, 115, 222);
-    }
-    525% {
+  }
+  30% {
       background-color: rgb(10, 161, 237);
-    }
-    to {background-color: white;}
+  }
+  50% {
+      background-color: white;
+  }
+  70% {
+      background-color: rgb(83, 115, 222);
+  }
+  90% {
+      background-color: rgb(10, 161, 237);
+  }
+  100% {
+      background-color: rgb(63, 27, 126);
+  }
   }
   
   /* The element to apply the animation to */
