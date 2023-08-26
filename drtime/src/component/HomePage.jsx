@@ -16,6 +16,9 @@ export default function HomePage() {
 
                                 <div className='flex flex-col  '>
                                     <div className='flex justify-center pt-4'>
+
+{/* ArtzSuchen wenn kein Profil und Beschreibung wenn es ein Profil gibt */}
+
                                    <Link to ="/ArtzSuchen"> <button className='bg-gradient-to-r from-blue-600 via-blue-700 to-blue-600 rounded-full w-72 h-20 text-3xl text-white'>
                                     Hausarzt
                                     </button>
@@ -49,7 +52,7 @@ export default function HomePage() {
 
                     <div id="termine"
                     className='flex justify-center pt-48 pb-5'>
-                           <Link to = "/MyCalendar"> <button className='bg-gradient-to-r from-blue-600 via-blue-700 to-blue-600 rounded-full w-72 h-20 text-3xl text-white'>Termine</button></Link>
+                           <Link to = "/MyTermine"> <button className='bg-gradient-to-r from-blue-600 via-blue-700 to-blue-600 rounded-full w-72 h-20 text-3xl text-white'>Termine</button></Link>
                     </div>
 
 

@@ -14,6 +14,8 @@ import MyCalendar from './component/MyCalendar';
 import Description from './component/Description';
 import ArtzBestätigen from './component/ArtzBestätigen';
 import TermineBestätigung from './component/TermineBestätigung';
+import MyTermine from './component/MyTermine';
+
 
 
 
@@ -42,6 +44,7 @@ function App() {
           <Route path="/Description" element={<Description/>} />
           <Route path="/ArtzBestätigen" element={<ArtzBestätigen/>} />
           <Route path="/TermineBestätigung" element={<TermineBestätigung/>} />
+          <Route path="/MyTermine" element={<MyTermine/>} />
           
 
 
