@@ -67,12 +67,12 @@ export default function Description() {
                 </select>
             </div>
             <div className='mt-5 flex '>
-            <button className="bg-gradient-to-r from-blue-600 via-blue-700 to-blue-600 rounded-full w-40 h-20 text-2xl text-white  mb-5 mx-5 ">
+            <Link to="/MyCalendar"><button className="bg-gradient-to-r from-blue-600 via-blue-700 to-blue-600 rounded-full w-40 h-20 text-2xl text-white  mb-5 mx-5 ">
               Zurück
-            </button>
-            <button className="bg-gradient-to-r from-blue-600 via-blue-700 to-blue-600 rounded-full w-40 h-20 text-2xl text-white  mb-5 mx-5 ">
+            </button></Link>
+           <Link to ="/TermineBestätigung"> <button className="bg-gradient-to-r from-blue-600 via-blue-700 to-blue-600 rounded-full w-40 h-20 text-2xl text-white  mb-5 mx-5 ">
               Weiter
-            </button>
+            </button></Link>
             </div>
         </div>
         

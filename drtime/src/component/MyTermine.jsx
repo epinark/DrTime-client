@@ -9,6 +9,7 @@ export default function MyTermine({ citasSeleccionadas }) {
 
   return (
     <>
+    <Header/>
       <div>
         
         <div id="Hier die termine" className="flex flex-col items-center justify-center mt-10">
@@ -39,3 +40,5 @@ export default function MyTermine({ citasSeleccionadas }) {
     </>
   );
 }
+
+

@@ -21,7 +21,7 @@ export default function ArtzBestätigen() {
               Bestätigen
             </button>
             </Link>
-            <Link to='/'> <button className="bg-gradient-to-r from-blue-600 via-blue-700 to-blue-600 rounded-full w-72 h-20 text-3xl text-white mx-auto mb-5 cursor-pointer">
+            <Link to='/ArtzProfil'> <button className="bg-gradient-to-r from-blue-600 via-blue-700 to-blue-600 rounded-full w-72 h-20 text-3xl text-white mx-auto mb-5 cursor-pointer">
               Abbrechen
             </button>
             </Link>
