@@ -24,9 +24,12 @@ function App() {
 
   return (
     <>
-    <BrowserRouter>
-    <div className="bg-gradient-to-r from-blue-400 via-blue-200 to-blue-400  min-h-screen ">
-    <Routes> 
+    <div className="phone-frame">
+      <div className="s20-ultra">
+        {/* <div className="s20-ultra-screen"> */}
+          <BrowserRouter>
+            <div className="bg-gradient-to-r from-blue-400 via-blue-200 to-blue-400 min-h-screen">
+              <Routes>
       
 
         
@@ -54,7 +57,10 @@ function App() {
       
     </Routes>
     </div>
-    </BrowserRouter>
+          </BrowserRouter>
+        </div>
+      </div>
+    {/* </div> */}
     </>
   )
 };

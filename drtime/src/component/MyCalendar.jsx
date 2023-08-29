@@ -44,7 +44,7 @@ function AvailableHours({ selectedDate, handleCitaSeleccionada }) {
   };
 
   return (
-    <div>
+    <div className=''>
       {selectedDate && (
         <div>
           <div className=''>
@@ -86,7 +86,8 @@ export default function MyCalendar() {
       <div>
         <Header />
       </div>
-      <div className="flex flex-col items-center justify-center mt-10">
+      <div className='scroll calendarStyle'>
+      <div className="  flex flex-col items-center justify-center mt-10">
         <div className="mb-8">
           <Calendar
             onChange={handleDateChange}
@@ -113,6 +114,7 @@ export default function MyCalendar() {
       <div className='flex justify-around mt-5'>
         <Link to="/home"><button className='bg-gradient-to-r from-blue-600 via-blue-700 to-blue-600 rounded-full w-40 h-20 text-3xl text-white'>Zurück</button></Link>
        <Link to ="/description"> <button className='bg-gradient-to-r from-blue-600 via-blue-700 to-blue-600 rounded-full w-40 h-20 text-3xl text-white'>Weiter</button></Link>
+      </div>
       </div>
       {/* Pasa las citas seleccionadas a MyTermine */}
       {/* <MyTermine citasSeleccionadas={citasSeleccionadas} /> */}

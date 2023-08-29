@@ -11,7 +11,7 @@ export default function Register() {
         </div>
 
 
-        <div className='pt-8 flex justify-center '>
+        <div className='pt-8 flex justify-center scrollRegisterLogin  '>
             <div className="flex justify-center flex-col">
                 <form action="get">
                     <div id="my Form">

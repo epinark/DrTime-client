@@ -25,7 +25,7 @@ export default function PopupGfg() {
                 modal nested>
                 {
                      
-                        <div id='sd' className='h-auto  bg-cyan-400 px-2'>
+                        <div id='sd' className='h-auto  bg-cyan-400 '>
                             <div className='flex flex-col  '>
                             <div className='flex justify-center  pt-4'>
                                 {/* if(window.location="/home"){
