@@ -16,13 +16,13 @@ body{
     border-radius: 20px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
     margin: 20px;
-    padding: 20px;
+    padding: 15px;
     width: 412px; /* Largeur du téléphone (peut varier en fonction du modèle) */
   }
   
   .s20-ultra {
     background-color: #000;
-    border: 2px solid #888;
+    /* border: 2px solid #888; */
     border-radius: 20px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
     position: relative;
