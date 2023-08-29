@@ -38,7 +38,7 @@ export default function MyTermine() {
                   </div>
                 ))
               ) : (
-                <p>Du hast noch kein Termin </p>
+                <p>Du hast noch keinen Termin </p>
               )}
             </div>
           </div>

@@ -20,7 +20,7 @@ export default function ArtzSuchen() {
             </div>
             <div className=" flex  items-center  flex-col ">
             
-            <p className='text-5xl mt-2  text-purple-700'>Artz suchen :</p>
+            <p className='text-5xl mt-2  text-purple-700'>Arzt suchen :</p>
             <SearchBar value={searchValue} onChange={(e) => setSearchValue(e.target.value)} />
             <div className='mt-5 docList flex justify-center '>
                 <ul className=''>
