@@ -30,7 +30,7 @@ export default function MyTermine({ citasSeleccionadas }) {
                   </div>
                 ))
               ) : (
-                <p>Du hast noch kein Termin </p>
+                <p>Du hast noch keinen Termin </p>
               )}
             </div>
           </div>

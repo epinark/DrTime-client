@@ -18,7 +18,7 @@ export default function Profil() {
         
            
                 <p className="text-5xl font-bold ">
-                    Profile
+                    Profil
                 </p>
                 <div className="justify-center rounded-full  mb-5 cursor-pointer pp"   >
                    
