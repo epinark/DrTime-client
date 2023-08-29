@@ -142,6 +142,7 @@ body{
   .scroll{
     overflow: auto;
     max-height: 830px;
+
 }
 
 .popup-content{
@@ -161,4 +162,10 @@ body{
     padding-bottom: 20px;
 }
 
-  
+.scrollRegisterLogin{
+    overflow: auto;
+    max-height: 742px;
+    padding-bottom: 20px;
+    padding-top: 131px;
+
+}
