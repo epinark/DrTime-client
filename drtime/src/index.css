@@ -133,7 +133,7 @@ body{
   #popup-root{
     margin: 20px;
     padding: 20px;
-    width: 412px;
+    width: 300px !important;
     /* width:830px !important; */
     border-radius: 20px;
     position: absolute !important;
