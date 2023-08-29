@@ -27,8 +27,8 @@ body{
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
     position: relative;
     width: 360px;
-    height: 760px;
-    overflow-y: scroll;
+    height: 830px;
+    overflow-y: hidden;
   
  
   }
@@ -130,6 +130,35 @@ body{
     animation-duration: 5s;
   }
 
-  /* #sd{
-    width: 1000px;
-  } */
+  #popup-root{
+    margin: 20px;
+    padding: 20px;
+    width: 412px;
+    /* width:830px !important; */
+    border-radius: 20px;
+    position: absolute !important;
+  }
+
+  .scroll{
+    overflow: auto;
+    max-height: 830px;
+}
+
+.popup-content{
+   
+    width:830px !important;
+}
+
+.popup-overlay{
+    position: relative !important;
+    width: 100% !important;
+    margin: auto !important;
+}
+
+.calendarStyle{
+    overflow-x: hidden;
+    max-height: 750px;
+    padding-bottom: 20px;
+}
+
+  

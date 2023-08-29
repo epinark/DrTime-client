@@ -8,11 +8,11 @@ export default function EditProfil() {
         <div>
                 <Header />
             </div>
-           <div className=" flex justify-center items-center  flex-col ">         
+           <div className=" flex justify-center items-center  flex-col  scroll ">         
             
         
             
-            <p className='text-5xl font-bold mb-5  text-purple-700  '>Daten ändern:</p>
+            <p className='text-5xl font-bold mb-5  text-purple-700 '>Daten ändern:</p>
             <form action="get">
 
 

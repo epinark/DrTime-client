@@ -27,7 +27,7 @@ export default function Startsite() {
    
     return (
         
-      <div id="Start" className="flex justify-center items-center  h-screen ">
+      <div id="Start" className="flex justify-center items-center  h-screen scroll ">
         <div className="parent-div ml-7 mr-7">
       <img src={DRTIME} alt="drtime" className=" " />
       
