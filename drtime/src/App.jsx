@@ -14,6 +14,8 @@ import MyCalendar from './component/MyCalendar';
 import Description from './component/Description';
 import ArtzBestätigen from './component/ArtzBestätigen';
 import TermineBestätigung from './component/TermineBestätigung';
+import MyTermine from './component/MyTermine';
+
 
 
 
@@ -22,9 +24,12 @@ function App() {
 
   return (
     <>
-    <BrowserRouter>
-    <div className="bg-gradient-to-r from-blue-400 via-blue-200 to-blue-400  min-h-screen ">
-    <Routes> 
+    <div className="phone-frame">
+      <div className="s20-ultra">
+        {/* <div className="s20-ultra-screen"> */}
+          <BrowserRouter>
+            <div className="bg-gradient-to-r from-blue-400 via-blue-200 to-blue-400 min-h-screen">
+              <Routes>
       
 
         
@@ -42,6 +47,7 @@ function App() {
           <Route path="/Description" element={<Description/>} />
           <Route path="/ArtzBestätigen" element={<ArtzBestätigen/>} />
           <Route path="/TermineBestätigung" element={<TermineBestätigung/>} />
+          <Route path="/MyTermine" element={<MyTermine/>} />
           
 
 
@@ -51,7 +57,10 @@ function App() {
       
     </Routes>
     </div>
-    </BrowserRouter>
+          </BrowserRouter>
+        </div>
+      </div>
+    {/* </div> */}
     </>
   )
 };

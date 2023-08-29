@@ -2,6 +2,73 @@
 @tailwind components;
 @tailwind utilities;
 
+/* Smartphone style */
+body{
+ display: flex;
+ justify-content: center;
+ align-items: center;
+}
+
+.phone-frame {
+    display: inline-block;
+    background-color: #000;
+    border: 12px solid #888;
+    border-radius: 20px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+    margin: 20px;
+    padding: 15px;
+    width: 412px; /* Largeur du téléphone (peut varier en fonction du modèle) */
+  }
+  
+  .s20-ultra {
+    background-color: #000;
+    /* border: 2px solid #888; */
+    border-radius: 20px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+    position: relative;
+    width: 360px;
+    height: 830px;
+    overflow-y: hidden;
+  
+ 
+  }
+ 
+  
+  /* .s20-ultra-camera {
+    background-color: #222;
+    height: 50px;
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 100px;
+  } */
+  
+  /* .s20-ultra-screen {
+    background-color: #fff;
+    border: 4px solid #000;
+    border-radius: 8px;
+    height: 640px;
+    width: 320px;
+    overflow: hidden;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  } */
+  
+  /* .s20-ultra-buttons {
+    background-color: #333;
+    height: 70px;
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 200px;
+  } */
+  
+  
+
 
 /* Ajoutez ces styles dans votre fichier CSS existant ou dans un fichier séparé */
 .docList {
@@ -29,3 +96,76 @@
     padding: 10px; 
     border:none;
   }
+
+  @keyframes startAnimation {
+    0% {
+      background-color: rgb(63, 27, 126);
+  }
+  10% {
+      background-color: rgb(83, 115, 222);
+  }
+  30% {
+      background-color: rgb(10, 161, 237);
+  }
+  50% {
+      background-color: white;
+  }
+  70% {
+      background-color: rgb(83, 115, 222);
+  }
+  90% {
+      background-color: rgb(10, 161, 237);
+  }
+  100% {
+      background-color: rgb(63, 27, 126);
+  }
+  }
+  
+  /* The element to apply the animation to */
+  #Start {
+    /* width: 100px;
+    height: 100px; */
+    /* background-color: red; */
+    animation-name: startAnimation;
+    animation-duration: 5s;
+  }
+
+  #popup-root{
+    margin: 20px;
+    padding: 20px;
+    width: 300px !important;
+    /* width:830px !important; */
+    border-radius: 20px;
+    position: absolute !important;
+  }
+
+  .scroll{
+    overflow: auto;
+    max-height: 830px;
+
+}
+
+.popup-content{
+   
+    width:830px !important;
+}
+
+.popup-overlay{
+    position: relative !important;
+    width: 100% !important;
+    margin: auto !important;
+}
+
+.calendarStyle{
+    overflow-x: hidden;
+    max-height: 750px;
+    padding-bottom: 20px;
+}
+
+.scrollRegisterLogin{
+    overflow: auto;
+    max-height: 742px;
+    padding-bottom: 20px;
+    padding-top: 131px;
+
+}

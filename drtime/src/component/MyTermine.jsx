@@ -1,7 +1,14 @@
 import Header from "./Header";
 import PropTypes from 'prop-types';
 
-export default function MyTermine({ citasSeleccionadas }) {
+export default function MyTermine() {
+
+  // export default function MyTermine({ citasSeleccionadas }) {
+
+
+
+// fix for the termine
+  const citasSeleccionadas = { } 
 
     MyTermine.propTypes = {
         citasSeleccionadas: PropTypes.array.isRequired, // Define la validación para citasSeleccionadas
@@ -9,6 +16,7 @@ export default function MyTermine({ citasSeleccionadas }) {
 
   return (
     <>
+    <Header/>
       <div>
         
         <div id="Hier die termine" className="flex flex-col items-center justify-center mt-10">
@@ -39,3 +47,5 @@ export default function MyTermine({ citasSeleccionadas }) {
     </>
   );
 }
+
+

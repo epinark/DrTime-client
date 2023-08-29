@@ -25,24 +25,24 @@ export default function ArtzSuchen() {
             <div className='mt-5 docList flex justify-center '>
                 <ul className=''>
               
-                    <li className='flex items-center space-x-4 mt-5 '>
+                  <Link to ="/ArtzBestätigen"> <li className='flex items-center space-x-4 mt-5 '>
                        <div className="w-20 h-20"> <img src={silhouetteProfil} alt="Image Silhouette"   /></div> <p className='text-4xl text-purple-700  font-bold '>Dr.Herve du Jardin</p> 
-                    </li>
-                    <li className='flex items-center space-x-4 mt-5'>
+                    </li></Link>
+                    <Link to ="/ArtzBestätigen"> <li className='flex items-center space-x-4 mt-5 '>
                        <div className="w-20 h-20"> <img src={silhouetteProfil} alt="Image Silhouette"   /></div> <p className='text-4xl text-purple-700  font-bold '>Dr.Herve du Jardin</p> 
-                    </li>
-                    <li className='flex items-center space-x-4 mt-5'>
+                    </li></Link>
+                    <Link to ="/ArtzBestätigen"> <li className='flex items-center space-x-4 mt-5 '>
                        <div className="w-20 h-20"> <img src={silhouetteProfil} alt="Image Silhouette"   /></div> <p className='text-4xl text-purple-700  font-bold '>Dr.Herve du Jardin</p> 
-                    </li>
-                    <li className='flex items-center space-x-4 mt-5'>
+                    </li></Link>
+                    <Link to ="/ArtzBestätigen"> <li className='flex items-center space-x-4 mt-5 '>
                        <div className="w-20 h-20"> <img src={silhouetteProfil} alt="Image Silhouette"   /></div> <p className='text-4xl text-purple-700  font-bold '>Dr.Herve du Jardin</p> 
-                    </li>
-                    <li className='flex items-center space-x-4 mt-5'>
+                    </li></Link>
+                    <Link to ="/ArtzBestätigen"> <li className='flex items-center space-x-4 mt-5 '>
                        <div className="w-20 h-20"> <img src={silhouetteProfil} alt="Image Silhouette"   /></div> <p className='text-4xl text-purple-700  font-bold '>Dr.Herve du Jardin</p> 
-                    </li>
-                    <li className='flex items-center space-x-4 mt-5'>
+                    </li></Link>
+                    <Link to ="/ArtzBestätigen"> <li className='flex items-center space-x-4 mt-5 '>
                        <div className="w-20 h-20"> <img src={silhouetteProfil} alt="Image Silhouette"   /></div> <p className='text-4xl text-purple-700  font-bold '>Dr.Herve du Jardin</p> 
-                    </li>
+                    </li></Link>
 
 
                     {/* {data.filter(item => item.name.toLowerCase().includes(searchValue.toLowerCase())).map((item, index) => (

@@ -10,7 +10,19 @@ export default function Description() {
     const months = [
       { value: 0, label: 'January' },
       { value: 1, label: 'February' },
-      // ... (continue for all months)
+      { value: 2, label: 'March' },
+      { value: 3, label: 'April' },
+      { value: 4, label: 'May' },
+      { value: 5, label: 'June' },
+      { value: 6, label: 'July' },
+      { value: 7, label: 'August' },
+      { value: 8, label: 'September' },
+      { value: 9, label: 'October' },
+      { value: 10, label: 'November' },
+      { value: 11, label: 'December' },
+     
+
+      
     ];
     const daysInMonth = Array.from({ length: 31 }, (_, index) => index + 1);
 
@@ -37,7 +49,7 @@ export default function Description() {
         <>
         <Header/>
         <div className='flex flex-col items-center mt-5 text-2xl font-bold'>
-            <p className=' text-purple-700  font-bold'>Bitte beschreiben Sie 
+            <p className=' text-purple-700 px-5 font-bold'>Bitte beschreiben Sie 
                 kurz ihr Symptome:</p>
             <textarea name="text" id="" cols="50" rows="15"
             className=' resize-none flex bg-white w-80 border border-slate-300  py-2 pl-9  text-xl sm:text-sm mx-auto mt-4
@@ -67,12 +79,12 @@ export default function Description() {
                 </select>
             </div>
             <div className='mt-5 flex '>
-            <button className="bg-gradient-to-r from-blue-600 via-blue-700 to-blue-600 rounded-full w-40 h-20 text-2xl text-white  mb-5 mx-5 ">
+            <Link to="/MyCalendar"><button className="bg-gradient-to-r from-blue-600 via-blue-700 to-blue-600 rounded-full w-40 h-20 text-2xl text-white  mb-5 mx-5 ">
               Zurück
-            </button>
-            <button className="bg-gradient-to-r from-blue-600 via-blue-700 to-blue-600 rounded-full w-40 h-20 text-2xl text-white  mb-5 mx-5 ">
+            </button></Link>
+           <Link to ="/TermineBestätigung"> <button className="bg-gradient-to-r from-blue-600 via-blue-700 to-blue-600 rounded-full w-40 h-20 text-2xl text-white  mb-5 mx-5 ">
               Weiter
-            </button>
+            </button></Link>
             </div>
         </div>
         

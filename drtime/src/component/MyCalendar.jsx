@@ -2,7 +2,8 @@ import Calendar from 'react-calendar';
 import React, { useState } from 'react';
 import 'react-calendar/dist/Calendar.css';
 import Header from './Header';
-import MyTermine from './MyTermine'; // Importa MyTermine
+import { Link } from 'react-router-dom';
+// import MyTermine from './MyTermine'; // Importa MyTermine
 
 function AvailableHours({ selectedDate, handleCitaSeleccionada }) {
   const [availableHours, setAvailableHours] = useState([]);
@@ -43,7 +44,7 @@ function AvailableHours({ selectedDate, handleCitaSeleccionada }) {
   };
 
   return (
-    <div>
+    <div className=''>
       {selectedDate && (
         <div>
           <div className=''>
@@ -54,7 +55,7 @@ function AvailableHours({ selectedDate, handleCitaSeleccionada }) {
               <button
                 key={index}
                 onClick={() => handleCitaClick(hour)} // Manejar la selección de la termin
-                className="bg-gradient-to-r from-blue-600 via-blue-700 to-blue-600 
+                className="bg-gradient-to-r from-blue-300 via-blue-300 to-blue-300
                 rounded-full flex justify-center items-center text-white font-bold text-xl w-40 h-14 m-3"
               >
                 {hour}
@@ -85,7 +86,8 @@ export default function MyCalendar() {
       <div>
         <Header />
       </div>
-      <div className="flex flex-col items-center justify-center mt-10">
+      <div className='scroll calendarStyle'>
+      <div className="  flex flex-col items-center justify-center mt-10">
         <div className="mb-8">
           <Calendar
             onChange={handleDateChange}
@@ -109,8 +111,13 @@ export default function MyCalendar() {
           <AvailableHours selectedDate={selectedDate} handleCitaSeleccionada={handleCitaSeleccionada} />
         </div>
       </div>
+      <div className='flex justify-around mt-5'>
+        <Link to="/home"><button className='bg-gradient-to-r from-blue-600 via-blue-700 to-blue-600 rounded-full w-40 h-20 text-3xl text-white'>Zurück</button></Link>
+       <Link to ="/description"> <button className='bg-gradient-to-r from-blue-600 via-blue-700 to-blue-600 rounded-full w-40 h-20 text-3xl text-white'>Weiter</button></Link>
+      </div>
+      </div>
       {/* Pasa las citas seleccionadas a MyTermine */}
-      <MyTermine citasSeleccionadas={citasSeleccionadas} />
+      {/* <MyTermine citasSeleccionadas={citasSeleccionadas} /> */}
     </div>
   );
 }
