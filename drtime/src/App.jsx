@@ -93,20 +93,21 @@ function App() {
                     }
                   >
                     <Route index element={<Profil user={user} />} />
-                    <Route path="me" element={<EditProfil />} />
-                    <Route path="search" element={<ArtzSuchen />} />
-                    <Route path="profilDoc" element={<ArtzProfil />} />
-                    <Route path="MyCalendar" element={<MyCalendar />} />
-                    <Route path="ArtzSuchen" element={<ArtzSuchen />} />
-                    <Route path="doctors/:id" element={<ArtzProfil />} />
-                    <Route path="Description" element={<Description />} />
-                    <Route path="doctors/:id" element={<ArtzBestätigen />} />
-                    <Route
-                      path="TermineBestätigung"
-                      element={<TermineBestätigung />}
-                    />
-                    <Route path="MyTermine" element={<MyTermine />} />
+                    <Route path="me" element={<EditProfil />} />{" "}
                   </Route>
+                  <Route path="doctors/:id" element={<ArtzBestätigen />} />
+
+                  <Route path="changedoctors/:id" element={<ArtzProfil />} />
+                  <Route path="MyCalendar" element={<MyCalendar />} />
+                  <Route path="doctors" element={<ArtzSuchen />} />
+                  <Route path="doctors/:id" element={<ArtzProfil />} />
+                  <Route path="Description" element={<Description />} />
+                  <Route path="doctors" element={<ArtzSuchen />} />
+                  <Route
+                    path="TermineBestätigung"
+                    element={<TermineBestätigung />}
+                  />
+                  <Route path="MyTermine" element={<MyTermine />} />
                 </Route>
                 <Route element={<Header />} />
               </Routes>

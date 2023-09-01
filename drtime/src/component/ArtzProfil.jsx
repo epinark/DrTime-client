@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import Header from "./Header";
 import silhouetteProfil from "../assets/img-profil/silhouetteProfil.png";
 import { Link } from "react-router-dom";
@@ -34,22 +34,24 @@ export default function ArtzProfil() {
             <img
               src={doctor.profilePhoto}
               alt="Image Silhouette"
-              className="w-40 h-40 pic"
+              className="flex-column w-40 h-40 mb-8  text-purple-700 rounded-full shadow-lg pic"
             />
-            <p>{doctor.name}</p>
-            <p>{doctor.title}</p>
-            <p>{doctor.specialization}</p>
-            <p>{doctor.address.city}</p>
+            <p className=" text-purple-700 text-lg text-center font-bold mb-40">
+              <p>{doctor.name}</p>
+              <p>{doctor.title}</p>
+              <p>{doctor.specialization}</p>
+              <p>{doctor.address.city}</p>
+            </p>
           </div>
 
           <Link to="/ArtzSuchen">
-            <button className="bg-gradient-to-r from-blue-600 via-blue-700 to-blue-600 rounded-full w-72 h-20 text-3xl text-white mx-auto mb-5  ">
+            <button className="bg-gradient-to-r from-blue-600 via-blue-700 to-blue-600 rounded-full w-72 h-20 text-3xl text-white mx-auto mb-5 shadow-lg ">
               Bearbeiten
             </button>
           </Link>
           <Link to="/home">
             {" "}
-            <button className="bg-gradient-to-r from-blue-600 via-blue-700 to-blue-600 rounded-full w-72 h-20 text-3xl text-white mx-auto mb-5 cursor-pointer">
+            <button className="bg-gradient-to-r from-blue-600 via-blue-700 to-blue-600 rounded-full w-72 h-20 text-3xl text-white mx-auto mb-5 cursor-pointer shadow-lg">
               Zurück
             </button>
           </Link>
