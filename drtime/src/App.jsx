@@ -96,12 +96,11 @@ function App() {
                     <Route path="me" element={<EditProfil />} />{" "}
                   </Route>
                   <Route path="doctors/:id" element={<ArtzBestätigen />} />
-
-                  <Route path="changedoctors/:id" element={<ArtzProfil />} />
-                  <Route path="MyCalendar" element={<MyCalendar />} />
-                  <Route path="doctors" element={<ArtzSuchen />} />
-                  <Route path="doctors/:id" element={<ArtzProfil />} />
-                  <Route path="Description" element={<Description />} />
+                  <Route path="/profilDoc/:id" element={<ArtzProfil />} />
+                  <Route path="/MyCalendar" element={<MyCalendar />} />
+                  <Route path="/ArtzSuchen" element={<ArtzSuchen />} />
+                  <Route path="/ArtzProfil/:id " element={<ArtzProfil />} />
+                  <Route path="/Description" element={<Description />} />
                   <Route path="doctors" element={<ArtzSuchen />} />
                   <Route
                     path="TermineBestätigung"
@@ -109,7 +108,6 @@ function App() {
                   />
                   <Route path="MyTermine" element={<MyTermine />} />
                 </Route>
-                <Route element={<Header />} />
               </Routes>
             </div>
           </BrowserRouter>
