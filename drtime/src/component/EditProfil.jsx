@@ -8,8 +8,8 @@ export default function EditProfil() {
       <div>
         <Header />
       </div>
-      <div className=" flex justify-center items-center  flex-col ">
-        <p className="text-5xl font-bold mb-5  text-purple-700  ">
+      <div className=" flex justify-center items-center  flex-col  scrollRegisterLogin ">
+        <p className="text-5xl font-bold mb-5  text-purple-700 ">
           Daten ändern:
         </p>
         <form action="get">
@@ -201,14 +201,14 @@ export default function EditProfil() {
               className="placeholder-italic placeholder-slate-400 block bg-white w-80 border border-slate-300 rounded-full py-2 pl-9 pr-3 shadow-sm sm:text-sm mx-auto mt-2"
             />
           </div>
-          <div className="flex flex-col mt-3">
-            <Link to="me">
+          <div className="flex justify-center items-center flex-col mt-3">
+            <Link to="/profil">
               {" "}
               <button className="bg-gradient-to-r from-blue-600 via-blue-700 to-blue-600 rounded-full w-72 h-20 text-3xl text-white mx-auto mb-5 cursor-pointer  ">
                 Speichern
               </button>
             </Link>
-            <Link to="me">
+            <Link to="/profil">
               <button className="bg-gradient-to-r from-blue-600 via-blue-700 to-blue-600 rounded-full w-72 h-20 text-3xl text-white mx-auto mb-5 cursor-pointer ">
                 Abbrechen
               </button>
