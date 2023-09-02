@@ -5,12 +5,12 @@ import silhouetteProfil from "../assets/img-profil/silhouetteProfil.png";
 import { useParams } from "react-router-dom";
 import axios from "axios";
 
-export default function ArtzBestätigen() {
+export default function ArtzBestätigen({ userId, doctorId }) {
   const { id } = useParams();
   const [doctor, setDoctor] = useState(null);
 
   useEffect(() => {
-    const getOneDoctor = async () => {
+    const fetchData = async () => {
       try {
         const { data } = await axios.get(
           `${import.meta.env.VITE_APP_DR_TIME}/doctors/${id}`
@@ -20,21 +20,22 @@ export default function ArtzBestätigen() {
         console.error("Error fetching doctor:", error);
       }
     };
-    getOneDoctor();
+    fetchData();
   }, [id]);
+  const validateUser = async () => {
+    try {
+      const response = await axios.get("auth/me");
+      const user = response.data;
+    } catch (error) {}
+  };
+
   const assignPrimaryDoctor = async () => {
     try {
       const token = localStorage.getItem("token");
-
-      const { id } = useParams();
-
+      await validateUser(token);
       await axios.post(
         `${import.meta.env.VITE_APP_DR_TIME}/auth/primaryDoctor`,
-        {
-          userId: id,
-          doctorId: id,
-          description: description,
-        },
+        { userId, doctorId },
         {
           headers: { Authorization: `Bearer ${token}` },
         }

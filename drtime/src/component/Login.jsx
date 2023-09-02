@@ -2,9 +2,9 @@ import { Link } from "react-router-dom";
 import DRTIME from "../assets/images/DRTIME.png";
 import { loginUser } from "../utils/authUtils";
 import { Navigate } from "react-router-dom";
-
 import Loading from "./Loading";
 import { useState } from "react";
+
 const Login = ({
   isAuthenticated,
   setToken,
@@ -47,12 +47,7 @@ const Login = ({
         </div>
 
         <div className="flex flex-col justify-center">
-          <form
-            action=""
-            method="get"
-            className="text-center"
-            onSubmit={handleSubmit}
-          >
+          <form className="text-center" onSubmit={handleSubmit}>
             <div className="mb-4">
               <label
                 htmlFor="email"
@@ -76,8 +71,6 @@ const Login = ({
               <label
                 htmlFor="password"
                 className="text-purple-700 text-4xl font-bold "
-                value={password}
-                onChange={handleChange}
               >
                 Password:
               </label>
@@ -94,17 +87,13 @@ const Login = ({
             </div>
 
             <div className="mb-8 mt-8">
-              {/* Diese route ist nur für Test */}
-
-              <Link to="/home">
-                {" "}
-                <button
-                  className="bg-gradient-to-r from-blue-600 via-blue-700 to-blue-600 rounded-full w-72 h-20 text-3xl text-white mx-auto"
-                  type="submit"
-                >
-                  Login
-                </button>
-              </Link>
+              {/* Diese route ist nur für Test */}{" "}
+              <button
+                className="bg-gradient-to-r from-blue-600 via-blue-700 to-blue-600 rounded-full w-72 h-20 text-3xl text-white mx-auto"
+                type="submit"
+              >
+                Login
+              </button>
             </div>
           </form>
 
