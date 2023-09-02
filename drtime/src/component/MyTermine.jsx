@@ -1,29 +1,31 @@
 import Header from "./Header";
-import PropTypes from 'prop-types';
+import PropTypes from "prop-types";
 
 export default function MyTermine() {
-
   // export default function MyTermine({ citasSeleccionadas }) {
 
+  // fix for the termine
+  const citasSeleccionadas = {};
 
-
-// fix for the termine
-  const citasSeleccionadas = { } 
-
-    MyTermine.propTypes = {
-        citasSeleccionadas: PropTypes.array.isRequired, // Define la validación para citasSeleccionadas
-      };
+  MyTermine.propTypes = {
+    citasSeleccionadas: PropTypes.array.isRequired, // Define la validación para citasSeleccionadas
+  };
 
   return (
     <>
-    <Header/>
+      <Header />
       <div>
-        
-        <div id="Hier die termine" className="flex flex-col items-center justify-center mt-10">
+        <div
+          id="Hier die termine"
+          className="flex flex-col items-center justify-center mt-10"
+        >
           <div>
-            <h1 className='text-4xl text-purple-700  font-bold '>Termine</h1>
+            <h1 className="text-4xl text-purple-700  font-bold ">Termine</h1>
           </div>
-          <div id="Weisse platz" className="bg-white rounded-xl w-40 m-5 TerminList">
+          <div
+            id="Weisse platz"
+            className="bg-white rounded-xl w-40 m-5 TerminList"
+          >
             <div className="flex flex-col justify-center">
               {citasSeleccionadas.length > 0 ? (
                 citasSeleccionadas.map((cita, index) => (
@@ -47,5 +49,3 @@ export default function MyTermine() {
     </>
   );
 }
-
-
