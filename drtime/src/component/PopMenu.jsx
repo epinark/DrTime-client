@@ -3,7 +3,7 @@ import "reactjs-popup/dist/index.css";
 import { BiMenu } from "react-icons/bi";
 import { Link, useLocation } from "react-router-dom";
 
-export default function PopupGfg({ logOut }) {
+export default function PopupGfg() {
   // const location = useLocation();
 
   // useEffect(() => {
@@ -72,12 +72,9 @@ export default function PopupGfg({ logOut }) {
               </div>
 
               <div className="flex justify-center pt-4 pb-4">
-                <Link to="/login">
+                <Link to="/register">
                   {" "}
-                  <button
-                    className="bg-gradient-to-r from-blue-600 via-blue-700 to-blue-600 rounded-full w-44 h-14 text-white"
-                    logOut={logOut}
-                  >
+                  <button className="bg-gradient-to-r from-blue-600 via-blue-700 to-blue-600 rounded-full w-44 h-14 text-white">
                     Ausloggen
                   </button>
                 </Link>

@@ -3,7 +3,6 @@ import { useEffect, useState } from "react";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Startsite from "./component/Startsite";
 import HomePage from "./component/HomePage";
-import Header from "./component/Header";
 import Register from "./component/Register";
 import Login from "./component/Login";
 import Profil from "./component/Profil";
@@ -15,10 +14,10 @@ import Description from "./component/Description";
 import ArtzBestätigen from "./component/ArtzBestätigen";
 import TermineBestätigung from "./component/TermineBestätigung";
 import MyTermine from "./component/MyTermine";
-import PopMenu from "./component/PopMenu";
 import { getUser } from "./utils/authUtils";
 import GlobalLayout from "./component/GlobalLayout";
 import ProtectedLayout from "./component/ProtectedLayout";
+import PopupGfg from "./component/PopMenu";
 
 function App() {
   const [count, setCount] = useState(0);
@@ -101,12 +100,25 @@ function App() {
                   <Route path="/ArtzSuchen" element={<ArtzSuchen />} />
                   <Route path="/ArtzProfil/:id " element={<ArtzProfil />} />
                   <Route path="/Description" element={<Description />} />
-                  <Route path="doctors" element={<ArtzSuchen />} />
+                  <Route
+                    path="doctors"
+                    element={<ArtzSuchen logOut={logOut} />}
+                  />
                   <Route
                     path="TermineBestätigung"
                     element={<TermineBestätigung />}
                   />
                   <Route path="MyTermine" element={<MyTermine />} />
+                  <Route
+                    path="menu"
+                    element={
+                      <PopupGfg
+                        isAuthenticated={isAuthenticated}
+                        logOut={logOut}
+                        user={user}
+                      />
+                    }
+                  />
                 </Route>
               </Routes>
             </div>

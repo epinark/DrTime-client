@@ -6,7 +6,7 @@ import axios from "axios";
 import autoprefixer from "autoprefixer";
 const styleLink = document.createElement("link");
 
-export default function ArtzSuchen() {
+export default function ArtzSuchen({ logOut }) {
   const [searchValue, setSearchValue] = useState("");
   const [doctors, setDoctors] = useState([]);
 
@@ -62,6 +62,7 @@ export default function ArtzSuchen() {
             </li>
         ))} */}
           </ul>
+          <button onClick={logOut}>Logout</button>
         </div>
       </div>
     </>

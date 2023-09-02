@@ -56,7 +56,7 @@ const Register = ({
         <div className="flex justify-center flex-col">
           <form action="get" onSubmit={handleSubmit}>
             <div id="my Form">
-              {/* <div id="anrede" className="mb-6">
+              <div id="anrede" className="mb-6">
                 <h1 className="text-xl font-bold mb-4 flex justify-center  text-purple-700">
                   Anrede
                 </h1>
@@ -72,7 +72,7 @@ const Register = ({
                     <input
                       type="radio"
                       name="anrede"
-                      id="anrede"
+                      id="gender"
                       className="mx-2 w-5 h-5"
                     />
                   </div>
@@ -86,12 +86,12 @@ const Register = ({
                     <input
                       type="radio"
                       name="anrede"
-                      id="anrede"
+                      id="gender"
                       className="mx-2 w-5 h-5"
                     />
                   </div>
                 </div>
-              </div> */}
+              </div>
 
               <div className="flex mb-4">
                 <div className="flex flex-col">
@@ -166,7 +166,7 @@ const Register = ({
                   onChange={handleChange}
                 />
               </div>
-              {/* 
+
               <div className="mb-4">
                 <label
                   htmlFor="password"
@@ -182,9 +182,9 @@ const Register = ({
                   className="placeholder-italic placeholder-slate-400 block bg-white w-80 border border-slate-300 rounded-full py-2 pl-9 pr-3 shadow-sm sm:text-sm mx-auto mt-2"
                   placeholder="Ihr Password wieder hier..."
                 />
-              </div> */}
+              </div>
 
-              {/* <div className="flex justify-between items-center mt-7">
+              <div className="flex justify-between items-center mt-7">
                 <label
                   htmlFor=""
                   className=" text-xl font-bold  text-purple-700 "
@@ -193,6 +193,7 @@ const Register = ({
                 </label>
                 <input
                   type="date"
+                  id="birthDate"
                   className="placeholder-italic placeholder-slate-400 block bg-white w-40 border border-slate-300 rounded-full py-2 pl-9 pr-3 shadow-sm sm:text-sm mx-auto "
                 />
               </div>
@@ -228,7 +229,7 @@ const Register = ({
                     <input
                       type="number"
                       name="plz"
-                      id="plz"
+                      id="PLZ"
                       className="placeholder-italic placeholder-slate-400 block bg-white w-24 border border-slate-300 rounded-full py-2 pl-9 pr-3 shadow-sm sm:text-sm mx-auto mr-2"
                       placeholder="35683"
                     />
@@ -243,7 +244,7 @@ const Register = ({
                     <input
                       type="text"
                       name="ort"
-                      id="ort"
+                      id="City"
                       className="placeholder-italic placeholder-slate-400 block bg-white w-28 border border-slate-300 rounded-full py-2 pl-9 pr-3 shadow-sm sm:text-sm mx-auto"
                       placeholder="Dillenburg"
                     />
@@ -260,9 +261,10 @@ const Register = ({
                 </label>
                 <input
                   type="text"
+                  id="insuranceNumber"
                   className="placeholder-italic placeholder-slate-400 block bg-white w-80 border border-slate-300 rounded-full py-2 pl-9 pr-3 shadow-sm sm:text-sm mx-auto mt-2"
                 />
-              </div> */}
+              </div>
 
               <div className="flex justify-center pt-10 pb-10">
                 <button
