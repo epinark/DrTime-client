@@ -11,11 +11,17 @@ const Register = ({
   loadingAuthRequest,
   setLoadingAuthRequest,
 }) => {
-  const [{ firstName, lastName, email, password }, setFormState] = useState({
+  const [{ firstName, lastName, email, password, passwordConfirmation, birthDate, telefon, PLZ, city, insuranceNumber }, setFormState] = useState({
     firstName: "",
     lastName: "",
     email: "",
     password: "",
+    passwordConfirmation: "",
+    birthDate: "",
+    telefon: "",
+    PLZ: "",
+    city: "",
+    insuranceNumber: "",
   });
 
   const handleChange = (e) =>
@@ -24,8 +30,12 @@ const Register = ({
   const handleSubmit = async (e) => {
     try {
       e.preventDefault();
-      if (!firstName || !lastName || !email || !password)
-        throw new Error("First and last name, email and password are required");
+      if (!firstName || !lastName || !email || !password || !passwordConfirmation || !birthDate || !telefon || !PLZ || !city || !insuranceNumber)
+        throw new Error("Sie müssen alle Felder ausfüllen");
+
+        if (password !== passwordConfirmation) {
+          throw new Error("Passwörter stimmen nicht überein");
+        }
 
       setLoadingAuthRequest(true);
       const { data, error } = await registerUser({
@@ -33,6 +43,12 @@ const Register = ({
         lastName,
         email,
         password,
+        passwordConfirmation,
+        birthDate,
+        telefon,
+        PLZ,
+        city,
+        insuranceNumber,
       });
       if (error) throw error;
 
@@ -42,6 +58,7 @@ const Register = ({
       localStorage.setItem("token", data.token);
     } catch (error) {
       setLoadingAuthRequest(false);
+      alert(error.message);
     }
   };
   if (loadingAuthRequest) return <Loading />;
@@ -159,6 +176,7 @@ const Register = ({
                   type="password"
                   name="password"
                   id="password"
+                  minLength={8}
                   required
                   className="placeholder-italic placeholder-slate-400 block bg-white w-80 border border-slate-300 rounded-full py-2 pl-9 pr-3 shadow-sm sm:text-sm mt-2"
                   placeholder="Ihr Password hier..."
@@ -176,17 +194,22 @@ const Register = ({
                 </label>
                 <input
                   type="password"
-                  name="password"
-                  id="password"
+                  name="passwordConfirmation"
+                  value={passwordConfirmation}
+                  onChange={handleChange}
+                  id="passwordConfirmation"
+                  minLength={8}
                   required
                   className="placeholder-italic placeholder-slate-400 block bg-white w-80 border border-slate-300 rounded-full py-2 pl-9 pr-3 shadow-sm sm:text-sm mx-auto mt-2"
                   placeholder="Ihr Password wieder hier..."
                 />
               </div>
+              {password && password !== passwordConfirmation && (
+              <p className="text-purple-700">Passwörter stimmen nicht überein.</p>)}
 
               <div className="flex justify-between items-center mt-7">
                 <label
-                  htmlFor=""
+                  htmlFor="birthDate"
                   className=" text-xl font-bold  text-purple-700 "
                 >
                   Geburstdatum
@@ -194,21 +217,26 @@ const Register = ({
                 <input
                   type="date"
                   id="birthDate"
+                  name="birthDate"
+                  value={birthDate}
+                  onChange={handleChange}
                   className="placeholder-italic placeholder-slate-400 block bg-white w-40 border border-slate-300 rounded-full py-2 pl-9 pr-3 shadow-sm sm:text-sm mx-auto "
                 />
               </div>
 
               <div className="mt-4">
                 <label
-                  htmlFor=""
+                  htmlFor="Handynummer"
                   className=" text-xl font-bold  text-purple-700"
                 >
                   Handynummer
                 </label>
                 <input
                   type="tel"
-                  name="telefon"
                   id="telefon"
+                  name="telefon"
+                  value={telefon}
+                  onChange={handleChange}
                   className="placeholder-italic placeholder-slate-400 block bg-white w-80 border border-slate-300 rounded-full py-2 pl-9 pr-3 shadow-sm sm:text-sm mx-auto mt-2"
                 />
               </div>
@@ -228,23 +256,27 @@ const Register = ({
                     </label>
                     <input
                       type="number"
-                      name="plz"
+                      name="PLZ"
                       id="PLZ"
+                      value={PLZ}
+                      onChange={handleChange}
                       className="placeholder-italic placeholder-slate-400 block bg-white w-24 border border-slate-300 rounded-full py-2 pl-9 pr-3 shadow-sm sm:text-sm mx-auto mr-2"
                       placeholder="35683"
                     />
                   </div>
                   <div className="flex items-center">
                     <label
-                      htmlFor="Ort"
+                      htmlFor="City"
                       className=" font-bold mr-2  text-purple-700"
                     >
                       Ort
                     </label>
                     <input
                       type="text"
-                      name="ort"
-                      id="City"
+                      name="city"
+                      id="city"
+                      value={city}
+                      onChange={handleChange}
                       className="placeholder-italic placeholder-slate-400 block bg-white w-28 border border-slate-300 rounded-full py-2 pl-9 pr-3 shadow-sm sm:text-sm mx-auto"
                       placeholder="Dillenburg"
                     />
@@ -254,7 +286,7 @@ const Register = ({
 
               <div className="mt-4">
                 <label
-                  htmlFor=""
+                  htmlFor="insuranceNumber"
                   className=" text-xl font-bold  text-purple-700 "
                 >
                   KV-Nummer
@@ -262,6 +294,9 @@ const Register = ({
                 <input
                   type="text"
                   id="insuranceNumber"
+                  name="insuranceNumber"
+                  value={insuranceNumber}
+                  onChange={handleChange}
                   className="placeholder-italic placeholder-slate-400 block bg-white w-80 border border-slate-300 rounded-full py-2 pl-9 pr-3 shadow-sm sm:text-sm mx-auto mt-2"
                 />
               </div>
