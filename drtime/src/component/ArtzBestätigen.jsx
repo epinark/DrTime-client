@@ -5,43 +5,35 @@ import silhouetteProfil from "../assets/img-profil/silhouetteProfil.png";
 import { useParams } from "react-router-dom";
 import axios from "axios";
 
-export default function ArtzBestätigen({ userId, doctorId }) {
+export default function ArtzBestätigen({ user }) {
   const { id } = useParams();
   const [doctor, setDoctor] = useState(null);
 
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const { data } = await axios.get(
+        const response = await axios.get(
           `${import.meta.env.VITE_APP_DR_TIME}/doctors/${id}`
         );
-        setDoctor(data);
+        setDoctor(response.data);
       } catch (error) {
         console.error("Error fetching doctor:", error);
       }
     };
     fetchData();
   }, [id]);
-  const validateUser = async () => {
-    try {
-      const response = await axios.get("auth/me");
-      const user = response.data;
-    } catch (error) {}
-  };
 
   const assignPrimaryDoctor = async () => {
     try {
-      const token = localStorage.getItem("token");
-      await validateUser(token);
-      await axios.post(
+      const response = await axios.post(
         `${import.meta.env.VITE_APP_DR_TIME}/auth/primaryDoctor`,
-        { userId, doctorId },
+        { doctorId: id, userId: user._id },
         {
-          headers: { Authorization: `Bearer ${token}` },
+          headers: { Authorization: `Bearer ${localStorage.getItem("token")}` },
         }
       );
     } catch (error) {
-      console.error(error);
+      console.error("Assignment failed", error);
     }
   };
 
@@ -69,7 +61,7 @@ export default function ArtzBestätigen({ userId, doctorId }) {
             </p>
           </p>
 
-          <Link to="/home">
+          <Link to="/MyCalender">
             <button
               onClick={assignPrimaryDoctor}
               className="bg-gradient-to-r from-blue-600 via-blue-700 to-blue-600 rounded-full w-72 h-20 text-3xl text-white mx-auto mb-5 shadow-lg"
