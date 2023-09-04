@@ -2,12 +2,12 @@ import Header from "./Header";
 import { BiPlusMedical } from "react-icons/bi";
 import { Link } from "react-router-dom";
 
-export default function HomePage() {
+export default function HomePage({ logOut }) {
   return (
     <>
       <div>
         <div>
-          <Header />
+          <Header logOut={logOut} />
         </div>
 
         <div className="pt-4">

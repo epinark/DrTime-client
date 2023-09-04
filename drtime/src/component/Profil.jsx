@@ -83,7 +83,7 @@ export default function Profil() {
         <p className="profil-mail text-xl font-bold mb-10">JohnDoe@gmail.com</p>
         <p className="profil-tel text-xl font-bold mb-10">+4956456332</p>
         <p className="profil-date text-xl font-bold mb-10">10/09/2001</p>
-        <Link to="/edit">
+        <Link to="/auth/me">
           <button className="bg-gradient-to-r from-blue-600 via-blue-700 to-blue-600 rounded-full w-72 h-20 text-3xl text-white mx-auto mb-5 cursor-pointer ">
             Bearbeiten
           </button>

@@ -84,7 +84,7 @@ function App() {
                       />
                     }
                   />
-                  <Route path="/home" element={<HomePage />} />
+                  <Route path="/home" element={<HomePage logOut={logOut} />} />
                   <Route
                     path="auth"
                     element={
@@ -92,10 +92,16 @@ function App() {
                     }
                   >
                     <Route index element={<Profil user={user} />} />
-                    <Route path="me" element={<EditProfil />} />{" "}
+                    <Route path="me" element={<EditProfil />} />
                   </Route>
-                  <Route path="doctors/:id" element={<ArtzBestätigen />} />
-                  <Route path="/profilDoc/:id" element={<ArtzProfil />} />
+                  <Route
+                    path="doctors/:id"
+                    element={<ArtzBestätigen user={user} />}
+                  />
+                  <Route
+                    path="/profilDoc/:id"
+                    element={<ArtzProfil user={user} />}
+                  />
                   <Route path="/MyCalendar" element={<MyCalendar />} />
                   <Route path="/ArtzSuchen" element={<ArtzSuchen />} />
                   <Route path="/ArtzProfil/:id " element={<ArtzProfil />} />
@@ -109,16 +115,6 @@ function App() {
                     element={<TermineBestätigung />}
                   />
                   <Route path="MyTermine" element={<MyTermine />} />
-                  <Route
-                    path="menu"
-                    element={
-                      <PopupGfg
-                        isAuthenticated={isAuthenticated}
-                        logOut={logOut}
-                        user={user}
-                      />
-                    }
-                  />
                 </Route>
               </Routes>
             </div>

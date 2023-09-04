@@ -1,6 +1,7 @@
 import { Link } from "react-router-dom";
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import Header from "./Header";
+import axios from "axios";
 
 export default function EditProfil() {
   return (
@@ -12,44 +13,7 @@ export default function EditProfil() {
         <p className="text-5xl font-bold mb-5  text-purple-700 ">
           Daten ändern:
         </p>
-        <form action="get">
-          <div id="anrede" className="mb-6">
-            <h1 className="text-xl font-bold mb-4 flex justify-center  text-purple-700  ">
-              Anrede
-            </h1>
-
-            <div className="flex justify-evenly">
-              <div className="flex">
-                <label
-                  htmlFor="Herr"
-                  className="font-bold mb-2  text-purple-700  "
-                >
-                  Herr
-                </label>
-                <input
-                  type="radio"
-                  name="anrede"
-                  id="anrede"
-                  className="mx-2 w-5 h-5"
-                />
-              </div>
-              <div className="flex">
-                <label
-                  htmlFor="Frau"
-                  className=" font-bold mb-2  text-purple-700 "
-                >
-                  Frau
-                </label>
-                <input
-                  type="radio"
-                  name="anrede"
-                  id="anrede"
-                  className="mx-2 w-5 h-5"
-                />
-              </div>
-            </div>
-          </div>
-
+        <form action="get" onSubmit={handleSubmit}>
           <div className="flex mb-4">
             <div className="flex flex-col">
               <label
@@ -61,7 +25,8 @@ export default function EditProfil() {
               <input
                 type="text"
                 className="placeholder-italic placeholder-slate-400 block bg-white w-32 border border-slate-300 rounded-full py-2 pl-9 pr-3 shadow-sm sm:text-sm mx-auto mr-8"
-                placeholder="John"
+                value={formData.firstName}
+                onChange={handleInputChange}
               />
             </div>
 
@@ -76,6 +41,8 @@ export default function EditProfil() {
                 type="name"
                 className="placeholder-italic placeholder-slate-400 block bg-white w-32 border border-slate-300 rounded-full py-2 pl-9 pr-3 shadow-sm sm:text-sm mx-auto"
                 placeholder="Doe"
+                value={formData.lastName}
+                onChange={handleInputChange}
               />
             </div>
           </div>
@@ -94,23 +61,8 @@ export default function EditProfil() {
               required
               className="placeholder-italic placeholder-slate-400 block w-80 border  rounded-full py-2 pl-9 sm:text-sm mt-2"
               placeholder="Ihre Email hier"
-            />
-          </div>
-
-          <div className="mb-4">
-            <label
-              htmlFor="password"
-              className="t text-xl font-bold text-purple-700  "
-            >
-              Password:
-            </label>
-            <input
-              type="password"
-              name="password"
-              id="password"
-              required
-              className="placeholder-italic placeholder-slate-400 block bg-white w-80 border border-slate-300 rounded-full py-2 pl-9 pr-3 shadow-sm sm:text-sm mt-2"
-              placeholder="Ihr Password hier..."
+              value={formData.email}
+              onChange={handleInputChange}
             />
           </div>
 
@@ -119,7 +71,7 @@ export default function EditProfil() {
               htmlFor="password"
               className="t text-xl font-bold  text-purple-700"
             >
-              Password wiederholen:
+              Password:
             </label>
             <input
               type="password"
@@ -138,6 +90,8 @@ export default function EditProfil() {
             <input
               type="date"
               className="placeholder-italic placeholder-slate-400 block bg-white w-40 border border-slate-300 rounded-full py-2 pl-9 pr-3 shadow-sm sm:text-sm mx-auto "
+              value={formData.birthDate}
+              onChange={handleInputChange}
             />
           </div>
 
@@ -150,12 +104,14 @@ export default function EditProfil() {
               name="telefon"
               id="telefon"
               className="placeholder-italic placeholder-slate-400 block bg-white w-80 border border-slate-300 rounded-full py-2 pl-9 pr-3 shadow-sm sm:text-sm mx-auto mt-2"
+              value={formData.telefon}
+              onChange={handleInputChange}
             />
           </div>
 
           <div id="anrede" className="mb-6 mt-6">
             <h1 className="text-xl font-bold mb-4 flex justify-center  text-purple-700 ">
-              Aderesse
+              Adresse
             </h1>
 
             <div className="flex justify-evenly ">
@@ -172,6 +128,8 @@ export default function EditProfil() {
                   id="plz"
                   className="placeholder-italic placeholder-slate-400 block bg-white w-24 border border-slate-300 rounded-full py-2 pl-9 pr-3 shadow-sm sm:text-sm mx-auto mr-2"
                   placeholder="35683"
+                  value={formData.PLZ}
+                  onChange={handleInputChange}
                 />
               </div>
               <div className="flex items-center">
@@ -199,12 +157,17 @@ export default function EditProfil() {
             <input
               type="text"
               className="placeholder-italic placeholder-slate-400 block bg-white w-80 border border-slate-300 rounded-full py-2 pl-9 pr-3 shadow-sm sm:text-sm mx-auto mt-2"
+              value={formData.insuranceNumber}
+              onChange={handleInputChange}
             />
           </div>
           <div className="flex justify-center items-center flex-col mt-3">
             <Link to="/profil">
               {" "}
-              <button className="bg-gradient-to-r from-blue-600 via-blue-700 to-blue-600 rounded-full w-72 h-20 text-3xl text-white mx-auto mb-5 cursor-pointer  ">
+              <button
+                className="bg-gradient-to-r from-blue-600 via-blue-700 to-blue-600 rounded-full w-72 h-20 text-3xl text-white mx-auto mb-5 cursor-pointer  "
+                type="submit"
+              >
                 Speichern
               </button>
             </Link>
