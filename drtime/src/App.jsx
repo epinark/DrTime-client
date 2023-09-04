@@ -57,34 +57,37 @@ function App() {
           <BrowserRouter>
             <div className="bg-gradient-to-r from-blue-400 via-blue-200 to-blue-400  min-h-screen ">
               <Routes>
-                <Route path="/" element={<GlobalLayout logOut={logOut} />}>
-                  <Route element={<Startsite />} />
 
-                  <Route
-                    path="login"
-                    element={
-                      <Login
-                        isAuthenticated={isAuthenticated}
-                        setIsAuthenticated={setIsAuthenticated}
-                        setToken={setToken}
-                        loadingAuthRequest={loadingAuthRequest}
-                        setLoadingAuthRequest={setLoadingAuthRequest}
-                      />
-                    }
+              <Route index element={<Startsite />} />
+
+              <Route
+                path="/login"
+                element={
+                  <Login
+                    isAuthenticated={isAuthenticated}
+                    setIsAuthenticated={setIsAuthenticated}
+                    setToken={setToken}
+                    loadingAuthRequest={loadingAuthRequest}
+                    setLoadingAuthRequest={setLoadingAuthRequest}
                   />
-                  <Route
-                    path="register"
-                    element={
-                      <Register
-                        isAuthenticated={isAuthenticated}
-                        setIsAuthenticated={setIsAuthenticated}
-                        setToken={setToken}
-                        loadingAuthRequest={loadingAuthRequest}
-                        setLoadingAuthRequest={setLoadingAuthRequest}
-                      />
-                    }
+                }
+              />
+              <Route
+                path="/register"
+                element={
+                  <Register
+                    isAuthenticated={isAuthenticated}
+                    setIsAuthenticated={setIsAuthenticated}
+                    setToken={setToken}
+                    loadingAuthRequest={loadingAuthRequest}
+                    setLoadingAuthRequest={setLoadingAuthRequest}
                   />
-                  <Route path="/home" element={<HomePage />} />
+                }
+              />
+
+                <Route path="/" element={<GlobalLayout logOut={logOut} />}>
+                  
+                  <Route path="/home" element={<HomePage user={user} />} />
                   <Route
                     path="auth"
                     element={

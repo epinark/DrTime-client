@@ -2,7 +2,7 @@ import Header from "./Header";
 import { BiPlusMedical } from "react-icons/bi";
 import { Link } from "react-router-dom";
 
-export default function HomePage() {
+export default function HomePage( { user } ) {
   return (
     <>
       <div>
@@ -36,7 +36,7 @@ export default function HomePage() {
           </section>
 
           <div className="flex justify-center pt-8">
-            <h1 className="text-5xl"> Hallo {}</h1>
+            <h1 className="text-5xl">  {`Hallo ${user.firstName}`} </h1>
           </div>
 
           <section className="flex justify-center pt-2">
