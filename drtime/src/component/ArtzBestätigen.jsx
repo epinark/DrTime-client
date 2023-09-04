@@ -39,7 +39,6 @@ export default function ArtzBestätigen({ user }) {
 
   return (
     <>
-      <Header />
       {doctor && (
         <div className="flex items-center flex-col mt-20">
           <p className="text-purple-700 items-center font-bold">
@@ -61,7 +60,7 @@ export default function ArtzBestätigen({ user }) {
             </p>
           </p>
 
-          <Link to="/MyCalender">
+          <Link to={`/MyCalendar/${doctor._id}`}>
             <button
               onClick={assignPrimaryDoctor}
               className="bg-gradient-to-r from-blue-600 via-blue-700 to-blue-600 rounded-full w-72 h-20 text-3xl text-white mx-auto mb-5 shadow-lg"

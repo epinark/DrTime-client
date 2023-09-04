@@ -11,7 +11,21 @@ const Register = ({
   loadingAuthRequest,
   setLoadingAuthRequest,
 }) => {
-  const [{ firstName, lastName, email, password, passwordConfirmation, birthDate, telefon, PLZ, city, insuranceNumber }, setFormState] = useState({
+  const [
+    {
+      firstName,
+      lastName,
+      email,
+      password,
+      passwordConfirmation,
+      birthDate,
+      telefon,
+      PLZ,
+      city,
+      insuranceNumber,
+    },
+    setFormState,
+  ] = useState({
     firstName: "",
     lastName: "",
     email: "",
@@ -30,12 +44,23 @@ const Register = ({
   const handleSubmit = async (e) => {
     try {
       e.preventDefault();
-      if (!firstName || !lastName || !email || !password || !passwordConfirmation || !birthDate || !telefon || !PLZ || !city || !insuranceNumber)
+      if (
+        !firstName ||
+        !lastName ||
+        !email ||
+        !password ||
+        !passwordConfirmation ||
+        !birthDate ||
+        !telefon ||
+        !PLZ ||
+        !city ||
+        !insuranceNumber
+      )
         throw new Error("Sie müssen alle Felder ausfüllen");
 
-        if (password !== passwordConfirmation) {
-          throw new Error("Passwörter stimmen nicht überein");
-        }
+      if (password !== passwordConfirmation) {
+        throw new Error("Passwörter stimmen nicht überein");
+      }
 
       setLoadingAuthRequest(true);
       const { data, error } = await registerUser({
@@ -65,10 +90,6 @@ const Register = ({
   if (isAuthenticated) return <Navigate to="/auth" />;
   return (
     <>
-      <div>
-        <HeaderBasic />
-      </div>
-
       <div className="pt-8 flex justify-center scrollRegisterLogin  ">
         <div className="flex justify-center flex-col">
           <form action="get" onSubmit={handleSubmit}>
@@ -205,7 +226,10 @@ const Register = ({
                 />
               </div>
               {password && password !== passwordConfirmation && (
-              <p className="text-purple-700">Passwörter stimmen nicht überein.</p>)}
+                <p className="text-purple-700">
+                  Passwörter stimmen nicht überein.
+                </p>
+              )}
 
               <div className="flex justify-between items-center mt-7">
                 <label

@@ -48,10 +48,6 @@ export default function Profil() {
   };
   return (
     <>
-      <div>
-        <Header />
-      </div>
-
       <div className=" flex  items-center  flex-col ">
         <div className="mb-20 mt-5">
           <p className="text-5xl font-bold ">Profil</p>
