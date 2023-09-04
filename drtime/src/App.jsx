@@ -17,7 +17,6 @@ import MyTermine from "./component/MyTermine";
 import { getUser } from "./utils/authUtils";
 import GlobalLayout from "./component/GlobalLayout";
 import ProtectedLayout from "./component/ProtectedLayout";
-import PopupGfg from "./component/PopMenu";
 
 function App() {
   const [count, setCount] = useState(0);
@@ -58,8 +57,9 @@ function App() {
           <BrowserRouter>
             <div className="bg-gradient-to-r from-blue-400 via-blue-200 to-blue-400  min-h-screen ">
               <Routes>
-                <Route path="/" element={<GlobalLayout />}>
-                  <Route index element={<Startsite />} />
+                <Route path="/" element={<GlobalLayout logOut={logOut} />}>
+                  <Route element={<Startsite />} />
+
                   <Route
                     path="login"
                     element={
@@ -84,7 +84,7 @@ function App() {
                       />
                     }
                   />
-                  <Route path="/home" element={<HomePage logOut={logOut} />} />
+                  <Route path="/home" element={<HomePage />} />
                   <Route
                     path="auth"
                     element={
@@ -102,19 +102,19 @@ function App() {
                     path="/profilDoc/:id"
                     element={<ArtzProfil user={user} />}
                   />
-                  <Route path="/MyCalendar" element={<MyCalendar />} />
+                  <Route path="/MyCalendar/:id" element={<MyCalendar />} />
                   <Route path="/ArtzSuchen" element={<ArtzSuchen />} />
                   <Route path="/ArtzProfil/:id " element={<ArtzProfil />} />
                   <Route path="/Description" element={<Description />} />
-                  <Route
-                    path="doctors"
-                    element={<ArtzSuchen logOut={logOut} />}
-                  />
+                  <Route path="doctors" element={<ArtzSuchen />} />
                   <Route
                     path="TermineBestätigung"
                     element={<TermineBestätigung />}
                   />
-                  <Route path="MyTermine" element={<MyTermine />} />
+                  <Route
+                    path="MyTermine/"
+                    element={<MyTermine user={user} />}
+                  />
                 </Route>
               </Routes>
             </div>

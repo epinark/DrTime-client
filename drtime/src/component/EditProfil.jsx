@@ -6,9 +6,6 @@ import axios from "axios";
 export default function EditProfil() {
   return (
     <>
-      <div>
-        <Header />
-      </div>
       <div className=" flex justify-center items-center  flex-col  scrollRegisterLogin ">
         <p className="text-5xl font-bold mb-5  text-purple-700 ">
           Daten ändern:

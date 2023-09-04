@@ -6,7 +6,7 @@ import axios from "axios";
 import autoprefixer from "autoprefixer";
 const styleLink = document.createElement("link");
 
-export default function ArtzSuchen({}) {
+export default function ArtzSuchen() {
   const [searchValue, setSearchValue] = useState("");
   const [doctors, setDoctors] = useState([]);
 
@@ -26,9 +26,6 @@ export default function ArtzSuchen({}) {
 
   return (
     <>
-      <div>
-        <Header />
-      </div>
       <div className=" flex  items-center  flex-col ">
         <p className="text-5xl mt-2  text-purple-700">Arzt suchen :</p>
         <SearchBar

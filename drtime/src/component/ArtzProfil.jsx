@@ -38,9 +38,6 @@ export default function ArtzBestätigen({ user }) {
   };
   return (
     <>
-      <div>
-        <Header />
-      </div>
       {doctor && (
         <div className=" flex  items-center  flex-col mt-5 ">
           <p className="text-5xl font-bold  text-purple-700  ">Arzt</p>

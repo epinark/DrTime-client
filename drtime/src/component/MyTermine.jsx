@@ -1,10 +1,12 @@
+import { useParams } from "react-router-dom";
 import Header from "./Header";
 import PropTypes from "prop-types";
 
-export default function MyTermine() {
+export default function MyTermine({ user }) {
   // export default function MyTermine({ citasSeleccionadas }) {
 
   // fix for the termine
+
   const citasSeleccionadas = {};
 
   MyTermine.propTypes = {
@@ -13,7 +15,6 @@ export default function MyTermine() {
 
   return (
     <>
-      <Header />
       <div>
         <div
           id="Hier die termine"
