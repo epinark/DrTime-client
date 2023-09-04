@@ -62,7 +62,6 @@ export default function ArtzSuchen({}) {
             </li>
         ))} */}
           </ul>
-          <button>Logout</button>
         </div>
       </div>
     </>
