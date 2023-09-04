@@ -4,7 +4,7 @@ import silhouetteProfil from "../assets/img-profil/silhouetteProfil.png";
 import { Link } from "react-router-dom";
 import axios from "axios";
 
-export default function Profil() {
+export default function Profil( { user }) {
   const [file, setfile] = useState("");
   let [image, setimage] = useState("");
 
@@ -75,11 +75,17 @@ export default function Profil() {
             <button className="btn btn-primary  font-bold">Save</button>
           </form>
         </div>
-        <p className="profil-name text-xl font-bold mb-10 mt-60 ">John Doe</p>
-        <p className="profil-mail text-xl font-bold mb-10">JohnDoe@gmail.com</p>
-        <p className="profil-tel text-xl font-bold mb-10">+4956456332</p>
-        <p className="profil-date text-xl font-bold mb-10">10/09/2001</p>
+        <div className="flex flex-col justify-center items-center mt-36 text-purple-700">
+            <p className="profil-name text-2xl font-bold mb-5 mt-60 ">{user.firstName}</p>
+            <p className="profil-mail text-2xl font-bold mb-5">{user.email}</p>
+            <p className="profil-tel text-2xl font-bold mb-5">{user.telefon}</p>
+            <p className="profil-date text-2xl font-bold mb-5">{user.PLZ}</p>
+            <p className="profil-date text-2xl font-bold mb-5">{user.city}</p>
+            <p className="profil-date text-2xl font-bold mb-5">{user.insuranceNumber}</p>
+        </div>
+        <div className="flex flex-col justify-center mt-20">
         <Link to="/auth/me">
+          
           <button className="bg-gradient-to-r from-blue-600 via-blue-700 to-blue-600 rounded-full w-72 h-20 text-3xl text-white mx-auto mb-5 cursor-pointer ">
             Bearbeiten
           </button>
@@ -88,7 +94,9 @@ export default function Profil() {
           <button className="bg-gradient-to-r from-blue-600 via-blue-700 to-blue-600 rounded-full w-72 h-20 text-3xl text-white mx-auto cursor-pointer">
             Zurück
           </button>
+          
         </Link>
+        </div>
       </div>
     </>
   );
