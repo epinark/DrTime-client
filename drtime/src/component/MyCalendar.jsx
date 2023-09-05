@@ -201,7 +201,7 @@ export default function MyCalendar({ user }) {
 
           <div
             className="grid grid-cols-3 "
-            onClick={() => handleTerminCreation()}
+            //
           >
             {timeSlots.map((time, index) => (
               <button
@@ -223,7 +223,10 @@ export default function MyCalendar({ user }) {
           </Link>
           <Link to={`/description/${id}`}>
             {" "}
-            <button className="bg-gradient-to-r from-blue-600 via-blue-700 to-blue-600 rounded-full w-40 h-20 text-3xl text-white">
+            <button
+              onClick={() => handleTerminCreation()}
+              className="bg-gradient-to-r from-blue-600 via-blue-700 to-blue-600 rounded-full w-40 h-20 text-3xl text-white"
+            >
               Weiter
             </button>
           </Link>
