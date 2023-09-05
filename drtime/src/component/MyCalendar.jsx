@@ -46,7 +46,7 @@ function AvailableHours({ selectedDate, handleCitaSeleccionada }, { user }) {
 
   return (
     <div className="">
-      {selectedDate && doctor && (
+      {selectedDate && doctor && user && (
         <div>
           <div className="">
             <h1 className="flex justify-center text-2xl text-purple-700 font-bold mb-4">
@@ -112,10 +112,9 @@ export default function MyCalendar({ user }) {
           user: user._id,
           doctor: id,
           appointmentdate: selectedDate,
-          appointmenthour: selectedTime,
-          description: "test",
+          appointmenttime: selectedTime,
+          description: "test2",
         },
-
         {
           headers: { Authorization: `Bearer ${localStorage.getItem("token")}` },
         }
@@ -200,9 +199,16 @@ export default function MyCalendar({ user }) {
             />
           </div>
 
-          <div>
+          <div
+            className="grid grid-cols-3 "
+            onClick={() => handleTerminCreation()}
+          >
             {timeSlots.map((time, index) => (
-              <button onClick={() => handleSelectedTime(time)} key={index}>
+              <button
+                className="bg-gradient-to-r from-blue-600 via-blue-700 to-blue-600 rounded-full w-24 h-12 text-xl text-white m-2"
+                onClick={() => handleSelectedTime(time)}
+                key={index}
+              >
                 {time}
               </button>
             ))}
@@ -224,7 +230,7 @@ export default function MyCalendar({ user }) {
         </div>
       </div>
       {/* Mostrar las horas del siguiente día */}
-      {nextDayHours.length > 0 && (
+      {/* {nextDayHours.length > 0 && (
         <div>
           <h2 className="text-2xl text-purple-700 font-bold mt-5">
             Verfügbarkeit am nächsten Tag
@@ -242,11 +248,11 @@ export default function MyCalendar({ user }) {
             ))}
           </div>
         </div>
-      )}
+      )} */}
 
-      <div>
+      {/* <div>
         <button onClick={() => handleTerminCreation()}>Test Termin</button>
-      </div>
+      </div> */}
     </div>
   );
 }
