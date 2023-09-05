@@ -4,7 +4,7 @@ import silhouetteProfil from "../assets/img-profil/silhouetteProfil.png";
 import { Link } from "react-router-dom";
 import axios from "axios";
 
-export default function Profil() {
+export default function Profil({ user }) {
   const [file, setfile] = useState("");
   let [image, setimage] = useState("");
 

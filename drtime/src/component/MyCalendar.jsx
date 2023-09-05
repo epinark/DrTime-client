@@ -6,47 +6,26 @@ import { Link } from "react-router-dom";
 import { useParams } from "react-router-dom";
 import axios from "axios";
 
-function AvailableHours({ selectedDate, handleCitaSeleccionada }) {
+function AvailableHours({ selectedDate, handleCitaSeleccionada }, { user }) {
   const [availableHours, setAvailableHours] = useState([]);
+  const { id } = useParams();
+  const [doctor, setDoctor] = useState(null);
 
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        const response = await axios.get(
+          `${import.meta.env.VITE_APP_DR_TIME}/doctors/${id}`
+        );
+        setDoctor(response.data);
+      } catch (error) {
+        console.error("Error fetching doctor:", error);
+      }
+    };
+    fetchData();
+  }, [id]);
   // Función para cargar las horas disponibles basadas en la date seleccionada
-  const loadAvailableHours = () => {
-    // Aquí llamada a backend para obtener las horas disponibles
-    // Por ahora ejemplo estático
-    const { id } = useParams();
-    const [doctor, setDoctor] = useState(null);
-
-    useEffect(() => {
-      const fetchData = async () => {
-        try {
-          const response = await axios.get(
-            `${import.meta.env.VITE_APP_DR_TIME}/doctors/${id}`
-          );
-          setDoctor(response.data);
-        } catch (error) {
-          console.error("Error fetching doctor:", error);
-        }
-      };
-      fetchData();
-    }, [id]);
-    {
-      doctor.timings.startTime;
-    }
-
-    const exampleAvailableHours = [
-      "09:00",
-      "09:30",
-      "09:50",
-      "10:00",
-      "10:25",
-      "10:40",
-      "11:00",
-      "11:20",
-      "11:40",
-      "14:00",
-    ];
-    setAvailableHours(exampleAvailableHours);
-  };
+  const loadAvailableHours = () => {};
 
   // Cargar las horas disponibles cuando la date seleccionada cambie
   React.useEffect(() => {

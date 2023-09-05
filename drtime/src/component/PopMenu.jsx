@@ -82,9 +82,6 @@ export default function PopupGfg({ logOut }) {
                   </button>
                 </Link>
               </div>
-              <div>
-                <button onClick={() => close()}>Close modal</button>
-              </div>
             </div>
           </div>
         }
