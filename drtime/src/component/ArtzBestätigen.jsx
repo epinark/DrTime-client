@@ -32,6 +32,8 @@ export default function ArtzBestätigen({ user }) {
           headers: { Authorization: `Bearer ${localStorage.getItem("token")}` },
         }
       );
+
+      sessionStorage.setItem("doctorId", id);
     } catch (error) {
       console.error("Assignment failed", error);
     }
@@ -68,7 +70,7 @@ export default function ArtzBestätigen({ user }) {
               Bestätigen
             </button>
           </Link>
-          <Link to="/ArtzProfil">
+          <Link to="/ArtzSuchen">
             <button className="bg-gradient-to-r from-blue-600 via-blue-700 to-blue-600 rounded-full w-72 h-20 text-3xl text-white mx-auto mb-5 cursor-pointer shadow-lg">
               Abbrechen
             </button>

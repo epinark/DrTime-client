@@ -2,10 +2,13 @@ import Popup from "reactjs-popup";
 import "reactjs-popup/dist/index.css";
 import { BiMenu } from "react-icons/bi";
 import { Link, useLocation } from "react-router-dom";
+import { useParams } from "react-router-dom";
+import axios from "axios";
+import { useState, useEffect } from "react";
 
 export default function PopupGfg({ logOut }) {
   // const location = useLocation();
-
+  const { id } = useParams();
   // useEffect(() => {
   //     const hmButton = document.querySelector('.hm');
   //     if (hmButton) {
@@ -17,6 +20,25 @@ export default function PopupGfg({ logOut }) {
   //     }
   // }, [location.pathname]);
 
+  const [doctor, setDoctor] = useState(null);
+  const doctorId = sessionStorage.getItem("doctorId");
+
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        const response = await axios.get(
+          `${import.meta.env.VITE_APP_DR_TIME}/doctors/${doctorId}`
+        );
+        setDoctor(response.data);
+      } catch (error) {
+        console.error("Error fetching doctor:", error);
+      }
+    };
+    fetchData();
+  }, [id]);
+  const closePopupOnLinkClick = () => {
+    Popup.close();
+  };
   return (
     <div>
       <Popup
@@ -28,6 +50,7 @@ export default function PopupGfg({ logOut }) {
         }
         modal
         nested
+        closeOnDocumentClick={false}
       >
         {
           <div id="sd" className="h-auto  bg-cyan-400 px-2">
@@ -38,7 +61,7 @@ export default function PopupGfg({ logOut }) {
                                 } else{
                                     document.querySelector('.hm').style.display='flex' 
                                 } */}
-                <Link to="/home">
+                <Link to="/home" onClick={closePopupOnLinkClick}>
                   {" "}
                   <button className="bg-gradient-to-r from-blue-600 via-blue-700 to-blue-600 rounded-full w-44 h-14 text-white hm">
                     Home{" "}
@@ -47,7 +70,7 @@ export default function PopupGfg({ logOut }) {
               </div>
 
               <div className="flex justify-center pt-4">
-                <Link to="/me">
+                <Link to="/auth" onClick={closePopupOnLinkClick}>
                   <button className="bg-gradient-to-r from-blue-600 via-blue-700 to-blue-600 rounded-full w-44 h-14 text-white">
                     Profil
                   </button>
@@ -55,7 +78,10 @@ export default function PopupGfg({ logOut }) {
               </div>
 
               <div className="flex justify-center pt-4">
-                <Link to="/ArtzProfil">
+                <Link
+                  to={`/ArtzProfil/${doctorId}`}
+                  onClick={closePopupOnLinkClick}
+                >
                   {" "}
                   <button className="bg-gradient-to-r from-blue-600 via-blue-700 to-blue-600 rounded-full w-44 h-14 text-white">
                     Arzt ändern
@@ -63,7 +89,7 @@ export default function PopupGfg({ logOut }) {
                 </Link>
               </div>
               <div className="flex justify-center pt-4">
-                <Link to="/MyTermine">
+                <Link to="/MyTermine" onClick={closePopupOnLinkClick}>
                   {" "}
                   <button className="bg-gradient-to-r from-blue-600 via-blue-700 to-blue-600 rounded-full w-44 h-14 text-white">
                     Termine

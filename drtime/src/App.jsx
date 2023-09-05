@@ -100,7 +100,7 @@ function App() {
                     element={<ArtzBestätigen user={user} />}
                   />
                   <Route
-                    path="/profilDoc/:id"
+                    path="/ArtzProfil/:id"
                     element={<ArtzProfil user={user} />}
                   />
                   <Route
@@ -108,7 +108,6 @@ function App() {
                     element={<MyCalendar user={user} />}
                   />
                   <Route path="/ArtzSuchen" element={<ArtzSuchen />} />
-                  <Route path="/ArtzProfil/:id " element={<ArtzProfil />} />
                   <Route
                     path="/Description/:id"
                     element={<Description user={user} />}
@@ -119,7 +118,7 @@ function App() {
                     element={<TermineBestätigung user={user} />}
                   />
                   <Route
-                    path="MyTermine/"
+                    path="/MyTermine"
                     element={<MyTermine user={user} />}
                   />
                 </Route>

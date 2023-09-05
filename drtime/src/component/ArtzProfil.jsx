@@ -8,6 +8,7 @@ import axios from "axios";
 export default function ArtzBestätigen({ user }) {
   const { id } = useParams();
   const [doctor, setDoctor] = useState(null);
+  const [updatedDoctor, setUpdatedDoctor] = useState(null);
 
   useEffect(() => {
     const fetchData = async () => {
@@ -32,6 +33,7 @@ export default function ArtzBestätigen({ user }) {
           headers: { Authorization: `Bearer ${localStorage.getItem("token")}` },
         }
       );
+      setUpdatedDoctor(response.data);
     } catch (error) {
       console.error("Assignment failed", error);
     }

@@ -71,7 +71,10 @@ function AvailableHours({ selectedDate, handleCitaSeleccionada }, { user }) {
   );
 }
 
-export default function MyCalendar() {
+export default function MyCalendar({ user }) {
+  const { id } = useParams();
+
+  const [appointmentDate, setAppointmentDate] = useState(null);
   const [selectedDate, setSelectedDate] = useState(null);
   const [citasSeleccionadas, setCitasSeleccionadas] = useState([]);
   const [nextDayHours, setNextDayHours] = useState([]);
@@ -82,6 +85,46 @@ export default function MyCalendar() {
 
   const handleCitaSeleccionada = (termin) => {
     setCitasSeleccionadas([...citasSeleccionadas, termin]);
+  };
+
+  const [selectedTime, setSelectedTime] = useState(null);
+
+  // Define the start and end times
+  const startTime = 9;
+  const endTime = 16;
+
+  // Create an array of time slots
+  const timeSlots = [];
+  for (let hour = startTime; hour <= endTime; hour++) {
+    timeSlots.push(`${hour}:00`);
+    timeSlots.push(`${hour}:30`);
+  }
+
+  const handleSelectedTime = (time) => {
+    setSelectedTime(time);
+  };
+
+  const handleTerminCreation = async () => {
+    try {
+      const response = await axios.post(
+        `${import.meta.env.VITE_APP_DR_TIME}/appointments/`,
+        {
+          user: user._id,
+          doctor: id,
+          appointmentdate: selectedDate,
+          appointmenthour: selectedTime,
+          description: "test",
+        },
+
+        {
+          headers: { Authorization: `Bearer ${localStorage.getItem("token")}` },
+        }
+      );
+      setAppointmentDate(response.data);
+      sessionStorage.setItem("appointmentId", id);
+    } catch (error) {
+      console.error("Appointment failed failed", error);
+    }
   };
 
   // Función para obtener las horas del siguiente día
@@ -149,20 +192,30 @@ export default function MyCalendar() {
               }
             />
           </div>
+
           <div>
             <AvailableHours
               selectedDate={selectedDate}
               handleCitaSeleccionada={handleCitaSeleccionada}
             />
           </div>
+
+          <div>
+            {timeSlots.map((time, index) => (
+              <button onClick={() => handleSelectedTime(time)} key={index}>
+                {time}
+              </button>
+            ))}
+          </div>
         </div>
+
         <div className="flex justify-around mt-5">
           <Link to="/home">
             <button className="bg-gradient-to-r from-blue-600 via-blue-700 to-blue-600 rounded-full w-40 h-20 text-3xl text-white">
               Zurück
             </button>
           </Link>
-          <Link to="/description">
+          <Link to={`/description/${id}`}>
             {" "}
             <button className="bg-gradient-to-r from-blue-600 via-blue-700 to-blue-600 rounded-full w-40 h-20 text-3xl text-white">
               Weiter
@@ -190,6 +243,10 @@ export default function MyCalendar() {
           </div>
         </div>
       )}
+
+      <div>
+        <button onClick={() => handleTerminCreation()}>Test Termin</button>
+      </div>
     </div>
   );
 }

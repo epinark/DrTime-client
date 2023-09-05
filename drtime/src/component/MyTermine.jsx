@@ -1,17 +1,33 @@
-import { useParams } from "react-router-dom";
-import Header from "./Header";
-import PropTypes from "prop-types";
+import React, { useState, useEffect } from "react";
+import axios from "axios";
 
 export default function MyTermine({ user }) {
   // export default function MyTermine({ citasSeleccionadas }) {
 
   // fix for the termine
 
-  const citasSeleccionadas = {};
+  // const citasSeleccionadas = {};
 
-  MyTermine.propTypes = {
-    citasSeleccionadas: PropTypes.array.isRequired, // Define la validación para citasSeleccionadas
-  };
+  // MyTermine.propTypes = {
+  //   citasSeleccionadas: PropTypes.array.isRequired, // Define la validación para citasSeleccionadas
+  // };
+
+  const [termins, setTermins] = useState([]);
+
+  useEffect(() => {
+    const getAllTermins = async () => {
+      try {
+        const response = await axios.get(
+          `${import.meta.env.VITE_APP_DR_TIME}/appointments/`,
+          { userId: user._id }
+        );
+        setTermins(response.data);
+      } catch (error) {
+        console.error(error);
+      }
+    };
+    getAllTermins();
+  }, []);
 
   return (
     <>
@@ -28,16 +44,36 @@ export default function MyTermine({ user }) {
             className="bg-white rounded-xl w-40 m-5 TerminList"
           >
             <div className="flex flex-col justify-center">
-              {citasSeleccionadas.length > 0 ? (
-                citasSeleccionadas.map((cita, index) => (
+              {termins.length > 0 ? (
+                termins.map((termin, index) => (
                   <div
                     key={index}
                     className="bg-gradient-to-r from-blue-600 via-blue-700 to-blue-600 
                     rounded-xl flex justify-center items-center flex-col text-white font-bold  m-3"
                   >
                     <span className="mb-4 text-xl">HausArzt</span>
-                    <span>Date: {cita.fecha}</span>
-                    <span>Time: {cita.hora}</span>
+                    {/* <span>{`Arzt/Ärztin:  ${termin.doctor.name}`}</span> */}
+                    <span>
+                      Date:{" "}
+                      {new Date(termin.appointmentdate).toLocaleDateString(
+                        "en-GB",
+                        {
+                          day: "2-digit",
+                          month: "2-digit",
+                          year: "numeric",
+                        }
+                      )}
+                    </span>
+                    <span>
+                      Time:{" "}
+                      {new Date(termin.appointmentdate).toLocaleTimeString(
+                        "en-US",
+                        {
+                          hour: "2-digit",
+                          minute: "2-digit",
+                        }
+                      )}
+                    </span>
                   </div>
                 ))
               ) : (

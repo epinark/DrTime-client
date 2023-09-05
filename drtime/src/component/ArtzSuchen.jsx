@@ -39,7 +39,7 @@ export default function ArtzSuchen() {
                 <li className="flex items-center space-x-4 mt-8 ">
                   <div className="w-22 h-20">
                     <img
-                      className="w-20 h-20 rounded-full shadow-lg"
+                      className="w-20 h-20 ml-2 rounded-full shadow-lg"
                       src={doctor.profilePhoto}
                       alt="Image Silhouette"
                     />
