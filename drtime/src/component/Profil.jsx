@@ -6,7 +6,32 @@ import axios from "axios";
 
 export default function Profil({user}) {
   const [file, setfile] = useState("");
-  let [image, setimage] = useState("");
+
+  //ProfilBild
+
+  let [image, setImage] = useState("");
+  const [url, setUrl] = useState("");
+   
+  const uploadImage = () => {
+    const data = new FormData()
+    data.append("file",image)
+    data.append("upload_preset", "unsigned_upload")
+    data.append("cloud_name","dygtyitsh")
+    fetch("https://api.cloudinay.com/v2/dygtyitsh/image/upload",{
+      method:"post",
+      body:data
+
+    })
+    .then(resp =>resp.json())
+    .then(data =>{
+      setUrl(data.url)
+      
+      
+    })
+    .catch(err => console.log(err))
+  }
+
+
 
 //edit fonction
 const [name, setName] = useState(user.firstName + " " + user.lastName);
@@ -50,49 +75,27 @@ const handleInsuranceNumberChange = (e) => {
 };
 
 
-
-//ProfilBild
-  useEffect(() => {
-    fetch("/profil")
-      .then((res) => res.json())
-      .then((image) => setimage(image));
-  }, []);
-
-  function previewFiles(file) {
-    const reader = new FileReader();
-    reader.readAsDataURL(file);
-
-    reader.onloadend = () => {
-      image = setimage(reader.result);
-      // console.log(image);
-    };
+//profilEdit
+const updateProfil = async () => {
+  try {
+    const response = await axios.put(
+      `${import.meta.env.VITE_APP_DR_TIME}/auth/me`,
+      { userId: user._id },
+      {
+        headers: { Authorization: `Bearer ${localStorage.getItem("token")}` },
+      }
+    );
+  } catch (error) {
+    console.error("Update failed", error);
   }
-  const handleChange = (e) => {
-    e.preventDefault();
-    const file = e.target.files[0];
-    setfile(file);
-
-    previewFiles(file);
-    console.log(file);
-    // setfile(e.target.files)
-  };
-
-  const handleSubmit = async (e) => {
-    const result = await axios.post("http://localhost:5000", {
-      image: image,
-    });
-
-    try {
-      // console.log(result.data);
-    } catch (err) {
-      console.log(err);
-    }
-    //console.log(e.target.files);
-    // setfile(e.target.files)
-  };
-  console.log(user);
+};
 
 
+
+
+  
+
+  
   return (
     <>
       <div>
@@ -107,8 +110,9 @@ const handleInsuranceNumberChange = (e) => {
         <div className="justify-center   pp absolute mt-20">
           <form className="flex flex-col" onSubmit={(e) => handleSubmit(e)}>
             <label htmlFor="profilPic">
+          
               <img
-                src={image ? image : silhouetteProfil}
+                src={image ={url} ||  silhouetteProfil}
                 className=" w-40 h-40 pic rounded-full mb-2"
                 placeholder=""
               />
@@ -119,11 +123,15 @@ const handleInsuranceNumberChange = (e) => {
               className="choosePic hidden "
               name="Bild"
               id="profilPic"
-              onChange={(e) => handleChange(e)}
+              onChange={(e) =>  setImage(e.target.files[0])}
+              
               required
               accept="image/png, image/jpeg, image/jpg, image/jfif"
             />
-            <button className="btn btn-primary  font-bold">Save</button>
+           <button onClick={() => {
+             updateProfil();
+           uploadImage();
+}} className="btn btn-primary  font-bold">Save</button>
           </form>
         </div>
          
