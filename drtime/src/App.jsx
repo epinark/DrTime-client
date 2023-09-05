@@ -93,7 +93,7 @@ function App() {
                     }
                   >
                     <Route index element={<Profil user={user} />} />
-                    <Route path="me" element={<EditProfil />} />
+                    <Route path="auth" element={<EditProfil />} />
                   </Route>
                   <Route
                     path="doctors/:id"

@@ -35,9 +35,9 @@ export default function HomePage({ user }) {
             </div>
           </section>
 
-          <div className="flex justify-center pt-8">
-            {/* <h1 className="text-5xl"> {`Hallo ${user.firstName}`} </h1> */}
-          </div>
+          {/* <div className="flex justify-center pt-8">
+            <h1 className="text-5xl"> {`Hallo ${user.firstName}`} </h1>
+          </div> */}
 
           <section className="flex justify-center pt-2">
             <div className="pt-8">

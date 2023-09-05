@@ -18,8 +18,7 @@ export default function MyTermine({ user }) {
     const getAllTermins = async () => {
       try {
         const response = await axios.get(
-          `${import.meta.env.VITE_APP_DR_TIME}/appointments/`,
-          { userId: user._id }
+          `${import.meta.env.VITE_APP_DR_TIME}/appointments/`
         );
         setTermins(response.data);
       } catch (error) {
