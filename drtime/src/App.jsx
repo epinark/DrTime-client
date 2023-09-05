@@ -85,7 +85,7 @@ function App() {
                 />
 
                 <Route path="/" element={<GlobalLayout logOut={logOut} />}>
-                  <Route path="/home" element={<HomePage />} />
+                  <Route path="/home" element={<HomePage user={user} />} />
                   <Route
                     path="auth"
                     element={

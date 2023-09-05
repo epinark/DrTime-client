@@ -2,39 +2,40 @@ import Calendar from "react-calendar";
 import React, { useState, useEffect } from "react";
 import "react-calendar/dist/Calendar.css";
 import { Link } from "react-router-dom";
-// import MyTermine from './MyTermine'; // Importa MyTermine
 import { useParams } from "react-router-dom";
 import axios from "axios";
 
 function AvailableHours({ selectedDate, handleCitaSeleccionada }, { user }) {
   const [availableHours, setAvailableHours] = useState([]);
-  const { id } = useParams();
   const [doctor, setDoctor] = useState(null);
 
-  useEffect(() => {
-    const fetchData = async () => {
-      try {
-        const response = await axios.get(
-          `${import.meta.env.VITE_APP_DR_TIME}/doctors/${id}`
-        );
-        setDoctor(response.data);
-      } catch (error) {
-        console.error("Error fetching doctor:", error);
-      }
-    };
-    fetchData();
-  }, [id]);
-  // Función para cargar las horas disponibles basadas en la date seleccionada
-  const loadAvailableHours = () => {};
+  // Función para cargar las horas disponibles basadas en la fecha seleccionada
+  const loadAvailableHours = async () => {
+    try {
+      const { id } = useParams();
+      const response = await axios.get(
+        `${import.meta.env.VITE_APP_DR_TIME}/doctors/${id}`
+      );
+      setDoctor(response.data);
 
-  // Cargar las horas disponibles cuando la date seleccionada cambie
-  React.useEffect(() => {
+      // Aquí deberías obtener los horarios disponibles del doctor desde el backend
+      const availableHoursResponse = await axios.get(
+        `${import.meta.env.VITE_APP_DR_TIME}/doctors/${id}/available-hours`
+      );
+      setAvailableHours(availableHoursResponse.data);
+    } catch (error) {
+      console.error("Error fetching doctor:", error);
+    }
+  };
+
+  // Cargar las horas disponibles cuando la fecha seleccionada cambie
+  useEffect(() => {
     if (selectedDate) {
       loadAvailableHours();
     }
   }, [selectedDate]);
 
-  // Función para manejar la selección de una termin
+  // Función para manejar la selección de una cita
   const handleCitaClick = (hour) => {
     const termin = {
       date: selectedDate.toDateString(),
@@ -49,7 +50,6 @@ function AvailableHours({ selectedDate, handleCitaSeleccionada }, { user }) {
         <div>
           <div className="">
             <h1 className="flex justify-center text-2xl text-purple-700 font-bold mb-4">
-              {" "}
               Verfügbarkeit {selectedDate.toDateString()}
             </h1>
           </div>
@@ -57,10 +57,12 @@ function AvailableHours({ selectedDate, handleCitaSeleccionada }, { user }) {
             {availableHours.map((hour, index) => (
               <button
                 key={index}
-                onClick={() => handleCitaClick(hour)} // Manejar la selección de la termin
+                onClick={() => handleCitaClick(hour)}
                 className="bg-gradient-to-r from-blue-300 via-blue-300 to-blue-300
                 rounded-full flex justify-center items-center text-white font-bold text-xl w-40 h-14 m-3"
-              ></button>
+              >
+                {hour}
+              </button>
             ))}
           </div>
         </div>
@@ -71,16 +73,45 @@ function AvailableHours({ selectedDate, handleCitaSeleccionada }, { user }) {
 
 export default function MyCalendar() {
   const [selectedDate, setSelectedDate] = useState(null);
-  const [citasSeleccionadas, setCitasSeleccionadas] = useState([]); // Estado para almacenar citas seleccionadas
+  const [citasSeleccionadas, setCitasSeleccionadas] = useState([]);
+  const [nextDayHours, setNextDayHours] = useState([]);
 
   const handleDateChange = (date) => {
     setSelectedDate(date);
   };
 
-  // Función para manejar la selección de una termin
   const handleCitaSeleccionada = (termin) => {
     setCitasSeleccionadas([...citasSeleccionadas, termin]);
   };
+
+  // Función para obtener las horas del siguiente día
+  const getNextDayHours = async () => {
+    try {
+      const { id } = useParams();
+      const tomorrow = new Date(selectedDate);
+      tomorrow.setDate(selectedDate.getDate() + 1);
+
+      const response = await axios.get(
+        `${import.meta.env.VITE_APP_DR_TIME}/doctors/${id}/available-hours`,
+        {
+          params: {
+            date: tomorrow.toISOString(), // Envía la fecha del siguiente día
+          },
+        }
+      );
+
+      setNextDayHours(response.data);
+    } catch (error) {
+      console.error("Error fetching next day hours:", error);
+    }
+  };
+
+  // Cargar las horas del siguiente día cuando la fecha seleccionada cambie
+  useEffect(() => {
+    if (selectedDate) {
+      getNextDayHours();
+    }
+  }, [selectedDate]);
 
   return (
     <div>
@@ -139,8 +170,26 @@ export default function MyCalendar() {
           </Link>
         </div>
       </div>
-      {/* Pasa las citas seleccionadas a MyTermine */}
-      {/* <MyTermine citasSeleccionadas={citasSeleccionadas} /> */}
+      {/* Mostrar las horas del siguiente día */}
+      {nextDayHours.length > 0 && (
+        <div>
+          <h2 className="text-2xl text-purple-700 font-bold mt-5">
+            Verfügbarkeit am nächsten Tag
+          </h2>
+          <div className="grid grid-cols-2">
+            {nextDayHours.map((hour, index) => (
+              <button
+                key={index}
+                onClick={() => handleCitaClick(hour)}
+                className="bg-gradient-to-r from-blue-300 via-blue-300 to-blue-300
+                rounded-full flex justify-center items-center text-white font-bold text-xl w-40 h-14 m-3"
+              >
+                {hour}
+              </button>
+            ))}
+          </div>
+        </div>
+      )}
     </div>
   );
 }
