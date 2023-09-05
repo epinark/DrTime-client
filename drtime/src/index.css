@@ -145,6 +145,11 @@ body{
 
 }
 
+.scroll2{
+  overflow: auto;
+    max-height: 730px;
+}
+
 .popup-content{
    
     width:830px !important;

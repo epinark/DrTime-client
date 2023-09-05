@@ -47,7 +47,7 @@ export default function PopupGfg({ logOut }) {
               </div>
 
               <div className="flex justify-center pt-4">
-                <Link to="/me">
+                <Link to="/auth">
                   <button className="bg-gradient-to-r from-blue-600 via-blue-700 to-blue-600 rounded-full w-44 h-14 text-white">
                     Profil
                   </button>
