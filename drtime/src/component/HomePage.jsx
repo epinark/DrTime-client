@@ -3,7 +3,7 @@ import { BiPlusMedical } from "react-icons/bi";
 import { Link } from "react-router-dom";
 
 export default function HomePage({ user }) {
-  return (
+  return ( user &&
     <>
       <div>
         <div className="pt-4">
@@ -35,9 +35,9 @@ export default function HomePage({ user }) {
             </div>
           </section>
 
-          {/* <div className="flex justify-center pt-8">
+          <div className="flex justify-center pt-8">
             <h1 className="text-5xl"> {`Hallo ${user.firstName}`} </h1>
-          </div> */}
+          </div>
 
           <section className="flex justify-center pt-2">
             <div className="pt-8">

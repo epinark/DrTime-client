@@ -91,7 +91,7 @@ export default function MyCalendar({ user }) {
 
   // Define the start and end times
   const startTime = 9;
-  const endTime = 16;
+  const endTime = 15;
 
   // Create an array of time slots
   const timeSlots = [];
@@ -159,7 +159,7 @@ export default function MyCalendar({ user }) {
   return (
     <div>
       <div className="scroll calendarStyle">
-        <div className="  flex flex-col items-center justify-center mt-10">
+        <div className="  flex flex-col items-center justify-center mt-5">
           <div className="mb-8">
             <Calendar
               onChange={handleDateChange}
@@ -200,18 +200,20 @@ export default function MyCalendar({ user }) {
             />
           </div>
 
-          <div>
+          <div className="grid grid-cols-3 " onClick={() => handleTerminCreation()}>
             {timeSlots.map((time, index) => (
-              <button onClick={() => handleSelectedTime(time)} key={index}>
+              <button className="bg-gradient-to-r from-blue-600 via-blue-700 to-blue-600 rounded-full w-24 h-12 text-xl text-white m-2"
+              onClick={() => handleSelectedTime(time)}  key={index}>    
                 {time}
-              </button>
+              </button>                                           // Hieeeeeeeeeeer
             ))}
           </div>
         </div>
 
         <div className="flex justify-around mt-5">
           <Link to="/home">
-            <button className="bg-gradient-to-r from-blue-600 via-blue-700 to-blue-600 rounded-full w-40 h-20 text-3xl text-white">
+            <button className="bg-gradient-to-r from-blue-600 via-blue-700 to-blue-600 rounded-full w-40 h-20 text-3xl text-white"
+            onClick={() => handleTerminCreation()}>
               Zurück
             </button>
           </Link>
@@ -224,7 +226,7 @@ export default function MyCalendar({ user }) {
         </div>
       </div>
       {/* Mostrar las horas del siguiente día */}
-      {nextDayHours.length > 0 && (
+      {/* {nextDayHours.length > 0 && (
         <div>
           <h2 className="text-2xl text-purple-700 font-bold mt-5">
             Verfügbarkeit am nächsten Tag
@@ -242,11 +244,11 @@ export default function MyCalendar({ user }) {
             ))}
           </div>
         </div>
-      )}
+      )} */}
 
-      <div>
+      {/* <div>
         <button onClick={() => handleTerminCreation()}>Test Termin</button>
-      </div>
+      </div> */}
     </div>
   );
 }
