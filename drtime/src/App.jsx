@@ -84,7 +84,7 @@ function App() {
                       />
                     }
                   />
-                  <Route path="/home" element={<HomePage logOut={logOut} />} />
+                  <Route path="/home" element={<HomePage logOut={logOut} user={user}/>} />
                   <Route
                     path="auth"
                     element={

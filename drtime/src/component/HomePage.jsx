@@ -2,14 +2,10 @@ import Header from "./Header";
 import { BiPlusMedical } from "react-icons/bi";
 import { Link } from "react-router-dom";
 
-export default function HomePage({ logOut }) {
+export default function HomePage() {
   return (
     <>
       <div>
-        <div>
-          <Header logOut={logOut} />
-        </div>
-
         <div className="pt-4">
           <section id="my buttons für arzt termin">
             <div className="flex flex-col  ">
