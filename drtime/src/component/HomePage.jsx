@@ -45,7 +45,7 @@ export default function HomePage( { user } ) {
                     <Link to="/doctors">
                       {" "}
                       <button className="bg-gradient-to-r from-blue-600 via-blue-700 to-blue-600 rounded-full w-72 h-20 text-3xl text-white">
-                        Hausarzt
+                      Neuer Termin
                       </button>
                     </Link>
                   </div>
