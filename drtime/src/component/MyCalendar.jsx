@@ -91,7 +91,7 @@ export default function MyCalendar({ user }) {
 
   // Define the start and end times
   const startTime = 9;
-  const endTime = 15;
+  const endTime = 16;
 
   // Create an array of time slots
   const timeSlots = [];
@@ -204,10 +204,13 @@ export default function MyCalendar({ user }) {
             //
           >
             {timeSlots.map((time, index) => (
-              <button className="bg-gradient-to-r from-blue-600 via-blue-700 to-blue-600 rounded-full w-24 h-12 text-xl text-white m-2 active:bg-violet-700 focus:outline-xl focus:ring focus:ring-violet-700"
-              onClick={() => handleSelectedTime(time)}  key={index}>    
+              <button
+                className="bg-gradient-to-r from-blue-600 via-blue-700 to-blue-600 rounded-full w-24 h-12 text-xl text-white m-2 active:bg-violet-700 focus:outline-xl focus:ring focus:ring-violet-700"
+                onClick={() => handleSelectedTime(time)}
+                key={index}
+              >
                 {time}
-              </button>                                           // Hieeeeeeeeeeer
+              </button> // Hieeeeeeeeeeer
             ))}
           </div>
         </div>
