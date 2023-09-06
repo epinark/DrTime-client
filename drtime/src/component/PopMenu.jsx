@@ -6,20 +6,8 @@ import { useParams } from "react-router-dom";
 import axios from "axios";
 import { useState, useEffect } from "react";
 
-export default function PopupGfg({ logOut }) {
-  // const location = useLocation();
+export default function PopupGfg({ logOut, userId }) {
   const { id } = useParams();
-  // useEffect(() => {
-  //     const hmButton = document.querySelector('.hm');
-  //     if (hmButton) {
-  //         if (location.pathname === '/home') {
-  //             hmButton.style.display = 'none';
-  //         } else {
-  //             hmButton.style.display = 'flex';
-  //         }
-  //     }
-  // }, [location.pathname]);
-
   const [doctor, setDoctor] = useState(null);
   const doctorId = sessionStorage.getItem("doctorId");
 
@@ -56,11 +44,6 @@ export default function PopupGfg({ logOut }) {
           <div id="sd" className="h-auto  bg-cyan-400 px-2">
             <div className="flex flex-col  ">
               <div className="flex justify-center  pt-4">
-                {/* if(window.location="/home"){
-                                    document.querySelector('.hm').style.display='none'
-                                } else{
-                                    document.querySelector('.hm').style.display='flex' 
-                                } */}
                 <Link to="/home" onClick={closePopupOnLinkClick}>
                   {" "}
                   <button className="bg-gradient-to-r from-blue-600 via-blue-700 to-blue-600 rounded-full w-44 h-14 text-white hm">

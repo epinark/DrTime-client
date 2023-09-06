@@ -212,12 +212,12 @@ export default function Profil({ user }) {
                   placeholder={user.insuranceNumber}
                 />
 
-                {/* <button
-          className="btn btn-primary font-bold save-button"
-          onClick={handleSaveClick}
-        >
-          save
-        </button> */}
+                <button
+                  className="btn btn-primary font-bold save-button"
+                  onClick={handleSaveClick}
+                >
+                  save
+                </button>
               </>
             ) : (
               <>

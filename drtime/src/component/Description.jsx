@@ -82,7 +82,7 @@ export default function Description({ user }) {
           </select>
         </div>
         <div className="mt-5 flex ">
-          <Link to="/MyCalendar">
+          <Link to="/ArtzSuchen">
             <button className="bg-gradient-to-r from-blue-600 via-blue-700 to-blue-600 rounded-full w-40 h-20 text-2xl text-white  mb-5 mx-5 ">
               Zurück
             </button>
