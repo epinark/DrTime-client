@@ -214,8 +214,7 @@ export default function MyCalendar({ user }) {
 
         <div className="flex justify-around mt-5">
           <Link to="/ArtzSuchen">
-            <button className="bg-gradient-to-r from-blue-600 via-blue-700 to-blue-600 rounded-full w-40 h-20 text-3xl text-white"
-            >
+            <button className="bg-gradient-to-r from-blue-600 via-blue-700 to-blue-600 rounded-full w-40 h-20 text-3xl text-white">
               Zurück
             </button>
           </Link>
