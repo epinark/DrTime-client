@@ -73,6 +73,16 @@ export default function Profil({ user }) {
     setIsEditing(true);
   };
 
+  //save edit 
+  // const handleSaveClick = () =>{
+  //   setIsEditing(false);
+  // };
+
+
+
+
+
+
   const handleNameChange = (e) => {
     setNewUser({ ...newUser, firstName: e.target.value });
   };
