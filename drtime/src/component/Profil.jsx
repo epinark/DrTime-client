@@ -165,7 +165,7 @@ export default function Profil({ user }) {
             </form>
           </div>
 
-          <div className="profil-name scroll font-bold mb-5 mt-40 flex flex-col justify-center items-center text-2xl text-purple-700    ">
+          <div className="profil-name scroll font-bold mb-5 mt-40 flex flex-col justify-center items-center text-2xl text-purple-700 ">
             {isEditing ? (
               <>
                 <input
@@ -232,10 +232,10 @@ export default function Profil({ user }) {
               </>
             ) : (
               <>
-                <p> {`${user.firstName} ${user.lastName}`}</p>
-                <p> {`${user.email}`} </p>
-                <p> {`${user.telefon} `}</p>
-                <p> {`${user.PLZ}`}</p>
+                <p>{`${user.firstName} ${user.lastName}`}</p>
+                <p>{`${user.email}`} </p>
+                {/* <p>{`${user.telefon}`}</p> */}
+                <p>{`${user.PLZ}`}</p>
                 <p>{`${user.city}`} </p>
                 <p>{`${user.insuranceNumber}`}</p>
 

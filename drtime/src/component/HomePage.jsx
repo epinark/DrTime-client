@@ -65,13 +65,13 @@ export default function HomePage( { user } ) {
                 </div>
               </section>
               <div className="flex justify-center pt-8">
-                <h1 className="text-5xl"> {`Hallo ${user.firstName}`} </h1>
+                <h1 className="text-5xl text-purple-900 "> {`Hallo ${user.firstName}`} </h1>
               </div>
               {lastAppointment && (
                 <div>
                   <section className="flex justify-center pt-2">
                     <div className="pt-8">
-                      <h1 className="text-4xl flex justify-center pb-10">
+                      <h1 className="text-4xl flex justify-center pb-10 text-purple-900">
                         Ihr nächster Termin
                       </h1>
                       <div className="border-8 border-blue-700 text-blue-700 rounded-3xl flex justify-center items-center w-80 h-32 ">

@@ -48,7 +48,7 @@ export default function ArtzSuchen() {
                       alt="Image Silhouette"
                     />
                   </div>
-                  <div className=" flex flex-col">
+                  <div className=" flex flex-col ">
                     <p className="text-3xl text-purple-700  font-bold ">
                       {doctor.title}
                       {doctor.name}

@@ -59,7 +59,7 @@ export default function ArtzBestätigen({ user }) {
               src={doctor.profilePhoto}
               alt="Image Silhouette"
             />
-            <div className=" text-purple-700 text-lg text-center font-bold mb-40">
+            <div className=" text-purple-700 text-lg text-center font-bold mb-28">
               <h1 className="text-5xl" >
                 {doctor.title}
                 {doctor.name}
