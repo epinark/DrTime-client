@@ -145,6 +145,11 @@ body{
 
 }
 
+.scroll2{
+  overflow: auto;
+    max-height: 730px;
+}
+
 .popup-content{
    
     width:830px !important;
@@ -169,3 +174,25 @@ body{
     padding-top: 131px;
 
 }
+
+.editingStyle{
+
+  margin-bottom: 10px; 
+  padding: 10px; 
+  border: none; 
+  border-radius: 10px; 
+  background-color: #f0f0f0; 
+  width: 100%; 
+  font-size: 16px; 
+  outline: none; 
+}
+
+.save-button {
+  background-color: #007bff; 
+  color: #fff; 
+  border: none; 
+  border-radius: 10px; 
+  padding: 10px 20px; 
+  
+}
+

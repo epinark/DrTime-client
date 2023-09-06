@@ -57,34 +57,35 @@ function App() {
           <BrowserRouter>
             <div className="bg-gradient-to-r from-blue-400 via-blue-200 to-blue-400  min-h-screen ">
               <Routes>
-                <Route path="/" element={<GlobalLayout logOut={logOut} />}>
-                  <Route element={<Startsite />} />
+                <Route index element={<Startsite />} />
 
-                  <Route
-                    path="login"
-                    element={
-                      <Login
-                        isAuthenticated={isAuthenticated}
-                        setIsAuthenticated={setIsAuthenticated}
-                        setToken={setToken}
-                        loadingAuthRequest={loadingAuthRequest}
-                        setLoadingAuthRequest={setLoadingAuthRequest}
-                      />
-                    }
-                  />
-                  <Route
-                    path="register"
-                    element={
-                      <Register
-                        isAuthenticated={isAuthenticated}
-                        setIsAuthenticated={setIsAuthenticated}
-                        setToken={setToken}
-                        loadingAuthRequest={loadingAuthRequest}
-                        setLoadingAuthRequest={setLoadingAuthRequest}
-                      />
-                    }
-                  />
-                  <Route path="/home" element={<HomePage />} />
+                <Route
+                  path="/login"
+                  element={
+                    <Login
+                      isAuthenticated={isAuthenticated}
+                      setIsAuthenticated={setIsAuthenticated}
+                      setToken={setToken}
+                      loadingAuthRequest={loadingAuthRequest}
+                      setLoadingAuthRequest={setLoadingAuthRequest}
+                    />
+                  }
+                />
+                <Route
+                  path="/register"
+                  element={
+                    <Register
+                      isAuthenticated={isAuthenticated}
+                      setIsAuthenticated={setIsAuthenticated}
+                      setToken={setToken}
+                      loadingAuthRequest={loadingAuthRequest}
+                      setLoadingAuthRequest={setLoadingAuthRequest}
+                    />
+                  }
+                />
+
+                <Route path="/" element={<GlobalLayout logOut={logOut} />}>
+                  <Route path="/home" element={<HomePage user={user} />} />
                   <Route
                     path="auth"
                     element={
@@ -92,27 +93,32 @@ function App() {
                     }
                   >
                     <Route index element={<Profil user={user} />} />
-                    <Route path="me" element={<EditProfil />} />
+                    <Route path="auth" element={<EditProfil />} />
                   </Route>
                   <Route
                     path="doctors/:id"
                     element={<ArtzBestätigen user={user} />}
                   />
                   <Route
-                    path="/profilDoc/:id"
+                    path="/ArtzProfil/:id"
                     element={<ArtzProfil user={user} />}
                   />
-                  <Route path="/MyCalendar/:id" element={<MyCalendar />} />
+                  <Route
+                    path="/MyCalendar/:id"
+                    element={<MyCalendar user={user} />}
+                  />
                   <Route path="/ArtzSuchen" element={<ArtzSuchen />} />
-                  <Route path="/ArtzProfil/:id " element={<ArtzProfil />} />
-                  <Route path="/Description" element={<Description />} />
+                  <Route
+                    path="/Description/:id"
+                    element={<Description user={user} />}
+                  />
                   <Route path="doctors" element={<ArtzSuchen />} />
                   <Route
                     path="TermineBestätigung"
-                    element={<TermineBestätigung />}
+                    element={<TermineBestätigung user={user} />}
                   />
                   <Route
-                    path="MyTermine/"
+                    path="/MyTermine"
                     element={<MyTermine user={user} />}
                   />
                 </Route>

@@ -1,9 +1,11 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import Header from "./Header";
 import silhouetteProfil from "../assets/img-profil/silhouetteProfil.png";
 import { Link } from "react-router-dom";
+import { useParams } from "react-router-dom";
+import axios from "axios";
 
-export default function Description() {
+export default function Description({ user }) {
   const currentDate = new Date();
   const years = Array.from(
     { length: 10 },
@@ -80,7 +82,7 @@ export default function Description() {
           </select>
         </div>
         <div className="mt-5 flex ">
-          <Link to="/MyCalendar">
+          <Link to="/ArtzSuchen">
             <button className="bg-gradient-to-r from-blue-600 via-blue-700 to-blue-600 rounded-full w-40 h-20 text-2xl text-white  mb-5 mx-5 ">
               Zurück
             </button>
