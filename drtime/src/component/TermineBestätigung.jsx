@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
-
+import Loading from "./Loading";
 import juste from "../assets/images/juste.png";
 import { Link } from "react-router-dom";
 export default function TermineBestätigung() {
@@ -21,7 +21,9 @@ export default function TermineBestätigung() {
   }, []);
   
   return (
-    <>
+    <> 
+  
+    
       <div className="flex flex-col justify-center items-center mt-40">
         <div className="bg-white rounded-full w-64 h-64 flex justify-center items-center">
         <img src={juste} alt="Image juste" className="w-40 h-40 " />
@@ -61,6 +63,7 @@ export default function TermineBestätigung() {
           </button>
         </Link>
       </div>
+  
     </>
   );
 }

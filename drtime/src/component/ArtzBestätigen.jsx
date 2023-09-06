@@ -50,26 +50,26 @@ export default function ArtzBestätigen({ user }) {
         <Loading />
       ) : (
         doctor && (
-          <div className="flex items-center flex-col mt-20">
-            <p className="text-purple-700 items-center font-bold">
+          <div className="flex items-center flex-col mt-5">
+            {/* <p className="text-purple-700 items-center font-bold">
               Als Hausartz festlegen:
-            </p>
+            </p> */}
             <img
-              className="flex-column w-40 h-40 mb-8 rounded-full shadow-lg pic"
+              className="flex-column w-64 h-60 mb-8 rounded-full shadow-lg pic"
               src={doctor.profilePhoto}
               alt="Image Silhouette"
             />
-            <p className=" text-purple-700 text-lg text-center font-bold mb-40">
-              <p>
+            <div className=" text-purple-700 text-lg text-center font-bold mb-40">
+              <h1 className="text-5xl" >
                 {doctor.title}
                 {doctor.name}
-              </p>
-              <p>{doctor.specialization}</p>
-              <p>
+              </h1>
+              <h1 className="text-4xl" >{doctor.specialization}</h1>
+              <h1 className=" text-3xl">
                 {doctor.address.city}, {doctor.address.postalCode}
-              </p>
-            </p>
-
+              </h1>
+            </div>
+            <div className="flex flex-col ">
             <Link to={`/MyCalendar/${doctor._id}`}>
               <button
                 onClick={assignPrimaryDoctor}
@@ -83,6 +83,7 @@ export default function ArtzBestätigen({ user }) {
                 Abbrechen
               </button>
             </Link>
+            </div>
           </div>
         )
       )}

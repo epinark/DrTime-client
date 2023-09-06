@@ -38,7 +38,7 @@ export default function ArtzSuchen() {
           <ul className="">
             {doctors.map((doctor, index) => (
               <Link to={`/doctors/${doctor._id}`} key={index}>
-                <li className="flex items-center space-x-4 mt-8 hover:bg-gradient-to-r from-blue-450 via-blue-300 to-blue-450">
+                <li className="flex items-center space-x-4 mt-8 hover:bg-gradient-to-r from-blue-450 via-blue-400 to-blue-450">
                   <div className="w-22 h-22">
                     <img
                       className="w-20 h-20 ml-2 rounded-full shadow-lg"
