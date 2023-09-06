@@ -44,17 +44,19 @@ export default function PopupGfg({ logOut, userId }) {
           <div id="sd" className="h-auto  bg-cyan-400 px-2">
             <div className="flex flex-col  ">
               <div className="flex justify-center  pt-4">
-                <Link to="/home" onClick={closePopupOnLinkClick}>
+                <Link to="/home">
                   {" "}
-                  <button className="bg-gradient-to-r from-blue-600 via-blue-700 to-blue-600 rounded-full w-44 h-14 text-white hm">
+                  <button  onClick={closePopupOnLinkClick}
+                   className="bg-gradient-to-r from-blue-600 via-blue-700 to-blue-600 rounded-full w-44 h-14 text-white hm">
                     Home{" "}
                   </button>
                 </Link>
               </div>
 
               <div className="flex justify-center pt-4">
-                <Link to="/auth" onClick={closePopupOnLinkClick}>
-                  <button className="bg-gradient-to-r from-blue-600 via-blue-700 to-blue-600 rounded-full w-44 h-14 text-white">
+                <Link to="/auth" >
+                  <button onClick={closePopupOnLinkClick}
+                  className="bg-gradient-to-r from-blue-600 via-blue-700 to-blue-600 rounded-full w-44 h-14 text-white">
                     Profil
                   </button>
                 </Link>
@@ -63,18 +65,19 @@ export default function PopupGfg({ logOut, userId }) {
               <div className="flex justify-center pt-4">
                 <Link
                   to={`/ArtzProfil/${doctorId}`}
-                  onClick={closePopupOnLinkClick}
-                >
+                  >
                   {" "}
-                  <button className="bg-gradient-to-r from-blue-600 via-blue-700 to-blue-600 rounded-full w-44 h-14 text-white">
+                  <button onClick={closePopupOnLinkClick}
+                  className="bg-gradient-to-r from-blue-600 via-blue-700 to-blue-600 rounded-full w-44 h-14 text-white">
                     Arzt ändern
                   </button>
                 </Link>
               </div>
               <div className="flex justify-center pt-4">
-                <Link to="/MyTermine" onClick={closePopupOnLinkClick}>
+                <Link to="/MyTermine" >
                   {" "}
-                  <button className="bg-gradient-to-r from-blue-600 via-blue-700 to-blue-600 rounded-full w-44 h-14 text-white">
+                  <button onClick={closePopupOnLinkClick}
+                   className="bg-gradient-to-r from-blue-600 via-blue-700 to-blue-600 rounded-full w-44 h-14 text-white">
                     Termine
                   </button>
                 </Link>
