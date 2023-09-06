@@ -2,6 +2,7 @@
 import { Link } from "react-router-dom";
 import DRTIME from '../assets/images/DRTIME.png';
 import React, { useState, useEffect } from 'react';
+import { useNavigate } from "react-router-dom";
 
 
 
@@ -9,7 +10,7 @@ import React, { useState, useEffect } from 'react';
 
 export default function Startsite() {
     const [showImage, setShowImage] = useState(true);
-
+    const navigate = useNavigate()
     
  
    
@@ -18,7 +19,7 @@ export default function Startsite() {
         const timeoutId = setTimeout(() => {
         
           
-        window.location.replace('/login');
+        navigate('/login');
            
         }, 5000);
       }
