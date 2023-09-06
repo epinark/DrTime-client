@@ -28,7 +28,9 @@ export default function ArtzSuchen() {
     <>
       <div className=" flex  items-center  flex-col ">
         <div className="mt-10 mb-5">
-        <h1 className="text-5xl text-purple-700 flex justify-center">Arzt suchen</h1>
+          <h1 className="text-5xl text-purple-700 flex justify-center">
+            Arzt suchen
+          </h1>
         </div>
         <SearchBar
           value={searchValue}
@@ -47,13 +49,14 @@ export default function ArtzSuchen() {
                     />
                   </div>
                   <div className=" flex flex-col">
-                  <p className="text-3xl text-purple-700  font-bold ">
-                    {doctor.title}
-                    {doctor.name}
-                  </p>
-                  <p className="bg-gradient-to-r from-blue-600 via-blue-700 to-blue-600 rounded-full w-52 h-10 text-2xl text-white flex justify-center items-center">{doctor.specialization}</p>
+                    <p className="text-3xl text-purple-700  font-bold ">
+                      {doctor.title}
+                      {doctor.name}
+                    </p>
+                    <p className="bg-gradient-to-r from-blue-600 via-blue-700 to-blue-600 rounded-full w-52 h-10 text-2xl text-white flex justify-center items-center">
+                      {doctor.specialization}
+                    </p>
                   </div>
-                  
                 </li>
               </Link>
             ))}
