@@ -44,7 +44,7 @@ export default function MyTermine({}) {
             className="rounded-xl  min-h-screen  TerminList"
           >
             {loading ? (
-              <Loading /> // Veriler yüklenirken loading bileşenini göster
+              <Loading /> 
             ) : (
               <div className="flex flex-col justify-center">
                 {termins.length > 0 ? (

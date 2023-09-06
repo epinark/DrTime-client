@@ -53,7 +53,6 @@ export default function HomePage( { user } ) {
                 </button>
               </div>
             </section>
-
             <div className="flex justify-center pt-8">
               <h1 className="text-5xl"> {`Hallo ${user.firstName}`} </h1>
             </div>
@@ -63,11 +62,11 @@ export default function HomePage( { user } ) {
                 <h1 className="text-4xl flex justify-center pb-10">
                   Ihr nächster Termin
                 </h1>
-                <div className="border-8 border-blue-700 text-blue-700 rounded-3xl text-white flex justify-center items-center w-80 h-32 ">
+                <div className="border-8 border-blue-700 text-blue-700 rounded-3xl flex justify-center items-center w-80 h-32 ">
                   <h1>
                     {/* {" "}
                     Datum{} {lastAppointment}, Uhr{}{" "} */}
-                    <span className="flex justify-center">
+                    {/* <span className="flex justify-center">
                       Datum:{" "}
                       {new Date(
                         lastAppointment.appointmentdate
@@ -86,7 +85,8 @@ export default function HomePage( { user } ) {
                         minute: "2-digit",
                         hour12: false,
                       })}
-                    </span>
+                    </span> */}
+
                   </h1>
                 </div>
               </div>

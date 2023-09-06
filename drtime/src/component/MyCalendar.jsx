@@ -199,7 +199,10 @@ export default function MyCalendar({ user }) {
             />
           </div>
 
-          <div className="grid grid-cols-3 " onClick={() => handleTerminCreation()}>
+          <div
+            className="grid grid-cols-3 "
+            //
+          >
             {timeSlots.map((time, index) => (
               <button className="bg-gradient-to-r from-blue-600 via-blue-700 to-blue-600 rounded-full w-24 h-12 text-xl text-white m-2 active:bg-violet-700 focus:outline-xl focus:ring focus:ring-violet-700"
               onClick={() => handleSelectedTime(time)}  key={index}>    
@@ -210,7 +213,7 @@ export default function MyCalendar({ user }) {
         </div>
 
         <div className="flex justify-around mt-5">
-          <Link to="/home">
+          <Link to="/ArtzSuchen">
             <button className="bg-gradient-to-r from-blue-600 via-blue-700 to-blue-600 rounded-full w-40 h-20 text-3xl text-white"
             >
               Zurück
@@ -218,7 +221,10 @@ export default function MyCalendar({ user }) {
           </Link>
           <Link to={`/description/${id}`}>
             {" "}
-            <button className="bg-gradient-to-r from-blue-600 via-blue-700 to-blue-600 rounded-full w-40 h-20 text-3xl text-white">
+            <button
+              onClick={() => handleTerminCreation()}
+              className="bg-gradient-to-r from-blue-600 via-blue-700 to-blue-600 rounded-full w-40 h-20 text-3xl text-white"
+            >
               Weiter
             </button>
           </Link>
