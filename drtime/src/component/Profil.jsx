@@ -231,7 +231,7 @@ export default function Profil({ user }) {
                 {/* <Link to="/auth/me"> */}
                 <button
                   onClick={handleEditingClick}
-                  className="bg-gradient-to-r from-blue-600 via-blue-700 to-blue-600 rounded-full w-72 h-20 text-3xl text-white mx-auto mb-5 cursor-pointer "
+                  className="bg-gradient-to-r from-blue-600 via-blue-700 to-blue-600 rounded-full w-72 h-20 text-3xl text-white mx-auto  cursor-pointer "
                 >
                   Bearbeiten
                 </button>

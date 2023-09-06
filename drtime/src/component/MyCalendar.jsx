@@ -46,7 +46,7 @@ function AvailableHours({ selectedDate, handleCitaSeleccionada }, { user }) {
 
   return (
     <div className="">
-      {selectedDate && doctor && (
+      {selectedDate && doctor && user && (
         <div>
           <div className="">
             <h1 className="flex justify-center text-2xl text-purple-700 font-bold mb-4">
@@ -112,10 +112,9 @@ export default function MyCalendar({ user }) {
           user: user._id,
           doctor: id,
           appointmentdate: selectedDate,
-          appointmenthour: selectedTime,
-          description: "test",
+          appointmenttime: selectedTime,
+          description: "test2",
         },
-
         {
           headers: { Authorization: `Bearer ${localStorage.getItem("token")}` },
         }
@@ -202,7 +201,7 @@ export default function MyCalendar({ user }) {
 
           <div className="grid grid-cols-3 " onClick={() => handleTerminCreation()}>
             {timeSlots.map((time, index) => (
-              <button className="bg-gradient-to-r from-blue-600 via-blue-700 to-blue-600 rounded-full w-24 h-12 text-xl text-white m-2"
+              <button className="bg-gradient-to-r from-blue-600 via-blue-700 to-blue-600 rounded-full w-24 h-12 text-xl text-white m-2 active:bg-violet-700 focus:outline-xl focus:ring focus:ring-violet-700"
               onClick={() => handleSelectedTime(time)}  key={index}>    
                 {time}
               </button>                                           // Hieeeeeeeeeeer
@@ -213,7 +212,7 @@ export default function MyCalendar({ user }) {
         <div className="flex justify-around mt-5">
           <Link to="/home">
             <button className="bg-gradient-to-r from-blue-600 via-blue-700 to-blue-600 rounded-full w-40 h-20 text-3xl text-white"
-            onClick={() => handleTerminCreation()}>
+            >
               Zurück
             </button>
           </Link>

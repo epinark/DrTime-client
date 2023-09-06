@@ -114,7 +114,7 @@ function App() {
                   />
                   <Route path="doctors" element={<ArtzSuchen />} />
                   <Route
-                    path="TermineBestätigung/:id"
+                    path="TermineBestätigung"
                     element={<TermineBestätigung user={user} />}
                   />
                   <Route

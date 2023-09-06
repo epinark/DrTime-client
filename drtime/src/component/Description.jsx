@@ -6,42 +6,6 @@ import { useParams } from "react-router-dom";
 import axios from "axios";
 
 export default function Description({ user }) {
-  const { id } = useParams();
-  const [doctor, setDoctor] = useState(null);
-  const [appointment, setAppointment] = useState(null);
-  const [appointmentDate, setAppointmentDate] = useState("");
-  const [description, setDescription] = useState("");
-
-  useEffect(() => {
-    const fetchData = async () => {
-      try {
-        const response = await axios.get(
-          `${import.meta.env.VITE_APP_DR_TIME}/doctors/${id}`
-        );
-        setDoctor(response.data);
-      } catch (error) {
-        console.error("Error fetching doctor:", error);
-      }
-    };
-    fetchData();
-  }, [id]);
-
-  const createAppointment = async () => {
-    try {
-      const response = await axios.post(
-        `${import.meta.env.VITE_APP_DR_TIME}/appointments/`,
-        { doctorId: id, userId: user._id, appointmentDate, description },
-
-        {
-          headers: { Authorization: `Bearer ${localStorage.getItem("token")}` },
-        }
-      );
-      setAppointmentDate(response.data);
-      sessionStorage.setItem("appointmentId", id);
-    } catch (error) {
-      console.error("Appointment failed failed", error);
-    }
-  };
   const currentDate = new Date();
   const years = Array.from(
     { length: 10 },
@@ -125,10 +89,7 @@ export default function Description({ user }) {
           </Link>
           <Link to="/TermineBestätigung">
             {" "}
-            <button
-              onClick={createAppointment}
-              className="bg-gradient-to-r from-blue-600 via-blue-700 to-blue-600 rounded-full w-40 h-20 text-2xl text-white  mb-5 mx-5 "
-            >
+            <button className="bg-gradient-to-r from-blue-600 via-blue-700 to-blue-600 rounded-full w-40 h-20 text-2xl text-white  mb-5 mx-5 ">
               Weiter
             </button>
           </Link>
