@@ -126,7 +126,8 @@ export default function Profil({ user }) {
             <form className="flex flex-col" onSubmit={(e) => handleSubmit(e)}>
               <label htmlFor="profilPic">
                 <img
-                  src={user ? user.profilePhoto : silhouetteProfil}
+                  // src={user ? user.profilePhoto : silhouetteProfil}
+                  src={silhouetteProfil}
                   className=" w-40 h-40 pic rounded-full mb-2"
                   placeholder=""
                 />
@@ -214,7 +215,7 @@ export default function Profil({ user }) {
 
                 <button
                   className="btn btn-primary font-bold save-button"
-                  onClick={handleSaveClick}
+                  // onClick={handleSaveClick}
                 >
                   save
                 </button>
