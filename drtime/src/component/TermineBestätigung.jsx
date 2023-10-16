@@ -40,17 +40,14 @@ export default function TermineBestätigung({ user }) {
                 <img src={juste} alt="Image juste" className="w-40 h-40 " />
               </div> */}
 
-<div className="w-80 h-80 bg-gradient-to-b from-blue-800 to-blue-800 relative flex items-center justify-center rounded-full overflow-hidden  duration-5000">
-    <h2 className="z-10 text-white text-9xl animate-pulse font-extrabold"> <BsCheck /> </h2>
-    <div className="absolute inset-5 bg-blue-800 rounded-md"></div>
-    <div className="absolute w-[90%] h-[90%] bg-gradient-to-b from-blue-300 via-blue-700 to-blue-300 animate-pulse duration-5000 rounded-full"></div>
-</div>
-
-
-
-
-
-
+              <div className="w-80 h-80 bg-gradient-to-b from-blue-800 to-blue-800 relative flex items-center justify-center rounded-full overflow-hidden  duration-5000">
+                <h2 className="z-10 text-white text-9xl animate-pulse font-extrabold">
+                  {" "}
+                  <BsCheck />{" "}
+                </h2>
+                <div className="absolute inset-5 bg-blue-800 rounded-md"></div>
+                <div className="absolute w-[90%] h-[90%] bg-gradient-to-b from-blue-300 via-blue-700 to-blue-300 animate-pulse duration-5000 rounded-full"></div>
+              </div>
 
               <div className="mt-10">
                 <p className="text-2xl text-purple-700  font-bold font-sans ">
@@ -75,7 +72,7 @@ export default function TermineBestätigung({ user }) {
                 <span className="flex justify-center">
                   Zeit:{" "}
                   {new Date(lastAppointment.appointmentdate).toLocaleTimeString(
-                    "en-US",
+                    "en-GB",
                     {
                       hour: "2-digit",
                       minute: "2-digit",

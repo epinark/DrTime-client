@@ -10,6 +10,7 @@ export default function PopupGfg({ logOut, userId }) {
   const { id } = useParams();
   const [doctor, setDoctor] = useState(null);
   const doctorId = sessionStorage.getItem("doctorId");
+  const [isPopupOpen, setIsPopupOpen] = useState(false);
 
   useEffect(() => {
     const fetchData = async () => {
@@ -24,22 +25,21 @@ export default function PopupGfg({ logOut, userId }) {
     };
     fetchData();
   }, [id]);
-  const closePopupOnLinkClick = () => {
-    Popup.close();
+  const openPopup = () => {
+    setIsPopupOpen(true);
+  };
+
+  const closePopup = () => {
+    setIsPopupOpen(false);
   };
   return (
     <div>
-      <Popup
-        trigger={
-          <button>
-            {" "}
-            <BiMenu />{" "}
-          </button>
-        }
-        modal
-        nested
-        closeOnDocumentClick={false}
-      >
+      <button onClick={openPopup}>
+        {" "}
+        <BiMenu />{" "}
+      </button>
+
+      <Popup open={isPopupOpen} modal nested closeOnDocumentClick={true}>
         {
           <div id="sd" className="h-auto  bg-cyan-400 px-2">
             <div className="flex flex-col  ">
@@ -47,7 +47,7 @@ export default function PopupGfg({ logOut, userId }) {
                 <Link to="/home">
                   {" "}
                   <button
-                    onClick={closePopupOnLinkClick}
+                    onClick={closePopup}
                     className="bg-gradient-to-r from-blue-600 via-blue-700 to-blue-600 rounded-full w-44 h-14 text-white hm"
                   >
                     Home{" "}
@@ -58,7 +58,7 @@ export default function PopupGfg({ logOut, userId }) {
               <div className="flex justify-center pt-4">
                 <Link to="/auth">
                   <button
-                    onClick={closePopupOnLinkClick}
+                    onClick={closePopup}
                     className="bg-gradient-to-r from-blue-600 via-blue-700 to-blue-600 rounded-full w-44 h-14 text-white"
                   >
                     Profil
@@ -70,7 +70,7 @@ export default function PopupGfg({ logOut, userId }) {
                 <Link to={`/ArtzProfil/${doctorId}`}>
                   {" "}
                   <button
-                    onClick={closePopupOnLinkClick}
+                    onClick={closePopup}
                     className="bg-gradient-to-r from-blue-600 via-blue-700 to-blue-600 rounded-full w-44 h-14 text-white"
                   >
                     Arzt ändern
@@ -81,7 +81,7 @@ export default function PopupGfg({ logOut, userId }) {
                 <Link to="/MyTermine">
                   {" "}
                   <button
-                    onClick={closePopupOnLinkClick}
+                    onClick={closePopup}
                     className="bg-gradient-to-r from-blue-600 via-blue-700 to-blue-600 rounded-full w-44 h-14 text-white"
                   >
                     Termine
