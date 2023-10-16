@@ -246,19 +246,25 @@ export default function Profil({ user }) {
                 <>
                   <p>{`${user.firstName} ${user.lastName}`}</p>
                   <p>{`${user.email}`} </p>
-                  {user.birthDate && <p>{`${user.birthDate}`}</p>}
+                  {user.birthDate && (
+                    <p>
+                      {new Date(user.birthDate).toLocaleDateString("en-GB", {
+                        day: "2-digit",
+                        month: "2-digit",
+                        year: "numeric",
+                      })}
+                    </p>
+                  )}
                   {user.PLZ && <p>{`${user.PLZ}`}</p>}
                   {user.city && <p>{`${user.city}`} </p>}
                   {user.insuranceNumber && <p>{`${user.insuranceNumber}`}</p>}
 
-                  {/* <Link to="/auth/me"> */}
                   <button
                     onClick={handleEditingClick}
-                    className="bg-gradient-to-r from-blue-600 via-blue-700 to-blue-600 rounded-full w-72 h-20 text-3xl text-white mx-auto  cursor-pointer "
+                    className="bg-gradient-to-r from-blue-600 via-blue-700 to-blue-600 rounded-full w-72 h-20 text-3xl text-white mx-auto cursor-pointer"
                   >
                     Bearbeiten
                   </button>
-                  {/* </Link> */}
                 </>
               )
             )}
