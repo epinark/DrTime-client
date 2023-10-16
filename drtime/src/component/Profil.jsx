@@ -6,30 +6,75 @@ import axios from "axios";
 
 export default function Profil({ user }) {
   const [file, setfile] = useState("");
+  // const [updatedProfile, setUpdatedProfile] = useState({ user });
+  const [loading, setLoading] = useState(true);
+  const [isEditing, setIsEditing] = useState(false);
+  const [newUser, setNewUser] = useState({
+    firstName: "",
+    lastName: "",
+    email: "",
+    birthDate: "",
+    insuranceNumber: "",
+    PLZ: "",
+    city: "",
+  });
 
+  function updateUser(user, newUser) {
+    user.firstName = newUser.firstName;
+    user.lastName = newUser.lastName;
+    user.email = newUser.email;
+    user.birthDate = newUser.birthDate;
+    user.insuranceNumber = newUser.insuranceNumber;
+    user.PLZ = newUser.PLZ;
+    user.city = newUser.city;
+  }
   //ProfilBild   <img src="http://res.cloudinary.com/dygtyitsh/image/upload/v1693924213/KundenBilder/ygdazn4jttwfpa6owass.jpg" class=" w-40 h-40 pic rounded-full mb-2" placeholder="">
 
-  let [image, setImage] = useState("");
-  const [url, setUrl] = useState("");
+  // let [image, setImage] = useState("");
+  // const [url, setUrl] = useState("");
 
-  const updateProfileWithImageUrl = (imageUrl) => {
-    const updatedProfile = { ...user, profilePhoto: imageUrl };
+  // const updateProfileWithImageUrl = (imageUrl) => {
+  //   const updatedProfile = { ...user, profilePhoto: imageUrl };
 
-    axios
-      .put(
-        `${import.meta.env.VITE_APP_DR_TIME}/auth/me/${user._id}`,
-        updatedProfile,
-        { headers: { Authorization: `Bearer $localStorage.getItem("token")}` } }
-      )
+  //   axios
+  //     .put(
+  //       `${import.meta.env.VITE_APP_DR_TIME}/auth/me/${user._id}`,
+  //       updatedProfile,
+  //       { headers: { Authorization: `Bearer $localStorage.getItem("token")}` } }
+  //     )
 
-      .then((response) => {
-        console.log("Profil mis a jour");
-      })
-      .catch((error) => {
-        console.error("erreur lors de la  mise a jour profil", error);
-      });
+  //     .then((response) => {
+  //       console.log("Profil mis a jour");
+  //     })
+  //     .catch((error) => {
+  //       console.error("erreur lors de la  mise a jour profil", error);
+  //     });
+  // };
+  const handleSaveClick = async () => {
+    try {
+      setLoading(true);
+
+      const updatedProfile = { ...user, ...newUser };
+
+      const response = await axios.put(
+        `${import.meta.env.VITE_APP_DR_TIME}/auth/me`,
+        { updatedProfile: updatedProfile, userId: user._id },
+
+        {
+          headers: {
+            Authorization: `Bearer ${localStorage.getItem("token")}`,
+          },
+        }
+      );
+      setNewUser(response.data);
+      setIsEditing(false);
+      setLoading(false);
+      updateUser(user, newUser);
+    } catch (error) {
+      console.error("Update failed", error);
+    }
   };
-  console.log(image);
+
   const uploadImage = () => {
     const data = new FormData();
     data.append("file", image);
@@ -58,30 +103,15 @@ export default function Profil({ user }) {
   // const [insuranceNumber, setInsuranceNumber] = useState(user.insuranceNumber);
   // const [PLZ, setPLZ] = useState(user.PLZ);
   // const [city, setCity] = useState(user.city);
-  const [isEditing, setIsEditing] = useState(false);
-  const [newUser, setNewUser] = useState({
-    firstName: "",
-    lastName: "",
-    email: "",
-    telefon: "",
-    insuranceNumber: "",
-    PLZ: "",
-    city: "",
-  });
 
   const handleEditingClick = () => {
     setIsEditing(true);
   };
 
-  //save edit 
+  //save edit
   // const handleSaveClick = () =>{
   //   setIsEditing(false);
   // };
-
-
-
-
-
 
   const handleNameChange = (e) => {
     setNewUser({ ...newUser, firstName: e.target.value });
@@ -96,7 +126,7 @@ export default function Profil({ user }) {
   };
 
   const handleTelefonChange = (e) => {
-    setNewUser({ ...newUser, telefon: e.target.value });
+    setNewUser({ ...newUser, birthDate: e.target.value });
   };
   const handlePLZChange = (e) => {
     setNewUser({ ...newUser, PLZ: e.target.value });
@@ -106,27 +136,12 @@ export default function Profil({ user }) {
   };
 
   const handleInsuranceNumberChange = (e) => {
-    setNewuser({ ...newUser, city: e.target.value });
-  };
-
-  //profilEdit
-  const updateProfil = async () => {
-    try {
-      const response = await axios.put(
-        `${import.meta.env.VITE_APP_DR_TIME}/auth/me`,
-        { userId: user._id },
-        {
-          headers: { Authorization: `Bearer ${localStorage.getItem("token")}` },
-        }
-      );
-    } catch (error) {
-      console.error("Update failed", error);
-    }
+    setNewUser({ ...newUser, insuranceNumber: e.target.value });
   };
 
   return (
     <>
-      {user && (
+      {user && user._id && (
         <div className=" flex  items-center  flex-col ">
           <div className="mb-20 mt-5">
             <p className="text-5xl font-bold ">Profil</p>
@@ -153,11 +168,7 @@ export default function Profil({ user }) {
                 accept="image/png, image/jpeg, image/jpg, image/jfif"
               />
               <button
-                onClick={(e) => {
-                  e.preventDefault();
-                  uploadImage();
-                  updateProfil();
-                }}
+                onClick={() => handleSaveClick()}
                 className="btn btn-primary  font-bold"
               >
                 Save
@@ -194,10 +205,10 @@ export default function Profil({ user }) {
 
                 <input
                   className="editingStyle"
-                  type="number"
-                  value={newUser.telefon}
+                  type="date"
+                  value={newUser.birthDate}
                   onChange={handleTelefonChange}
-                  placeholder={user.telefon}
+                  placeholder={user.birthDate}
                 />
 
                 <input
@@ -225,29 +236,31 @@ export default function Profil({ user }) {
 
                 <button
                   className="btn btn-primary font-bold save-button"
-                  // onClick={handleSaveClick}
+                  onClick={() => handleSaveClick()}
                 >
                   save
                 </button>
               </>
             ) : (
-              <>
-                <p>{`${user.firstName} ${user.lastName}`}</p>
-                <p>{`${user.email}`} </p>
-                {/* <p>{`${user.telefon}`}</p> */}
-                <p>{`${user.PLZ}`}</p>
-                <p>{`${user.city}`} </p>
-                <p>{`${user.insuranceNumber}`}</p>
+              newUser && (
+                <>
+                  <p>{`${user.firstName} ${user.lastName}`}</p>
+                  <p>{`${user.email}`} </p>
+                  {user.birthDate && <p>{`${user.birthDate}`}</p>}
+                  {user.PLZ && <p>{`${user.PLZ}`}</p>}
+                  {user.city && <p>{`${user.city}`} </p>}
+                  {user.insuranceNumber && <p>{`${user.insuranceNumber}`}</p>}
 
-                {/* <Link to="/auth/me"> */}
-                <button
-                  onClick={handleEditingClick}
-                  className="bg-gradient-to-r from-blue-600 via-blue-700 to-blue-600 rounded-full w-72 h-20 text-3xl text-white mx-auto  cursor-pointer "
-                >
-                  Bearbeiten
-                </button>
-                {/* </Link> */}
-              </>
+                  {/* <Link to="/auth/me"> */}
+                  <button
+                    onClick={handleEditingClick}
+                    className="bg-gradient-to-r from-blue-600 via-blue-700 to-blue-600 rounded-full w-72 h-20 text-3xl text-white mx-auto  cursor-pointer "
+                  >
+                    Bearbeiten
+                  </button>
+                  {/* </Link> */}
+                </>
+              )
             )}
           </div>
 
