@@ -8,34 +8,6 @@ import axios from "axios";
 function AvailableHours({ selectedDate, handleCitaSeleccionada }, { user }) {
   const [availableHours, setAvailableHours] = useState([]);
 
-  // Función para cargar las horas disponibles basadas en la fecha seleccionada
-  // const loadAvailableHours = async () => {
-  //   try {
-  //     const { id } = useParams();
-  //     const response = await axios.get(
-  //       `${import.meta.env.VITE_APP_DR_TIME}/doctors/${id}`
-  //     );
-  //     setDoctor(response.data);
-
-  //     // Aquí deberías obtener los horarios disponibles del doctor desde el backend
-  //     const availableHoursResponse = await axios.get(
-  //       `${import.meta.env.VITE_APP_DR_TIME}/doctors/${id}/available-hours`
-  //     );
-  //     setAvailableHours(availableHoursResponse.data);
-  //   } catch (error) {
-  //     console.error("Error fetching doctor:", error);
-  //   }
-  // };
-
-  // Cargar las horas disponibles cuando la fecha seleccionada cambie
-  // useEffect(() => {
-  //   if (selectedDate) {
-  //     loadAvailableHours();
-  //   }
-  // }, [selectedDate]);
-
-  // Función para manejar la selección de una cita
-
   const handleCitaClick = (hour) => {
     const termin = {
       date: selectedDate.toDateString(),
@@ -77,7 +49,6 @@ export default function MyCalendar({ user }) {
   const [appointmentDate, setAppointmentDate] = useState(null);
   const [selectedDate, setSelectedDate] = useState(null);
   const [citasSeleccionadas, setCitasSeleccionadas] = useState([]);
-  const [nextDayHours, setNextDayHours] = useState([]);
   const [doctor, setDoctor] = useState(null);
 
   useEffect(() => {
@@ -128,7 +99,7 @@ export default function MyCalendar({ user }) {
           doctor: id,
           appointmentdate: selectedDate,
           appointmenttime: selectedTime,
-          description: "test2",
+          description: "test4",
         },
         {
           headers: { Authorization: `Bearer ${localStorage.getItem("token")}` },
@@ -144,7 +115,7 @@ export default function MyCalendar({ user }) {
   return (
     <div>
       {doctor && (
-        <div className="scroll calendarStyle">
+        <div className="scroll calendarStyle h-fit">
           <div className="  flex flex-col items-center justify-center mt-5">
             <div className="mb-8">
               <Calendar
@@ -204,9 +175,9 @@ export default function MyCalendar({ user }) {
             )}
           </div>
 
-          <div className="flex justify-around mt-5">
+          <div className="flex justify-around mt-40">
             <Link to="/ArtzSuchen">
-              <button className="bg-gradient-to-r from-blue-600 via-blue-700 to-blue-600 rounded-full w-40 h-20 text-3xl text-white">
+              <button className="bg-gradient-to-r from-blue-600 via-blue-700 to-blue-600 rounded-full w-40 h-16 text-3xl text-white">
                 Zurück
               </button>
             </Link>
@@ -214,7 +185,7 @@ export default function MyCalendar({ user }) {
               {" "}
               <button
                 onClick={() => handleTerminCreation()}
-                className="bg-gradient-to-r from-blue-600 via-blue-700 to-blue-600 rounded-full w-40 h-20 text-3xl text-white"
+                className="bg-gradient-to-r from-blue-600 via-blue-700 to-blue-600 rounded-full w-40 h-16 text-3xl text-white"
               >
                 Weiter
               </button>

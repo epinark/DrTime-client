@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 import axios from "axios";
 import Loading from "./Loading";
 
-export default function HomePage( { user } ) {
+export default function HomePage({ user }) {
   const [lastAppointment, setLastAppointment] = useState([]);
 
   const [loading, setLoading] = useState(true);
@@ -29,7 +29,7 @@ export default function HomePage( { user } ) {
     }
   }, [user]);
 
-  return ( 
+  return (
     <>
       {user && user._id && (
         <div>
@@ -45,15 +45,18 @@ export default function HomePage( { user } ) {
                     <Link to="/doctors">
                       {" "}
                       <button className="bg-gradient-to-r from-blue-600 via-blue-700 to-blue-600 rounded-full w-72 h-20 text-3xl text-white">
-                      Neuer Termin
+                        Hausarzt
                       </button>
                     </Link>
                   </div>
 
                   <div className="flex justify-center pt-4">
-                    <button className="bg-gradient-to-r from-blue-600 via-blue-700 to-blue-600 rounded-full w-72 h-20 text-3xl text-white">
-                      Kinderarzt
-                    </button>
+                    <Link to="/doctors">
+                      {" "}
+                      <button className="bg-gradient-to-r from-blue-600 via-blue-700 to-blue-600 rounded-full w-72 h-20 text-3xl text-white">
+                        Ohne Hausartz
+                      </button>
+                    </Link>
                   </div>
                 </div>
 
@@ -65,7 +68,10 @@ export default function HomePage( { user } ) {
                 </div>
               </section>
               <div className="flex justify-center pt-8">
-                <h1 className="text-5xl text-purple-900 "> {`Hallo ${user.firstName}`} </h1>
+                <h1 className="text-5xl text-purple-900 ">
+                  {" "}
+                  {`Hallo ${user.firstName}`}{" "}
+                </h1>
               </div>
               {lastAppointment && (
                 <div>
@@ -116,7 +122,7 @@ export default function HomePage( { user } ) {
             </div>
           )}
         </div>
-      )} 
+      )}
     </>
   );
 }

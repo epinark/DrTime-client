@@ -6,7 +6,7 @@ import axios from "axios";
 
 export default function Profil({ user }) {
   const [file, setfile] = useState("");
-  // const [updatedProfile, setUpdatedProfile] = useState({ user });
+  const [updatedProfile, setUpdatedProfile] = useState({ user });
   const [loading, setLoading] = useState(true);
   const [isEditing, setIsEditing] = useState(false);
   const [newUser, setNewUser] = useState({
@@ -66,7 +66,7 @@ export default function Profil({ user }) {
           },
         }
       );
-      setNewUser(response.data);
+      setUpdatedProfile(response.data);
       setIsEditing(false);
       setLoading(false);
       updateUser(user, newUser);
@@ -125,7 +125,7 @@ export default function Profil({ user }) {
     setNewUser({ ...newUser, email: e.target.value });
   };
 
-  const handleTelefonChange = (e) => {
+  const handleBirthDateChange = (e) => {
     setNewUser({ ...newUser, birthDate: e.target.value });
   };
   const handlePLZChange = (e) => {
@@ -167,12 +167,12 @@ export default function Profil({ user }) {
                 required
                 accept="image/png, image/jpeg, image/jpg, image/jfif"
               />
-              <button
+              {/* <button
                 onClick={() => handleSaveClick()}
                 className="btn btn-primary  font-bold"
               >
                 Save
-              </button>
+              </button> */}
             </form>
           </div>
 
@@ -207,7 +207,7 @@ export default function Profil({ user }) {
                   className="editingStyle"
                   type="date"
                   value={newUser.birthDate}
-                  onChange={handleTelefonChange}
+                  onChange={handleBirthDateChange}
                   placeholder={user.birthDate}
                 />
 
@@ -248,7 +248,7 @@ export default function Profil({ user }) {
                   <p>{`${user.email}`} </p>
                   {user.birthDate && (
                     <p>
-                      {new Date(user.birthDate).toLocaleDateString("en-GB", {
+                      {new Date(user.birthDate).toLocaleDateString("de-DE", {
                         day: "2-digit",
                         month: "2-digit",
                         year: "numeric",

@@ -43,7 +43,7 @@ export default function ArtzSuchen() {
                 <li className="flex items-center space-x-4 mt-8 hover:bg-gradient-to-r from-blue-450 via-blue-400 to-blue-450">
                   <div className="w-22 h-22">
                     <img
-                      className="w-20 h-20 ml-2 rounded-full shadow-lg"
+                      className="w-20 h-20 ml-2 rounded-full shadow-lg object-cover"
                       src={doctor.profilePhoto}
                       alt="Image Silhouette"
                     />
