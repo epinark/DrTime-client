@@ -54,6 +54,14 @@ export default function ArtzBestätigen({ user }) {
               <p>{doctor.title}</p>
               <p>{doctor.specialization}</p>
               <p>{doctor.address.city}</p>
+              <div>
+                <p>Available Hours:</p>
+                <ul>
+                  {doctor.availability[0].hours.map((hour, hourIndex) => (
+                    <li key={hourIndex}>{hour}</li>
+                  ))}
+                </ul>
+              </div>
             </p>
           </div>
 
