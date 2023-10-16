@@ -47,8 +47,8 @@ const Login = ({
         </div>
 
         <div className="flex flex-col justify-center">
-          <form className="text-center" onSubmit={handleSubmit}>
-            <div className="mb-4">
+          <form className="text-center h-full" onSubmit={handleSubmit}>
+            <div className="mb-4 h-full">
               <label
                 htmlFor="email"
                 className="text-purple-700 text-4xl font-bold"
@@ -60,7 +60,7 @@ const Login = ({
                 name="email"
                 id="email"
                 required
-                className="placeholder-italic placeholder-slate-400 block bg-white w-80 border border-slate-300 rounded-full py-2 pl-9 sm:text-sm mx-auto mt-4"
+                className="placeholder-italic placeholder-slate-400 block bg-white w-80 border border-slate-300 rounded-full pl-8 h-12 sm:text-sm mx-auto mt-4" // Yükseklik burada h-12 olarak değiştirildi
                 placeholder="Ihre Email hier"
                 value={email}
                 onChange={handleChange}
@@ -70,7 +70,7 @@ const Login = ({
             <div className="mb-4">
               <label
                 htmlFor="password"
-                className="text-purple-700 text-4xl font-bold "
+                className="text-purple-700 text-4xl font-bold"
               >
                 Password:
               </label>
@@ -79,7 +79,7 @@ const Login = ({
                 name="password"
                 id="password"
                 required
-                className="placeholder-italic placeholder-slate-400 block bg-white w-80 border border-slate-300 rounded-full py-2 pl-9 pr-3 shadow-sm sm:text-sm mx-auto mt-4"
+                className="placeholder-italic placeholder-slate-400 block bg-white w-80 h-12 border border-slate-300 rounded-full pl-8 pr-3 shadow-sm sm:text-sm mx-auto mt-4" // Yükseklik burada h-12 olarak değiştirildi
                 placeholder="Ihr Password hier"
                 value={password}
                 onChange={handleChange}
@@ -89,7 +89,7 @@ const Login = ({
             <div className="mb-8 mt-8">
               {/* Diese route ist nur für Test */}{" "}
               <button
-                className="bg-gradient-to-r from-blue-600 via-blue-700 to-blue-600 rounded-full w-72 h-20 text-3xl text-white mx-auto"
+                className="bg-gradient-to-r from-blue-600 via-blue-700 to-blue-600 rounded-full w-40 h-16 text-3xl text-white mx-auto"
                 type="submit"
               >
                 Login
@@ -104,12 +104,12 @@ const Login = ({
                 Registrieren
               </p>
             </Link>
-            <a
+            {/* <a
               href="#"
               className="flex justify-center text-purple-700 font-bold pt-2"
             >
               Password vergessen?
-            </a>
+            </a> */}
           </div>
         </div>
       </div>

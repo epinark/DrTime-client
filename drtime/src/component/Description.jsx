@@ -59,6 +59,7 @@ export default function Description({ user }) {
         ></textarea>
         <div className="mt-4">
           <p className="text-2xl  text-purple-700  font-bold">Seit wann?</p>
+
           <select value={selectedYear} onChange={handleYearChange}>
             {years.map((year) => (
               <option key={year} value={year}>
@@ -81,15 +82,15 @@ export default function Description({ user }) {
             ))}
           </select>
         </div>
-        <div className="mt-5 flex ">
+        <div className="mt-7 flex ">
           <Link to="/ArtzSuchen">
-            <button className="bg-gradient-to-r from-blue-600 via-blue-700 to-blue-600 rounded-full w-40 h-20 text-2xl text-white  mb-5 mx-5 ">
+            <button className="bg-gradient-to-r from-blue-600 via-blue-700 to-blue-600 rounded-full w-40 h-16 text-2xl text-white  mb-5 mx-5 ">
               Zurück
             </button>
           </Link>
           <Link to="/TermineBestätigung">
             {" "}
-            <button className="bg-gradient-to-r from-blue-600 via-blue-700 to-blue-600 rounded-full w-40 h-20 text-2xl text-white  mb-5 mx-5 ">
+            <button className="bg-gradient-to-r from-blue-600 via-blue-700 to-blue-600 rounded-full w-40 h-16 text-2xl text-white  mb-5 mx-5 ">
               Weiter
             </button>
           </Link>

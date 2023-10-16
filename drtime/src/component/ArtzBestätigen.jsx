@@ -46,16 +46,16 @@ export default function ArtzBestätigen({ user }) {
 
   return (
     <>
-      {isLoading ? ( // Yükleme durumuna göre Loading bileşenini veya içeriği gösterin
+      {isLoading ? (
         <Loading />
       ) : (
         doctor && (
           <div className="flex items-center flex-col mt-5">
-            {/* <p className="text-purple-700 items-center font-bold">
+            <p className="text-purple-700 items-center font-bold">
               Als Hausartz festlegen:
-            </p> */}
+            </p>
             <img
-              className="flex-column w-64 h-60 mb-8 rounded-full shadow-lg pic"
+              className="flex-column w-64 h-60 mb-8 rounded-full shadow-lg object-cover pic"
               src={doctor.profilePhoto}
               alt="Image Silhouette"
             />
@@ -66,7 +66,7 @@ export default function ArtzBestätigen({ user }) {
               </h1>
               <h1 className="text-4xl">{doctor.specialization}</h1>
               <h1 className=" text-3xl">
-                {doctor.address.city}, {doctor.address.postalCode},{" "}
+                {doctor.address.city}, {doctor.address.postalCode}
               </h1>
             </div>
             <div className="flex flex-col ">
