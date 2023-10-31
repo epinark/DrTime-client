@@ -4,6 +4,7 @@ import Loading from "./Loading";
 import juste from "../assets/images/juste.png";
 import { Link } from "react-router-dom";
 import { BsCheck } from "react-icons/bs";
+import { DateTime } from "luxon";
 
 export default function TermineBestätigung({ user }) {
   const [lastAppointment, setLastAppointment] = useState([]);
@@ -77,6 +78,7 @@ export default function TermineBestätigung({ user }) {
                       hour: "2-digit",
                       minute: "2-digit",
                       hour12: false,
+                      timeZone: "Europe/Berlin",
                     }
                   )}
                 </span>

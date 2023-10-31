@@ -51,7 +51,6 @@ const Register = ({
         !password ||
         !passwordConfirmation ||
         !birthDate ||
-        !telefon ||
         !PLZ ||
         !city ||
         !insuranceNumber
@@ -70,7 +69,6 @@ const Register = ({
         password,
         passwordConfirmation,
         birthDate,
-        telefon,
         PLZ,
         city,
         insuranceNumber,
@@ -248,7 +246,7 @@ const Register = ({
                 />
               </div>
 
-              <div className="mt-4">
+              {/* <div className="mt-4">
                 <label
                   htmlFor="Handynummer"
                   className=" text-xl font-bold  text-purple-700"
@@ -263,7 +261,7 @@ const Register = ({
                   onChange={handleChange}
                   className="placeholder-italic placeholder-slate-400 block bg-white w-80 border border-slate-300 rounded-full py-2 pl-9 pr-3 shadow-sm sm:text-sm mx-auto mt-2"
                 />
-              </div>
+              </div> */}
 
               <div id="anrede" className="mb-6 mt-6">
                 <h1 className="text-xl font-bold mb-4 flex justify-center  text-purple-700">

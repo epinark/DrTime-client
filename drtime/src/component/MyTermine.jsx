@@ -58,11 +58,14 @@ export default function MyTermine({ user }) {
                     rounded-xl flex justify-center items-center flex-col text-white font-bold  m-3"
                       >
                         {/* <span className="mb-4 text-2xl">Arzt</span> */}
-                        <span className="mb-4 text-2xl"> {termin.doctor.name}</span>
+                        <span className="mb-4 text-2xl">
+                          {" "}
+                          {termin.doctor.name}
+                        </span>
                         <span className="text-xl">
                           Date:{" "}
                           {new Date(termin.appointmentdate).toLocaleDateString(
-                            "en-GB",
+                            "de-DE",
                             {
                               day: "2-digit",
                               month: "2-digit",
@@ -73,13 +76,14 @@ export default function MyTermine({ user }) {
                         <span className="text-xl mt-2">
                           {" "}
                           {new Date(termin.appointmentdate).toLocaleTimeString(
-                            "en-US",
+                            "de-DE",
                             {
                               hour: "2-digit",
                               minute: "2-digit",
                               hour12: false,
                             }
-                          )} Uhr
+                          )}{" "}
+                          Uhr
                         </span>
                       </div>
                     ))
