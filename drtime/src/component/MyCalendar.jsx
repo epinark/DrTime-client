@@ -92,12 +92,15 @@ export default function MyCalendar({ user }) {
 
   const handleTerminCreation = async () => {
     try {
+      // Format the selectedDate to "YYYY-MM-DD" format
+      const formattedDate = selectedDate.toISOString().split("T")[0];
+
       const response = await axios.post(
         `${import.meta.env.VITE_APP_DR_TIME}/appointments/`,
         {
           user: user._id,
           doctor: id,
-          appointmentdate: selectedDate,
+          appointmentdate: formattedDate,
           appointmenttime: selectedTime,
           description: "test4",
         },
@@ -108,7 +111,7 @@ export default function MyCalendar({ user }) {
       setAppointmentDate(response.data);
       sessionStorage.setItem("appointmentId", id);
     } catch (error) {
-      console.error("Appointment failed failed", error);
+      console.error("Appointment failed", error);
     }
   };
 

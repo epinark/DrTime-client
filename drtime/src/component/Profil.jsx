@@ -12,7 +12,7 @@ export default function Profil({ user }) {
   const [newUser, setNewUser] = useState({
     firstName: "",
     lastName: "",
-    email: "",
+    // email: "",
     birthDate: "",
     insuranceNumber: "",
     PLZ: "",
@@ -22,7 +22,7 @@ export default function Profil({ user }) {
   function updateUser(user, newUser) {
     user.firstName = newUser.firstName;
     user.lastName = newUser.lastName;
-    user.email = newUser.email;
+    // user.email = newUser.email;
     user.birthDate = newUser.birthDate;
     user.insuranceNumber = newUser.insuranceNumber;
     user.PLZ = newUser.PLZ;
@@ -121,9 +121,9 @@ export default function Profil({ user }) {
     setNewUser({ ...newUser, lastName: e.target.value });
   };
 
-  const handleEmailChange = (e) => {
-    setNewUser({ ...newUser, email: e.target.value });
-  };
+  // const handleEmailChange = (e) => {
+  //   setNewUser({ ...newUser, email: e.target.value });
+  // };
 
   const handleBirthDateChange = (e) => {
     setNewUser({ ...newUser, birthDate: e.target.value });
@@ -141,7 +141,7 @@ export default function Profil({ user }) {
 
   return (
     <>
-      {user && user._id && (
+      {user && user._id && updatedProfile && (
         <div className=" flex  items-center  flex-col ">
           <div className="mb-20 mt-5">
             <p className="text-5xl font-bold ">Profil</p>
@@ -194,14 +194,14 @@ export default function Profil({ user }) {
                   onChange={handleLastNameChange}
                   placeholder={user.lastName}
                 />
-
+                {/* 
                 <input
                   className="editingStyle"
                   type="text"
                   value={newUser.email}
                   onChange={handleEmailChange}
                   placeholder={user.email}
-                />
+                /> */}
 
                 <input
                   className="editingStyle"
@@ -242,10 +242,10 @@ export default function Profil({ user }) {
                 </button>
               </>
             ) : (
-              newUser && (
+              updatedProfile && (
                 <>
                   <p>{`${user.firstName} ${user.lastName}`}</p>
-                  <p>{`${user.email}`} </p>
+                  {/* <p>{`${user.email}`} </p> */}
                   {user.birthDate && (
                     <p>
                       {new Date(user.birthDate).toLocaleDateString("de-DE", {
