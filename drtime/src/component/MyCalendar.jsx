@@ -4,6 +4,7 @@ import "react-calendar/dist/Calendar.css";
 import { Link } from "react-router-dom";
 import { useParams } from "react-router-dom";
 import axios from "axios";
+import { DateTime } from "luxon";
 
 function AvailableHours({ selectedDate, handleCitaSeleccionada }, { user }) {
   const [availableHours, setAvailableHours] = useState([]);
@@ -92,8 +93,11 @@ export default function MyCalendar({ user }) {
 
   const handleTerminCreation = async () => {
     try {
-      // Format the selectedDate to "YYYY-MM-DD" format
-      const formattedDate = selectedDate.toISOString().split("T")[0];
+      const formattedDate =
+        DateTime.fromJSDate(selectedDate).toFormat("yyyy-MM-dd");
+      const formattedTime = DateTime.fromFormat(selectedTime, "HH:mm").toFormat(
+        "HH:mm"
+      );
 
       const response = await axios.post(
         `${import.meta.env.VITE_APP_DR_TIME}/appointments/`,
@@ -101,7 +105,7 @@ export default function MyCalendar({ user }) {
           user: user._id,
           doctor: id,
           appointmentdate: formattedDate,
-          appointmenttime: selectedTime,
+          appointmenttime: formattedTime,
           description: "test4",
         },
         {

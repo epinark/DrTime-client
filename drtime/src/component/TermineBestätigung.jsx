@@ -18,7 +18,7 @@ export default function TermineBestätigung({ user }) {
         );
 
         setLastAppointment(response.data[response.data.length - 1]);
-        setLoading(false); // Set loading to false when data is fetched
+        setLoading(false);
       } catch (error) {
         console.error(error);
       }
@@ -37,11 +37,7 @@ export default function TermineBestätigung({ user }) {
             <Loading />
           ) : (
             <div className="flex flex-col justify-center items-center mt-20">
-              {/* <div className="bg-white rounded-full w-64 h-64 flex justify-center items-center">
-                <img src={juste} alt="Image juste" className="w-40 h-40 " />
-              </div> */}
-
-              <div className="w-80 h-80 bg-gradient-to-b from-blue-800 to-blue-800 relative flex items-center justify-center rounded-full overflow-hidden  duration-5000">
+              <div className="w-80 h-80 bg-gradient-to-b from-blue-800 to-blue-800 relative flex items-center justify-center rounded-full overflow-hidden duration-5000">
                 <h2 className="z-10 text-white text-9xl animate-pulse font-extrabold">
                   {" "}
                   <BsCheck />{" "}
@@ -51,36 +47,37 @@ export default function TermineBestätigung({ user }) {
               </div>
 
               <div className="mt-10">
-                <p className="text-2xl text-purple-700  font-bold font-sans ">
+                <p className="text-2xl text-purple-700 font-bold font-sans">
                   Sie haben Ihren Termin vereinbart:
                 </p>
               </div>
               <div
                 id="terminDatum"
-                className="text-4xl text-purple-700  font-bold  flex flex-col justify-center items-center mt-10 animate-pulse duration-5000 "
+                className="text-4xl text-purple-700 font-bold flex flex-col justify-center items-center mt-10 animate-pulse duration-5000"
               >
-                <span className="flex justify-center ">
+                <span className="flex justify-center">
                   Datum:{" "}
-                  {new Date(lastAppointment.appointmentdate).toLocaleDateString(
-                    "de-DE",
-                    {
-                      day: "2-digit",
-                      month: "2-digit",
-                      year: "numeric",
-                    }
-                  )}
-                </span>{" "}
+                  {DateTime.fromISO(
+                    lastAppointment.appointmentdate
+                  ).toLocaleString({
+                    locale: "de-DE",
+                    day: "2-digit",
+                    month: "2-digit",
+                    year: "numeric",
+                  })}
+                </span>
                 <span className="flex justify-center">
                   Zeit:{" "}
-                  {new Date(lastAppointment.appointmentdate).toLocaleTimeString(
-                    "de-DE",
-                    {
-                      hour: "2-digit",
-                      minute: "2-digit",
-                      hour12: false,
-                      timeZone: "Europe/Berlin",
-                    }
-                  )}
+                  {DateTime.fromFormat(
+                    lastAppointment.appointmentdate,
+                    "yyyy-MM-dd'T'HH:mm:ss.SSS'Z'"
+                  ).toLocaleString({
+                    locale: "de-DE",
+                    hour: "2-digit",
+                    minute: "2-digit",
+                    hour12: false,
+                    timeZone: "Europe/Berlin",
+                  })}
                 </span>
               </div>
               <Link to="/home">
