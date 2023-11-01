@@ -3,6 +3,7 @@ import { BiPlusMedical } from "react-icons/bi";
 import { Link } from "react-router-dom";
 import axios from "axios";
 import Loading from "./Loading";
+import { DateTime } from "luxon";
 
 export default function HomePage({ user }) {
   const [lastAppointment, setLastAppointment] = useState([]);
@@ -86,22 +87,26 @@ export default function HomePage({ user }) {
                     Datum{} {lastAppointment}, Uhr{}{" "} */}
                           <span className="flex justify-center">
                             Datum:{" "}
-                            {new Date(
+                            {DateTime.fromISO(
                               lastAppointment.appointmentdate
-                            ).toLocaleDateString("en-GB", {
+                            ).toLocaleString({
+                              locale: "de-DE",
                               day: "2-digit",
                               month: "2-digit",
                               year: "numeric",
                             })}
-                          </span>{" "}
+                          </span>
                           <span className="flex justify-center">
                             Zeit:{" "}
-                            {new Date(
-                              lastAppointment.appointmentdate
-                            ).toLocaleTimeString("en-US", {
+                            {DateTime.fromFormat(
+                              lastAppointment.appointmentdate,
+                              "yyyy-MM-dd'T'HH:mm:ss.SSS'Z'"
+                            ).toLocaleString({
+                              locale: "de-DE",
                               hour: "2-digit",
                               minute: "2-digit",
                               hour12: false,
+                              timeZone: "Europe/Berlin",
                             })}
                           </span>
                         </h1>
