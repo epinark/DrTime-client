@@ -6,8 +6,47 @@ import { useParams } from "react-router-dom";
 import axios from "axios";
 import { DateTime } from "luxon";
 
-function AvailableHours({ selectedDate, handleCitaSeleccionada }, { user }) {
+function AvailableHours({
+  selectedDate,
+  handleCitaSeleccionada,
+  user,
+  doctor,
+  existingAppointments,
+}) {
   const [availableHours, setAvailableHours] = useState([]);
+
+  useEffect(() => {
+    const formattedDate =
+      selectedDate instanceof DateTime
+        ? selectedDate.toFormat("yyyy-MM-dd")
+        : "";
+
+    // Fetch existing appointments for the selected date
+    const fetchExistingAppointments = async () => {
+      try {
+        const response = await axios.get(
+          `${import.meta.env.VITE_APP_DR_TIME}/doctors/apps/${
+            doctor._id
+          }/${formattedDate}`
+        );
+        const bookedTimes = response.data
+          .map((appointment) => {
+            const parsedDateTime = DateTime.fromFormat(
+              appointment.appointmenttime
+            ).toLocaleString();
+          })
+          .filter((time) => time !== null);
+
+        setAvailableHours(bookedTimes);
+      } catch (error) {
+        console.error("Error fetching existing appointments:", error);
+      }
+    };
+
+    if (selectedDate && doctor) {
+      fetchExistingAppointments();
+    }
+  }, [selectedDate, doctor]);
 
   const handleCitaClick = (hour) => {
     const termin = {
@@ -27,7 +66,7 @@ function AvailableHours({ selectedDate, handleCitaSeleccionada }, { user }) {
             </h1>
           </div>
           <div className="grid grid-cols-2">
-            {doctor.availability[0].hours.map((hour, hourIndex) => (
+            {availableHours.map((hour, hourIndex) => (
               <button
                 key={hourIndex}
                 onClick={() => handleCitaClick(hour)}
@@ -161,6 +200,7 @@ export default function MyCalendar({ user }) {
               <AvailableHours
                 selectedDate={selectedDate}
                 handleCitaSeleccionada={handleCitaSeleccionada}
+                user={user}
                 doctor={doctor}
               />
             </div>

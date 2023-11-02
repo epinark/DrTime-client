@@ -87,8 +87,9 @@ export default function HomePage({ user }) {
                     Datum{} {lastAppointment}, Uhr{}{" "} */}
                           <span className="flex justify-center">
                             Datum:{" "}
-                            {DateTime.fromISO(
-                              lastAppointment.appointmentdate
+                            {DateTime.fromFormat(
+                              lastAppointment.appointmentdate,
+                              "yyyy-MM-dd'T'HH:mm:ss.SSS'Z'"
                             ).toLocaleString({
                               locale: "de-DE",
                               day: "2-digit",
