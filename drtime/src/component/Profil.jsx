@@ -105,6 +105,7 @@ export default function Profil({ user }) {
   // const [city, setCity] = useState(user.city);
 
   const handleEditingClick = () => {
+    updateUser(newUser, user);
     setIsEditing(true);
   };
 
@@ -180,7 +181,7 @@ export default function Profil({ user }) {
             {isEditing ? (
               <>
                 <input
-                  className="editingStyle"
+                  className="editingStyle edit-name"
                   type="text"
                   value={newUser.firstName}
                   onChange={handleNameChange}
@@ -188,7 +189,7 @@ export default function Profil({ user }) {
                 />
 
                 <input
-                  className="editingStyle"
+                  className="editingStyle edit-lastname"
                   type="text"
                   value={newUser.lastName}
                   onChange={handleLastNameChange}
@@ -204,7 +205,7 @@ export default function Profil({ user }) {
                 /> */}
 
                 <input
-                  className="editingStyle"
+                  className="editingStyle edit-birthdate"
                   type="date"
                   value={newUser.birthDate}
                   onChange={handleBirthDateChange}
@@ -212,26 +213,26 @@ export default function Profil({ user }) {
                 />
 
                 <input
-                  className="editingStyle"
+                  className="editingStyle edit-postalcode"
                   type="number"
                   value={newUser.PLZ}
                   onChange={handlePLZChange}
-                  placeholder={user.PLZ}
+                  placeholder={user.PLZ || "PLZ"}
                 />
 
                 <input
-                  className="editingStyle"
+                  className="editingStyle edit-city"
                   type="text"
                   value={newUser.city}
                   onChange={handleCityChange}
-                  placeholder={user.city}
+                  placeholder={user.city || "Stadt"}
                 />
                 <input
-                  className="editingStyle"
+                  className="editingStyle edit-insuranceno"
                   type="text"
                   value={newUser.insuranceNumber}
                   onChange={handleInsuranceNumberChange}
-                  placeholder={user.insuranceNumber}
+                  placeholder={user.insuranceNumber || "Versicherungsnummer"}
                 />
 
                 <button
