@@ -60,11 +60,11 @@ function AvailableHours({
     <div className="">
       {selectedDate && user && (
         <div>
-          <div className="">
+          {/* <div className="">
             <h1 className="flex justify-center text-2xl text-purple-700 font-bold mb-4">
               Verfügbarkeit {selectedDate.toDateString()}
             </h1>
-          </div>
+          </div> */}
           <div className="grid grid-cols-2">
             {availableHours.map((hour, hourIndex) => (
               <button
