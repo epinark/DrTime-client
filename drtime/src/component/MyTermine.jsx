@@ -49,46 +49,52 @@ export default function MyTermine({ user }) {
               {loading ? (
                 <Loading />
               ) : (
-                <div className="flex flex-col justify-center ">
+                <div className="flex flex-col justify-center">
                   {termins.length > 0 ? (
-                    termins.map((termin, index) => (
-                      <div
-                        key={index}
-                        className="bg-gradient-to-r from-blue-600 via-blue-700 to-blue-600 w-56 h-36
+                    termins
+                      .sort(
+                        (a, b) =>
+                          DateTime.fromISO(a.appointmentdate) -
+                          DateTime.fromISO(b.appointmentdate)
+                      )
+                      .map((termin, index) => (
+                        <div
+                          key={index}
+                          className="bg-gradient-to-r from-blue-600 via-blue-700 to-blue-600 w-56 h-36
                     rounded-xl flex justify-center items-center flex-col text-white font-bold  m-3"
-                      >
-                        <span className="mb-4 text-2xl">
-                          {" "}
-                          {termin.doctor.name}
-                        </span>
-                        <span className="text-xl">
-                          Date:{" "}
-                          {DateTime.fromFormat(
-                            termin.appointmentdate,
-                            "yyyy-MM-dd'T'HH:mm:ss.SSS'Z'"
-                          ).toLocaleString({
-                            locale: "de-DE",
-                            day: "2-digit",
-                            month: "2-digit",
-                            year: "numeric",
-                          })}
-                        </span>
-                        <span className="text-xl mt-2">
-                          {" "}
-                          {DateTime.fromFormat(
-                            termin.appointmentdate,
-                            "yyyy-MM-dd'T'HH:mm:ss.SSS'Z'"
-                          ).toLocaleString({
-                            locale: "de-DE",
-                            hour: "2-digit",
-                            minute: "2-digit",
-                            hour12: false,
-                            timeZone: "Europe/Berlin",
-                          })}
-                          Uhr
-                        </span>
-                      </div>
-                    ))
+                        >
+                          <span className="mb-4 text-2xl">
+                            {" "}
+                            {termin.doctor.name}
+                          </span>
+                          <span className="text-xl">
+                            Date:{" "}
+                            {DateTime.fromFormat(
+                              termin.appointmentdate,
+                              "yyyy-MM-dd'T'HH:mm:ss.SSS'Z'"
+                            ).toLocaleString({
+                              locale: "de-DE",
+                              day: "2-digit",
+                              month: "2-digit",
+                              year: "numeric",
+                            })}
+                          </span>
+                          <span className="text-xl mt-2">
+                            {" "}
+                            {DateTime.fromFormat(
+                              termin.appointmentdate,
+                              "yyyy-MM-dd'T'HH:mm:ss.SSS'Z'"
+                            ).toLocaleString({
+                              locale: "de-DE",
+                              hour: "2-digit",
+                              minute: "2-digit",
+                              hour12: false,
+                              timeZone: "Europe/Berlin",
+                            })}
+                            Uhr
+                          </span>
+                        </div>
+                      ))
                   ) : (
                     <p>Du hast noch keinen Termin </p>
                   )}
