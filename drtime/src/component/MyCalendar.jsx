@@ -6,22 +6,21 @@ import { useParams } from "react-router-dom";
 import axios from "axios";
 import { DateTime } from "luxon";
 
-function AvailableHours({
-  selectedDate,
-  handleCitaSeleccionada,
-  user,
-  doctor,
-  existingAppointments,
-}) {
+function AvailableHours({ selectedDate, user, doctor, handleSelectedTime }) {
   const [availableHours, setAvailableHours] = useState([]);
+  const [bookedHours, setBookedHours] = useState([]);
 
   useEffect(() => {
-    const formattedDate =
-      selectedDate instanceof DateTime
-        ? selectedDate.toFormat("yyyy-MM-dd")
-        : "";
+    const parsedDate = DateTime.fromJSDate(new Date(selectedDate));
 
-    // Fetch existing appointments for the selected date
+    const formattedDate = parsedDate.toFormat("yyyy-MM-dd");
+
+    const dayName = parsedDate.toFormat("cccc");
+
+    var doctorsAppointments = doctor.availability.find(
+      (day) => day.weekDay === dayName
+    );
+
     const fetchExistingAppointments = async () => {
       try {
         const response = await axios.get(
@@ -29,15 +28,19 @@ function AvailableHours({
             doctor._id
           }/${formattedDate}`
         );
-        const bookedTimes = response.data
+        const bookedHours = response.data
           .map((appointment) => {
-            const parsedDateTime = DateTime.fromFormat(
-              appointment.appointmenttime
-            ).toLocaleString();
+            const dateTime = DateTime.fromISO(appointment.appointmentdate, {
+              zone: "UTC",
+            });
+            return dateTime.toFormat("HH:mm");
           })
           .filter((time) => time !== null);
 
-        setAvailableHours(bookedTimes);
+        setBookedHours(bookedHours);
+        if (doctorsAppointments) {
+          setAvailableHours(doctorsAppointments.hours);
+        }
       } catch (error) {
         console.error("Error fetching existing appointments:", error);
       }
@@ -48,34 +51,24 @@ function AvailableHours({
     }
   }, [selectedDate, doctor]);
 
-  const handleCitaClick = (hour) => {
-    const termin = {
-      date: selectedDate.toDateString(),
-      hour: hour,
-    };
-    handleCitaSeleccionada(termin);
-  };
-
   return (
     <div className="">
       {selectedDate && user && (
         <div>
-          {/* <div className="">
-            <h1 className="flex justify-center text-2xl text-purple-700 font-bold mb-4">
-              Verfügbarkeit {selectedDate.toDateString()}
-            </h1>
-          </div> */}
-          <div className="grid grid-cols-2">
-            {availableHours.map((hour, hourIndex) => (
-              <button
-                key={hourIndex}
-                onClick={() => handleCitaClick(hour)}
-                className="bg-gradient-to-r from-blue-300 via-blue-300 to-blue-300
-                rounded-full flex justify-center items-center text-white font-bold text-xl w-40 h-14 m-3"
-              >
-                {hour}
-              </button>
-            ))}
+          <div className="appointments grid grid-cols-3">
+            {selectedDate &&
+              availableHours.map((hour, hourIndex) => (
+                <button
+                  key={hourIndex}
+                  onClick={() => handleSelectedTime(hour)}
+                  className={`${
+                    bookedHours.includes(hour) ? "disabled:opacity-50" : ""
+                  } bg-gradient-to-r from-blue-600 via-blue-700 to-blue-600 rounded-full w-24 h-12 text-xl text-white m-2 active:bg-violet-700 focus:outline-xl focus:ring focus:ring-violet-700`}
+                  disabled={bookedHours.includes(hour)}
+                >
+                  {hour}
+                </button>
+              ))}
           </div>
         </div>
       )}
@@ -88,7 +81,7 @@ export default function MyCalendar({ user }) {
 
   const [appointmentDate, setAppointmentDate] = useState(null);
   const [selectedDate, setSelectedDate] = useState(null);
-  const [citasSeleccionadas, setCitasSeleccionadas] = useState([]);
+  const [selectedAppointments, setSelectedAppointments] = useState([]);
   const [doctor, setDoctor] = useState(null);
 
   useEffect(() => {
@@ -109,28 +102,17 @@ export default function MyCalendar({ user }) {
     setSelectedDate(date);
   };
 
-  const handleCitaSeleccionada = (termin) => {
-    setCitasSeleccionadas([...citasSeleccionadas, termin]);
+  const handleSelectedAppointment = (appointment) => {
+    setSelectedAppointments([...selectedAppointments, appointment]);
   };
 
   const [selectedTime, setSelectedTime] = useState(null);
-
-  // Define the start and end times
-  const startTime = 9;
-  const endTime = 16;
-
-  // Create an array of time slots
-  const timeSlots = [];
-  for (let hour = startTime; hour <= endTime; hour++) {
-    timeSlots.push(`${hour}:00`);
-    timeSlots.push(`${hour}:30`);
-  }
 
   const handleSelectedTime = (time) => {
     setSelectedTime(time);
   };
 
-  const handleTerminCreation = async () => {
+  const handleAppointmentCreation = async () => {
     try {
       const formattedDate =
         DateTime.fromJSDate(selectedDate).toFormat("yyyy-MM-dd");
@@ -199,27 +181,12 @@ export default function MyCalendar({ user }) {
             <div>
               <AvailableHours
                 selectedDate={selectedDate}
-                handleCitaSeleccionada={handleCitaSeleccionada}
+                handleSelectedAppointment={handleSelectedAppointment}
                 user={user}
                 doctor={doctor}
+                handleSelectedTime={handleSelectedTime}
               />
             </div>
-            {selectedDate && (
-              <div
-                className="grid grid-cols-3 "
-                //
-              >
-                {doctor.availability[0].hours.map((hour, hourIndex) => (
-                  <button
-                    className="bg-gradient-to-r from-blue-600 via-blue-700 to-blue-600 rounded-full w-24 h-12 text-xl text-white m-2 active:bg-violet-700 focus:outline-xl focus:ring focus:ring-violet-700"
-                    onClick={() => handleSelectedTime(hour)}
-                    key={hourIndex}
-                  >
-                    {hour}
-                  </button>
-                ))}
-              </div>
-            )}
           </div>
 
           <div className="flex justify-around mt-40">
@@ -231,7 +198,7 @@ export default function MyCalendar({ user }) {
             <Link to={`/description/${id}`}>
               {" "}
               <button
-                onClick={() => handleTerminCreation()}
+                onClick={() => handleAppointmentCreation()}
                 className="bg-gradient-to-r from-blue-600 via-blue-700 to-blue-600 rounded-full w-40 h-16 text-3xl text-white"
               >
                 Weiter
