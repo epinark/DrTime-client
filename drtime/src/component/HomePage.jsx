@@ -17,7 +17,18 @@ export default function HomePage({ user }) {
         const response = await axios.get(
           `${import.meta.env.VITE_APP_DR_TIME}/auth/${user._id}`
         );
-        setLastAppointment(response.data[response.data.length - 1]);
+        const currentDate = Date.now();
+        var appointments = response.data;
+        var userAppointmentsFromTodayOn = appointments.filter(
+          (appointment) =>
+            DateTime.fromISO(appointment.appointmentdate) > currentDate
+        );
+        var usersAppointmentsSorted = userAppointmentsFromTodayOn.sort(
+          (a, b) =>
+            DateTime.fromISO(a.appointmentdate) -
+            DateTime.fromISO(b.appointmentdate)
+        );
+        setLastAppointment(usersAppointmentsSorted[0]);
         setLoading(false);
       } catch (error) {
         setError("Fetch problem");
@@ -45,8 +56,8 @@ export default function HomePage({ user }) {
 
                     <Link to="/doctors">
                       {" "}
-                      <button className="bg-gradient-to-r from-blue-600 via-blue-700 to-blue-600 rounded-full w-72 h-20 text-3xl text-white">
-                        Hausarzt
+                      <button className="bg-gradient-to-r from-blue-600 via-blue-700 to-blue-600 rounded-full w-72 h-20 text-2xl text-white">
+                        Hausarzt festlegen
                       </button>
                     </Link>
                   </div>
@@ -54,8 +65,8 @@ export default function HomePage({ user }) {
                   <div className="flex justify-center pt-4">
                     <Link to="/doctors">
                       {" "}
-                      <button className="bg-gradient-to-r from-blue-600 via-blue-700 to-blue-600 rounded-full w-72 h-20 text-3xl text-white">
-                        Ohne Hausartz
+                      <button className="bg-gradient-to-r from-blue-600 via-blue-700 to-blue-600 rounded-full w-72 h-20 text-2xl text-white">
+                        Termin vereinbaren
                       </button>
                     </Link>
                   </div>

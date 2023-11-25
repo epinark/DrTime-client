@@ -3,6 +3,7 @@ import axios from "axios";
 import Loading from "./Loading";
 import { useParams } from "react-router-dom";
 import PopupGfg from "./PopMenu";
+import { DateTime } from "luxon";
 
 export default function MyTermine({ user }) {
   // const { id } = useParams();
@@ -37,19 +38,18 @@ export default function MyTermine({ user }) {
         <div>
           <div
             id="Hier die termine"
-            className="flex flex-col items-center justify-center mt-10"
+            className="flex flex-col items-center justify-center mt-10 max-h-screen"
           >
             <div>
-              <h1 className="text-4xl text-purple-700  font-bold ">Termine</h1>
+              <h1 className="text-4xl text-purple-700 pb-2 font-bold ">
+                Termine
+              </h1>
             </div>
-            <div
-              id="Weisse platz"
-              className="rounded-xl  min-h-screen  TerminList"
-            >
+            <div id="all-appointments" className="rounded-xl overflow-y-auto">
               {loading ? (
                 <Loading />
               ) : (
-                <div className="flex flex-col justify-center">
+                <div className="flex flex-col justify-center ">
                   {termins.length > 0 ? (
                     termins.map((termin, index) => (
                       <div
@@ -57,32 +57,34 @@ export default function MyTermine({ user }) {
                         className="bg-gradient-to-r from-blue-600 via-blue-700 to-blue-600 w-56 h-36
                     rounded-xl flex justify-center items-center flex-col text-white font-bold  m-3"
                       >
-                        {/* <span className="mb-4 text-2xl">Arzt</span> */}
                         <span className="mb-4 text-2xl">
                           {" "}
                           {termin.doctor.name}
                         </span>
                         <span className="text-xl">
                           Date:{" "}
-                          {new Date(termin.appointmentdate).toLocaleDateString(
-                            "de-DE",
-                            {
-                              day: "2-digit",
-                              month: "2-digit",
-                              year: "numeric",
-                            }
-                          )}
+                          {DateTime.fromFormat(
+                            termin.appointmentdate,
+                            "yyyy-MM-dd'T'HH:mm:ss.SSS'Z'"
+                          ).toLocaleString({
+                            locale: "de-DE",
+                            day: "2-digit",
+                            month: "2-digit",
+                            year: "numeric",
+                          })}
                         </span>
                         <span className="text-xl mt-2">
                           {" "}
-                          {new Date(termin.appointmentdate).toLocaleTimeString(
-                            "de-DE",
-                            {
-                              hour: "2-digit",
-                              minute: "2-digit",
-                              hour12: false,
-                            }
-                          )}{" "}
+                          {DateTime.fromFormat(
+                            termin.appointmentdate,
+                            "yyyy-MM-dd'T'HH:mm:ss.SSS'Z'"
+                          ).toLocaleString({
+                            locale: "de-DE",
+                            hour: "2-digit",
+                            minute: "2-digit",
+                            hour12: false,
+                            timeZone: "Europe/Berlin",
+                          })}
                           Uhr
                         </span>
                       </div>

@@ -73,7 +73,7 @@ export default function PopupGfg({ logOut, userId }) {
                       onClick={closePopup}
                       className="bg-gradient-to-r from-blue-600 via-blue-700 to-blue-600 rounded-full w-44 h-14 text-white"
                     >
-                      Arzt ändern
+                      Hausarzt ändern
                     </button>
                   </Link>
                 </div>
