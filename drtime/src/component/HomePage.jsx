@@ -52,8 +52,6 @@ export default function HomePage({ user }) {
               <section id="my buttons für arzt termin">
                 <div className="flex flex-col  ">
                   <div className="flex justify-center pt-4">
-                    {/* ArtzSuchen wenn kein Profil und Beschreibung wenn es ein Profil gibt */}
-
                     <Link to="/doctors">
                       {" "}
                       <button className="bg-gradient-to-r from-blue-600 via-blue-700 to-blue-600 rounded-full w-72 h-20 text-2xl text-white">

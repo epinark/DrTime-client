@@ -9,12 +9,17 @@ import { DateTime } from "luxon";
 function AvailableHours({ selectedDate, user, doctor, handleSelectedTime }) {
   const [availableHours, setAvailableHours] = useState([]);
   const [bookedHours, setBookedHours] = useState([]);
+  const [currentTime, setCurrentTime] = useState(DateTime.now());
+  const [currentDay, setCurrentDay] = useState(
+    DateTime.now().toFormat("yyyy-MM-dd")
+  );
+  const [selectedDay, setSelectedDay] = useState();
 
   useEffect(() => {
     const parsedDate = DateTime.fromJSDate(new Date(selectedDate));
 
     const formattedDate = parsedDate.toFormat("yyyy-MM-dd");
-
+    setSelectedDay(formattedDate);
     const dayName = parsedDate.toFormat("cccc");
 
     var doctorsAppointments = doctor.availability.find(
@@ -40,6 +45,8 @@ function AvailableHours({ selectedDate, user, doctor, handleSelectedTime }) {
         setBookedHours(bookedHours);
         if (doctorsAppointments) {
           setAvailableHours(doctorsAppointments.hours);
+        } else {
+          setAvailableHours([]);
         }
       } catch (error) {
         console.error("Error fetching existing appointments:", error);
@@ -62,9 +69,17 @@ function AvailableHours({ selectedDate, user, doctor, handleSelectedTime }) {
                   key={hourIndex}
                   onClick={() => handleSelectedTime(hour)}
                   className={`${
-                    bookedHours.includes(hour) ? "disabled:opacity-50" : ""
+                    bookedHours.includes(hour) ||
+                    (currentTime.toFormat("HH:mm") > hour &&
+                      selectedDay === currentDay)
+                      ? "disabled:opacity-50"
+                      : ""
                   } bg-gradient-to-r from-blue-600 via-blue-700 to-blue-600 rounded-full w-24 h-12 text-xl text-white m-2 active:bg-violet-700 focus:outline-xl focus:ring focus:ring-violet-700`}
-                  disabled={bookedHours.includes(hour)}
+                  disabled={
+                    bookedHours.includes(hour) ||
+                    (currentTime.toFormat("HH:mm") > hour &&
+                      selectedDay === currentDay)
+                  }
                 >
                   {hour}
                 </button>
@@ -83,7 +98,7 @@ export default function MyCalendar({ user }) {
   const [selectedDate, setSelectedDate] = useState(null);
   const [selectedAppointments, setSelectedAppointments] = useState([]);
   const [doctor, setDoctor] = useState(null);
-
+  const [warning, setWarning] = useState(null);
   useEffect(() => {
     const fetchDoctor = async () => {
       try {
@@ -98,8 +113,29 @@ export default function MyCalendar({ user }) {
     fetchDoctor();
   }, [id]);
 
+  const isSelectedDayInPast = (date) => {
+    const currentDay = DateTime.now().startOf("day");
+    const selectedDay = DateTime.fromJSDate(new Date(date)).startOf("day");
+    if (selectedDay.ts < currentDay.ts) {
+      return true;
+    } else {
+      return false;
+    }
+  };
+
   const handleDateChange = (date) => {
-    setSelectedDate(date);
+    if (isSelectedDayInPast(date)) {
+      // warning case
+      setWarning(
+        "Ihr ausgewähltes Datum liegt in der Vergangenheit. Bitte wählen Sie ein Datum in der Zukunft aus!"
+      );
+      setSelectedDate(null);
+      setSelectedAppointments([]);
+    } else {
+      // success case
+      setWarning(null);
+      setSelectedDate(date);
+    }
   };
 
   const handleSelectedAppointment = (appointment) => {
@@ -177,33 +213,42 @@ export default function MyCalendar({ user }) {
                 }
               />
             </div>
-
-            <div>
-              <AvailableHours
-                selectedDate={selectedDate}
-                handleSelectedAppointment={handleSelectedAppointment}
-                user={user}
-                doctor={doctor}
-                handleSelectedTime={handleSelectedTime}
-              />
-            </div>
+            {warning ? (
+              <span className="text-4xl flex justify-center p-10 text-purple-900">
+                {warning}
+              </span>
+            ) : (
+              <div>
+                <AvailableHours
+                  selectedDate={selectedDate}
+                  handleSelectedAppointment={handleSelectedAppointment}
+                  user={user}
+                  doctor={doctor}
+                  handleSelectedTime={handleSelectedTime}
+                />
+              </div>
+            )}
           </div>
 
-          <div className="flex justify-around mt-40">
+          <div className="flex justify-around mt-20">
             <Link to="/ArtzSuchen">
               <button className="bg-gradient-to-r from-blue-600 via-blue-700 to-blue-600 rounded-full w-40 h-16 text-3xl text-white">
                 Zurück
               </button>
             </Link>
-            <Link to={`/description/${id}`}>
-              {" "}
-              <button
-                onClick={() => handleAppointmentCreation()}
-                className="bg-gradient-to-r from-blue-600 via-blue-700 to-blue-600 rounded-full w-40 h-16 text-3xl text-white"
-              >
-                Weiter
-              </button>
-            </Link>
+            {warning ? (
+              ""
+            ) : (
+              <Link to={`/description/${id}`}>
+                {" "}
+                <button
+                  onClick={() => handleAppointmentCreation()}
+                  className="bg-gradient-to-r from-blue-600 via-blue-700 to-blue-600 rounded-full w-40 h-16 text-3xl text-white"
+                >
+                  Weiter
+                </button>
+              </Link>
+            )}
           </div>
         </div>
       )}
