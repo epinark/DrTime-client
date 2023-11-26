@@ -43,10 +43,10 @@ export default function ArtzBestätigen({ user }) {
       {doctor && (
         <div className=" flex  items-center  flex-col mt-5 ">
           <p className="text-5xl font-bold  text-purple-700  ">Arzt</p>
-          <div className="justify-center rounded-full  mb-5  pp">
+          <div className="flex flex-col items-center justify-center rounded-full  mb-5  pp">
             <img
               src={doctor.profilePhoto}
-              alt="Image Silhouette"
+              alt="doctor-image"
               className="flex-column w-64 h-60 mb-8 rounded-full shadow-lg object-cover pic"
             />
             <p className=" text-purple-700 text-3xl text-center font-bold mb-40">

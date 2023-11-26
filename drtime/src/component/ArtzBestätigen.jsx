@@ -59,7 +59,7 @@ export default function ArtzBestätigen({ user }) {
               src={doctor.profilePhoto}
               alt="Image Silhouette"
             />
-            <div className=" text-purple-700 text-lg text-center font-bold mb-28">
+            <div className=" text-purple-700 text-lg text-center font-bold">
               <h1 className="text-5xl">
                 {doctor.title}
                 {doctor.name}
@@ -69,7 +69,7 @@ export default function ArtzBestätigen({ user }) {
                 {doctor.address.city}, {doctor.address.postalCode}
               </h1>
             </div>
-            <div className="flex flex-col ">
+            <div className="flex flex-col pt-8">
               <Link to={`/MyCalendar/${doctor._id}`}>
                 <button
                   onClick={assignPrimaryDoctor}
