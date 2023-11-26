@@ -92,8 +92,6 @@ export default function HomePage({ user }) {
                       </h1>
                       <div className="border-8 border-blue-700 text-blue-700 rounded-3xl flex justify-center items-center w-80 h-32 ">
                         <h1>
-                          {/* {" "}
-                    Datum{} {lastAppointment}, Uhr{}{" "} */}
                           <span className="flex justify-center">
                             Datum:{" "}
                             {DateTime.fromFormat(
