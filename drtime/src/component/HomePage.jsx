@@ -7,7 +7,6 @@ import { DateTime } from "luxon";
 
 export default function HomePage({ user }) {
   const [lastAppointment, setLastAppointment] = useState([]);
-
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
@@ -131,7 +130,6 @@ export default function HomePage({ user }) {
                   </div>
                 </div>
               )}
-              ;
             </div>
           )}
         </div>
