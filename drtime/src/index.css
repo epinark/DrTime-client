@@ -137,13 +137,7 @@ body {
   animation-duration: 5s;
 }
 
-#popup-root {
 
-  width: 300px !important;
-  /* width:830px !important; */
-  border-radius: 20px;
-  position: absolute !important;
-}
 
 .scroll {
   overflow: auto;

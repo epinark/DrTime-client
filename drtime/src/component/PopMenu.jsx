@@ -1,5 +1,6 @@
 import Popup from "reactjs-popup";
 import "reactjs-popup/dist/index.css";
+import DRTIME from "../assets/images/DRTIME.png";
 import { BiMenu } from "react-icons/bi";
 import { Link, useLocation } from "react-router-dom";
 import { useParams } from "react-router-dom";
@@ -10,7 +11,7 @@ export default function PopupGfg({ logOut, userId }) {
   const { id } = useParams();
   const [doctor, setDoctor] = useState(null);
   const doctorId = sessionStorage.getItem("doctorId");
-  const [isPopupOpen, setIsPopupOpen] = useState(false);
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   useEffect(() => {
     const fetchData = async () => {
@@ -25,86 +26,105 @@ export default function PopupGfg({ logOut, userId }) {
     };
     fetchData();
   }, [id]);
-  const openPopup = () => {
-    setIsPopupOpen(true);
+  const toggleMenu = () => {
+    setIsMenuOpen(!isMenuOpen);
   };
 
-  const closePopup = () => {
-    setIsPopupOpen(false);
+  const closeMenu = () => {
+    setIsMenuOpen(false);
   };
   return (
-    <div>
-      <button onClick={openPopup}>
-        {" "}
-        <BiMenu />{" "}
-      </button>
+    <>
+      {isMenuOpen && (
+        <div
+          className="fixed top-0 left-0 w-full h-full bg-black bg-opacity-30 z-40"
+          onClick={toggleMenu}
+        ></div>
+      )}
+      {isMenuOpen ? (
+        <div
+          id="sd"
+          className="flex h-screen absolute items-center bg-gradient-to-r from-blue-500 via-blue-300 to-blue-500 px-2 z-40"
+          style={{ top: "0", width: "450px", transform: "translateX(0%)" }}
+        >
+          <div className="px-2 flex flex-col gap-16">
+            <div className="flex absolute top-8 right-60 gap-8">
+              <button
+                onClick={closeMenu}
+                class="material-symbols-outlined text-4xl"
+              >
+                close
+              </button>
+            </div>
+            <div className="flex justify-center pt-4">
+              <Link to="/home">
+                {" "}
+                <button
+                  onClick={closeMenu}
+                  className="bg-gradient-to-r from-blue-600 via-blue-700 to-blue-600 rounded-xl w-60 h-14 text-white hm"
+                >
+                  Home{" "}
+                </button>
+              </Link>
+            </div>
 
-      <Popup open={isPopupOpen} modal nested closeOnDocumentClick={true}>
-        {
-          <div id="sd" className="h-auto  bg-cyan-400 px-2">
-            <div className="flex flex-col  ">
-              <div className="flex justify-center  pt-4">
-                <Link to="/home">
-                  {" "}
-                  <button
-                    onClick={closePopup}
-                    className="bg-gradient-to-r from-blue-600 via-blue-700 to-blue-600 rounded-full w-44 h-14 text-white hm"
-                  >
-                    Home{" "}
-                  </button>
-                </Link>
-              </div>
-
+            <div className="flex justify-center pt-4">
+              <Link to="/auth">
+                <button
+                  onClick={closeMenu}
+                  className="bg-gradient-to-r from-blue-600 via-blue-700 to-blue-600 rounded-xl w-60 h-14 text-white"
+                >
+                  Profil
+                </button>
+              </Link>
+            </div>
+            {doctor && (
               <div className="flex justify-center pt-4">
-                <Link to="/auth">
-                  <button
-                    onClick={closePopup}
-                    className="bg-gradient-to-r from-blue-600 via-blue-700 to-blue-600 rounded-full w-44 h-14 text-white"
-                  >
-                    Profil
-                  </button>
-                </Link>
-              </div>
-              {doctor && (
-                <div className="flex justify-center pt-4">
-                  <Link to={`/ArtzProfil/${doctorId}`}>
-                    {" "}
-                    <button
-                      onClick={closePopup}
-                      className="bg-gradient-to-r from-blue-600 via-blue-700 to-blue-600 rounded-full w-44 h-14 text-white"
-                    >
-                      Hausarzt ändern
-                    </button>
-                  </Link>
-                </div>
-              )}
-              <div className="flex justify-center pt-4">
-                <Link to="/MyTermine">
+                <Link to={`/ArtzProfil/${doctorId}`}>
                   {" "}
                   <button
-                    onClick={closePopup}
-                    className="bg-gradient-to-r from-blue-600 via-blue-700 to-blue-600 rounded-full w-44 h-14 text-white"
+                    onClick={closeMenu}
+                    className="bg-gradient-to-r from-blue-600 via-blue-700 to-blue-600 rounded-xl w-60 h-auto text-white"
                   >
-                    Termine
+                    Hausarzt ändern
                   </button>
                 </Link>
               </div>
+            )}
+            <div className="flex justify-center pt-4">
+              <Link to="/MyTermine">
+                {" "}
+                <button
+                  onClick={closeMenu}
+                  className="bg-gradient-to-r from-blue-600 via-blue-700 to-blue-600 rounded-xl w-60 h-14 text-white"
+                >
+                  Termine
+                </button>
+              </Link>
+            </div>
 
-              <div className="flex justify-center pt-4 pb-4">
-                <Link to="/login">
-                  {" "}
-                  <button
-                    onClick={logOut}
-                    className="bg-gradient-to-r from-blue-600 via-blue-700 to-blue-600 rounded-full w-44 h-14 text-white"
-                  >
-                    Ausloggen
-                  </button>
-                </Link>
-              </div>
+            <div className="flex justify-center pt-4 pb-4">
+              <Link to="/login">
+                {" "}
+                <button
+                  onClick={() => {
+                    closeMenu();
+                    logOut();
+                  }}
+                  className="bg-gradient-to-r from-blue-600 via-blue-700 to-blue-600 rounded-xl w-60 h-14 text-white"
+                >
+                  Ausloggen
+                </button>
+              </Link>
             </div>
           </div>
-        }
-      </Popup>
-    </div>
+        </div>
+      ) : (
+        <button className="absolute inset-y-0 -right-4" onClick={toggleMenu}>
+          {" "}
+          <BiMenu />{" "}
+        </button>
+      )}
+    </>
   );
 }
