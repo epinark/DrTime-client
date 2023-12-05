@@ -8,5 +8,5 @@ Dr. Time App is a single web application that enables users to choose their prim
 Check out the live demo of the DrTime App [here](https://drtime.netlify.app/).
 
 **Demo Account**
-E-Mail: testaccount@test.com
+E-Mail: testaccount@test.com<br>
 Password: 123456789
