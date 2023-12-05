@@ -51,9 +51,9 @@ export default function ArtzBestätigen({ user }) {
       ) : (
         doctor && (
           <div className="flex items-center flex-col mt-5">
-            <p className="text-purple-700 items-center font-bold">
+            {/* <p className="text-purple-700 items-center font-bold">
               Als Hausartz festlegen:
-            </p>
+            </p> */}
             <img
               className="flex-column w-64 h-60 mb-8 rounded-full shadow-lg object-cover pic"
               src={doctor.profilePhoto}
