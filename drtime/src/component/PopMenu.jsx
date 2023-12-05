@@ -61,7 +61,7 @@ export default function PopupGfg({ logOut, userId }) {
                 {" "}
                 <button
                   onClick={closeMenu}
-                  className="bg-gradient-to-r from-blue-600 via-blue-700 to-blue-600 rounded-xl w-60 h-14 text-white hm"
+                  className="bg-gradient-to-r from-blue-600 via-blue-700 to-blue-600 rounded-full w-60 h-14 text-white hm"
                 >
                   Home{" "}
                 </button>
@@ -72,7 +72,7 @@ export default function PopupGfg({ logOut, userId }) {
               <Link to="/auth">
                 <button
                   onClick={closeMenu}
-                  className="bg-gradient-to-r from-blue-600 via-blue-700 to-blue-600 rounded-xl w-60 h-14 text-white"
+                  className="bg-gradient-to-r from-blue-600 via-blue-700 to-blue-600 rounded-full w-60 h-14 text-white"
                 >
                   Profil
                 </button>
@@ -84,7 +84,7 @@ export default function PopupGfg({ logOut, userId }) {
                   {" "}
                   <button
                     onClick={closeMenu}
-                    className="bg-gradient-to-r from-blue-600 via-blue-700 to-blue-600 rounded-xl w-60 h-auto text-white"
+                    className="bg-gradient-to-r from-blue-600 via-blue-700 to-blue-600 rounded-full w-60 h-auto text-white"
                   >
                     Hausarzt ändern
                   </button>
@@ -96,7 +96,7 @@ export default function PopupGfg({ logOut, userId }) {
                 {" "}
                 <button
                   onClick={closeMenu}
-                  className="bg-gradient-to-r from-blue-600 via-blue-700 to-blue-600 rounded-xl w-60 h-14 text-white"
+                  className="bg-gradient-to-r from-blue-600 via-blue-700 to-blue-600 rounded-full w-60 h-14 text-white"
                 >
                   Termine
                 </button>
@@ -111,7 +111,7 @@ export default function PopupGfg({ logOut, userId }) {
                     closeMenu();
                     logOut();
                   }}
-                  className="bg-gradient-to-r from-blue-600 via-blue-700 to-blue-600 rounded-xl w-60 h-14 text-white"
+                  className="bg-gradient-to-r from-blue-600 via-blue-700 to-blue-600 rounded-full w-60 h-14 text-white"
                 >
                   Ausloggen
                 </button>

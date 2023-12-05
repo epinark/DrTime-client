@@ -70,7 +70,7 @@ export default function HomePage({ user }) {
                 </div>
 
                 <div className="flex justify-center pt-4">
-                  <button className="bg-gradient-to-r from-blue-600 via-blue-700 to-blue-600 rounded-full w-20 h-20 text-white flex justify-center items-center text-2xl">
+                  <button className="cursor-auto bg-gradient-to-r from-blue-600 via-blue-700 to-blue-600 rounded-full w-20 h-20 text-white flex justify-center items-center text-2xl">
                     {" "}
                     <BiPlusMedical />{" "}
                   </button>

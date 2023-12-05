@@ -96,14 +96,6 @@ export default function Profil({ user }) {
       .catch((err) => console.log(err));
   };
 
-  //edit fonction
-  // const [name, setName] = useState(user.firstName + " " + user.lastName);
-  // const [email, setEmail] = useState(user.email);
-  // const [telefon, setTelefon] = useState(user.telefon);
-  // const [insuranceNumber, setInsuranceNumber] = useState(user.insuranceNumber);
-  // const [PLZ, setPLZ] = useState(user.PLZ);
-  // const [city, setCity] = useState(user.city);
-
   const handleEditingClick = () => {
     updateUser(newUser, user);
     setIsEditing(true);
