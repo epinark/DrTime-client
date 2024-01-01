@@ -3,9 +3,10 @@ import Header from "./Header";
 import silhouetteProfil from "../assets/img-profil/silhouetteProfil.png";
 import { Link } from "react-router-dom";
 import axios from "axios";
+import upload from "../utils/upload";
 
 export default function Profil({ user }) {
-  const [file, setfile] = useState("");
+  const [file, setFile] = useState(null);
   const [updatedProfile, setUpdatedProfile] = useState({ user });
   const [loading, setLoading] = useState(true);
   const [isEditing, setIsEditing] = useState(false);
@@ -17,6 +18,7 @@ export default function Profil({ user }) {
     insuranceNumber: "",
     PLZ: "",
     city: "",
+    profilePhoto: "",
   });
 
   function updateUser(user, newUser) {
@@ -28,28 +30,7 @@ export default function Profil({ user }) {
     user.PLZ = newUser.PLZ;
     user.city = newUser.city;
   }
-  //ProfilBild   <img src="http://res.cloudinary.com/dygtyitsh/image/upload/v1693924213/KundenBilder/ygdazn4jttwfpa6owass.jpg" class=" w-40 h-40 pic rounded-full mb-2" placeholder="">
 
-  // let [image, setImage] = useState("");
-  // const [url, setUrl] = useState("");
-
-  // const updateProfileWithImageUrl = (imageUrl) => {
-  //   const updatedProfile = { ...user, profilePhoto: imageUrl };
-
-  //   axios
-  //     .put(
-  //       `${import.meta.env.VITE_APP_DR_TIME}/auth/me/${user._id}`,
-  //       updatedProfile,
-  //       { headers: { Authorization: `Bearer $localStorage.getItem("token")}` } }
-  //     )
-
-  //     .then((response) => {
-  //       console.log("Profil mis a jour");
-  //     })
-  //     .catch((error) => {
-  //       console.error("erreur lors de la  mise a jour profil", error);
-  //     });
-  // };
   const handleSaveClick = async () => {
     try {
       setLoading(true);
@@ -73,27 +54,6 @@ export default function Profil({ user }) {
     } catch (error) {
       console.error("Update failed", error);
     }
-  };
-
-  const uploadImage = () => {
-    const data = new FormData();
-    data.append("file", image);
-    data.append("upload_preset", "unsigned_upload");
-    data.append("cloud_name", "dygtyitsh");
-    fetch("https://api.cloudinary.com/v1_1/dygtyitsh/image/upload", {
-      method: "post",
-      body: data,
-    })
-      .then((resp) => resp.json())
-      .then((data) => {
-        setUrl(data.url);
-
-        //upload url in profile
-        setUrl(data.url);
-        // Appeler une fonction pour mettre à jour l'URL dans le profil
-        updateProfileWithImageUrl(data.url);
-      })
-      .catch((err) => console.log(err));
   };
 
   const handleEditingClick = () => {
@@ -132,6 +92,40 @@ export default function Profil({ user }) {
     setNewUser({ ...newUser, insuranceNumber: e.target.value });
   };
 
+  const handlePhoto = async () => {
+    try {
+      event.preventDefault();
+
+      const url = await upload(file);
+
+      console.log("File object:", file);
+      console.log("Uploaded URL:", url);
+
+      setLoading(true);
+
+      user.profilePhoto = url;
+
+      const response = await axios.put(
+        `${import.meta.env.VITE_APP_DR_TIME}/auth/me`,
+        {
+          updatedProfile: user,
+          userId: user._id,
+        },
+        {
+          headers: {
+            Authorization: `Bearer ${localStorage.getItem("token")}`,
+          },
+        }
+      );
+      updateUser(user, newUser);
+      setLoading(false);
+    } catch (err) {
+      console.error("Error updating profile photo:", err);
+
+      setLoading(false);
+    }
+  };
+
   return (
     <>
       {user && user._id && updatedProfile && (
@@ -144,28 +138,22 @@ export default function Profil({ user }) {
             <form className="flex flex-col" onSubmit={(e) => handleSubmit(e)}>
               <label htmlFor="profilPic">
                 <img
-                  // src={user ? user.profilePhoto : silhouetteProfil}
-                  src={silhouetteProfil}
+                  src={user ? user.profilePhoto : silhouetteProfil}
                   className=" w-40 h-40 pic rounded-full mb-2"
                   placeholder=""
                 />
+                <input
+                  type="file"
+                  onChange={(e) => setFile(e.target.files[0])}
+                />
               </label>
 
-              <input
-                type="file"
-                className="choosePic hidden "
-                name="Bild"
-                id="profilPic"
-                onChange={(e) => setImage(e.target.files[0])}
-                required
-                accept="image/png, image/jpeg, image/jpg, image/jfif"
-              />
-              {/* <button
-                onClick={() => handleSaveClick()}
+              <button
+                onClick={() => handlePhoto()}
                 className="btn btn-primary  font-bold"
               >
                 Save
-              </button> */}
+              </button>
             </form>
           </div>
 
