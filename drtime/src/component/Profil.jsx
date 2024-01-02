@@ -61,11 +61,6 @@ export default function Profil({ user }) {
     setIsEditing(true);
   };
 
-  //save edit
-  // const handleSaveClick = () =>{
-  //   setIsEditing(false);
-  // };
-
   const handleNameChange = (e) => {
     setNewUser({ ...newUser, firstName: e.target.value });
   };
@@ -73,10 +68,6 @@ export default function Profil({ user }) {
   const handleLastNameChange = (e) => {
     setNewUser({ ...newUser, lastName: e.target.value });
   };
-
-  // const handleEmailChange = (e) => {
-  //   setNewUser({ ...newUser, email: e.target.value });
-  // };
 
   const handleBirthDateChange = (e) => {
     setNewUser({ ...newUser, birthDate: e.target.value });
@@ -98,9 +89,6 @@ export default function Profil({ user }) {
 
       const url = await upload(file);
 
-      console.log("File object:", file);
-      console.log("Uploaded URL:", url);
-
       setLoading(true);
 
       user.profilePhoto = url;
@@ -117,7 +105,8 @@ export default function Profil({ user }) {
           },
         }
       );
-      updateUser(user, newUser);
+
+      setUpdatedProfile(response.data);
       setLoading(false);
     } catch (err) {
       console.error("Error updating profile photo:", err);
@@ -136,10 +125,10 @@ export default function Profil({ user }) {
 
           <div className="justify-center   pp absolute mt-20">
             <form className="flex flex-col" onSubmit={(e) => handleSubmit(e)}>
-              <label htmlFor="profilPic">
+              <label htmlFor="profilPic" className="flex flex-col items-center">
                 <img
-                  src={user ? user.profilePhoto : silhouetteProfil}
-                  className=" w-40 h-40 pic rounded-full mb-2"
+                  src={user.profilePhoto ? user.profilePhoto : silhouetteProfil}
+                  className=" w-40 h-40 pic rounded-full mb-2 "
                   placeholder=""
                 />
                 <input
@@ -150,7 +139,7 @@ export default function Profil({ user }) {
 
               <button
                 onClick={() => handlePhoto()}
-                className="btn btn-primary  font-bold"
+                className="btn btn-primary  font-bold mt-3"
               >
                 Save
               </button>
