@@ -105,7 +105,6 @@ export default function Profil({ user }) {
           },
         }
       );
-
       setUpdatedProfile(response.data);
       setLoading(false);
     } catch (err) {
@@ -128,7 +127,7 @@ export default function Profil({ user }) {
               <label htmlFor="profilPic" className="flex flex-col items-center">
                 <img
                   src={user.profilePhoto ? user.profilePhoto : silhouetteProfil}
-                  className=" w-40 h-40 pic rounded-full mb-2 "
+                  className=" w-40 h-40 pic rounded-full mb-2 object-cover "
                   placeholder=""
                 />
                 <input
