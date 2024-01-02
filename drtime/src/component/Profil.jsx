@@ -117,7 +117,7 @@ export default function Profil({ user }) {
   return (
     <>
       {user && user._id && updatedProfile && (
-        <div className=" flex  items-center  flex-col ">
+        <div className=" flex  items-center  flex-col relative ">
           <div className="mb-20 mt-5">
             <p className="text-5xl font-bold ">Profil</p>
           </div>
@@ -127,24 +127,31 @@ export default function Profil({ user }) {
               <label htmlFor="profilPic" className="flex flex-col items-center">
                 <img
                   src={user.profilePhoto ? user.profilePhoto : silhouetteProfil}
-                  className=" w-40 h-40 pic rounded-full mb-2 object-cover "
+                  className=" w-40 h-40 pic rounded-full object-cover "
                   placeholder=""
                 />
+              </label>
+            </form>
+          </div>
+          <div className="absolute top-60">
+            {isEditing && (
+              <>
                 <input
+                  className=""
                   type="file"
                   onChange={(e) => setFile(e.target.files[0])}
                 />
-              </label>
-
-              <button
-                onClick={() => handlePhoto()}
-                className="btn btn-primary  font-bold mt-3"
-              >
-                Save
-              </button>
-            </form>
+                <div className="flex justify-center">
+                  <button
+                    onClick={() => handlePhoto()}
+                    className="btn btn-primary  font-bold mt-3"
+                  >
+                    Save
+                  </button>
+                </div>
+              </>
+            )}
           </div>
-
           <div className="profil-name scroll font-bold mb-5 mt-40 flex flex-col justify-center items-center text-2xl text-purple-700 ">
             {isEditing ? (
               <>
