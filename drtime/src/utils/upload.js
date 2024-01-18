@@ -7,9 +7,8 @@ const upload = async (file) => {
 
     try {
         const res = await axios.post(
-            import.meta.env.VITE_CLOUDINARY_URL,
-            data
-        );
+            "https://api.cloudinary.com/v1_1/makeit/image/upload", data);
+
 
         const {
             url
