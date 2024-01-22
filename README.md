@@ -2,6 +2,7 @@
 Dr. Time App is a single web application that enables users to choose their primary doctor, change their primary doctor, make appointments, and view doctor information. This application was collaboratively built during the WBS Coding School bootcamp, where agile project management was practiced, and React was used for the frontend. For the backend, Node.js with Express.js was utilized, and the doctor database was created with MongoDB.
 
 ## Built with 🛠️
+
 	<code><img width="50" src="https://user-images.githubusercontent.com/25181517/192158954-f88b5814-d510-4564-b285-dff7d6400dad.png" alt="HTML" title="HTML"/></code>
 	<code><img width="50" src="https://user-images.githubusercontent.com/25181517/202896760-337261ed-ee92-4979-84c4-d4b829c7355d.png" alt="Tailwind CSS" title="Tailwind CSS"/></code>
 	<code><img width="50" src="https://user-images.githubusercontent.com/25181517/117447155-6a868a00-af3d-11eb-9cfe-245df15c9f3f.png" alt="JavaScript" title="JavaScript"/></code>
