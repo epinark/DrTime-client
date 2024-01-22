@@ -11,6 +11,7 @@ Dr. Time App is a single web application that enables users to choose their prim
 	<code><img width="50" src="https://user-images.githubusercontent.com/25181517/183859966-a3462d8d-1bc7-4880-b353-e2cbed900ed6.png" alt="Express" title="Express"/></code>
 	<code><img width="50" src="https://user-images.githubusercontent.com/25181517/182884177-d48a8579-2cd0-447a-b9a6-ffc7cb02560e.png" alt="mongoDB" title="mongoDB"/></code>
 </div>
+
 - HTML
 - Tailwind CSS
 - Javascript
@@ -19,7 +20,7 @@ Dr. Time App is a single web application that enables users to choose their prim
 - Axios
 - Node.js
 - Express
-- MongoGB
+- MongoDB
 
 **Backend Repository:**
 [Link to Backend Repository](https://github.com/epinark/DrTime-server)
